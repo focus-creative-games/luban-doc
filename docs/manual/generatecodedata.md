@@ -49,7 +49,9 @@
 - yaml格式。
 - 其他格式。很容易扩展支持。
 
-?> 同一种格式，为不同语言生成的数据是完全相同的
+:::tip
+同一种格式，为不同语言生成的数据是完全相同的
+:::
 
 不同语言支持的格式如下：
 
@@ -60,12 +62,12 @@
 |go | :heavy_check_mark: | :heavy_check_mark: |
 |c++| :heavy_check_mark: | :x: |
 |go|:heavy_check_mark: | :heavy_check_mark: |
-|python| :heavy_check_mark: | :x: |
+|python| :heavy_check_mark: | :heavy_check_mark: |
 |typescript| :heavy_check_mark: | :heavy_check_mark: |
 |rust| :x: | :heavy_check_mark: | 
 |lua| :heavy_check_mark: | :x: | :heavy_check_mark: |
 |erlang| erlang |
-|protobuf|所有|
+|protobuf|:heavy_check_mark:|:heavy_check_mark:|
 
 ## 生成代码和数据
 
