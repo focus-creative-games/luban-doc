@@ -420,7 +420,7 @@ table的input属性指定了数据源，允许多个，以","分割。支持非�
 
 格式为 processor1=value1#processor2=value2 ...
 
-目前支持的检验器有ref,path,range,set,size，详细请参见文档 [数据校验器](/luban/advanced/validator/)。
+目前支持的检验器有ref,path,range,set,size，详细请参见文档 [数据校验器](validator)。
 
 ### 特殊注解
 
@@ -442,7 +442,7 @@ scriban模板文件中提供了两个函数可以操作tag。
 
 ## 数据标签
 
-注意与定义标签不同。定义作用于结构，字段，表等等定义上，数据标签作用于记录。详细文档见 [**tag**](/luban/tag/)
+注意与定义标签不同。定义作用于结构，字段，表等等定义上，数据标签作用于记录。详细文档见 [**tag**](tag)
 
 目前数据标签有几个用途：
 

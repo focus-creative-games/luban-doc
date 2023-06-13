@@ -1,12 +1,10 @@
+# 介绍
 
-
-![icon](/img/luban/icon.png)
+![icon](/img/logo.png)
 
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.com/focus-creative-games/luban.svg?style=flat-square&branch=main)](https://travis-ci.com/focus-creative-games/luban)  ![Docker Auto](https://img.shields.io/docker/cloud/automated/hugebug4ever/luban.svg?style=flat-square) ![Docker Build](https://img.shields.io/docker/cloud/build/hugebug4ever/luban.svg?style=flat-square) ![star](https://img.shields.io/github/stars/focus-creative-games/luban?style=flat-square)
 
-
-## 介绍
 
 luban是你的**最佳游戏配置解决方案**。luban高效地处理游戏开发中常见的excel、json、xml之类的数据，检查数据错误，生成c#等各种语言的代码，导出成bytes或json等多种格式。
 luban统一了游戏配置开发工作流，极大提升了策划和程序的工作效率。
@@ -24,7 +22,7 @@ luban统一了游戏配置开发工作流，极大提升了策划和程序的工
 - **通用型生成和缓存工具**。也可以用于生成协议、数据库之类的代码，甚至可以用作对象缓存服务
 - **良好支持主流引擎、全平台、主流热更新方案、主流前后端框架**。支持Unity、Unreal、Cocos2x、Godot、微信小游戏等主流引擎。工具自身跨平台，能在Win,Linux,Mac平台良好工作。
 
-完整特性请参见 [feature](/basic/traits.md)
+完整特性请参见 [feature](/manual/traits.md)
 
 
 ## license

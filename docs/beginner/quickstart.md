@@ -1,6 +1,6 @@
 # 快速上手
 
-> 感谢[**宝鱼偷偷摸鱼**](https://space.bilibili.com/1916310) 贡献的视频教程：[**【01】新手上路**](https://www.bilibili.com/video/BV1xS4y1M7Aj) [**【02】定义配置结构**](https://www.bilibili.com/video/BV1m44y1j747) </br>
+> 感谢[**宝鱼偷偷摸鱼**](https://space.bilibili.com/1916310) 贡献的视频教程：[**【01】新手上路**](https://www.bilibili.com/video/BV1xS4y1M7Aj)[**【02】定义配置结构**](https://www.bilibili.com/video/BV1m44y1j747) <br/>
 > 感谢[**L**](https://github.com/LiuOcean) 开源的[Luban Unity工具](https://github.com/LiuOcean/Luban_Unity_GUI)
 
 ## 安装
@@ -102,7 +102,7 @@ luban_examples\MiniTemplate
 
     类似这样
 ::: center
-![生成结果](/img/luban/install/install_07.png)
+![生成结果](/img/install/install_07.png)
 :::
     如果一切顺利。生成的代码文件会在 –output_code_dir 参数指定的 目录中，生成的配置数据会在 –output_data_dir 参数指定的目录中。确保 –output_code_dir 指向的目录在Assets目录下，**PlayerSetting里开启unsafe**，此时应该能编译成功。
 
@@ -162,4 +162,4 @@ dotnet %Luban.ClientServer.dll%
 ## 其他项目类型
   
 不同项目之间，仅仅是准备工作及`--gen_types`不一样， 请从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目匹配的项目，
-参考相应目录下的 gen_xxx.bat 即可。生成的代码一般会依赖于一些工具类，请从相应项目里拷贝这些代码到自己项目即可。更多可以参考 [代码与数据生成](/basic/generatecodedata.md) 这个文档。
+参考相应目录下的 gen_xxx.bat 即可。生成的代码一般会依赖于一些工具类，请从相应项目里拷贝这些代码到自己项目即可。更多可以参考 [代码与数据生成](/manual/generatecodedata.md) 这个文档。

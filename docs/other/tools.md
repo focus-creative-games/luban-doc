@@ -4,7 +4,7 @@
 
 unity工具可使用luban社区实现版，官方并未提供此工具。此处致谢L开源的unity luban工具代码，[gihub链接](https://github.com/LiuOcean/Luban_Unity_GUI)
 
-![GUI](/img/luban/GUI_Display.png)
+![GUI](/img/luban_edit_tool.png)
 
 ## Excel2TextDiff
 

@@ -436,7 +436,7 @@ vector3 有三个字段 float x, float y, float z, 适合用于表示坐标之�
 </tr>
 <tr align="center">
   <td>##type</td>
-  <td>int</id>
+  <td>int</td>
   <td>(array#sep=;),int</td>
   <td colspan="4">list,int</td>
   <td>(list#sep=|),string</td>
@@ -444,7 +444,7 @@ vector3 有三个字段 float x, float y, float z, 适合用于表示坐标之�
 </tr>
 <tr align="center">
   <td>##</td>
-  <td>id</id>
+  <td>id</td>
   <td>desc1</td>
   <td colspan="4">desc2</td>
   <td>desc3</td>
