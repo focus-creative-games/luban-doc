@@ -193,7 +193,7 @@ luban会智能猜测出它的编码，正确处理。
 
 <table border="1">
 <tr align="center"><td>##var</td><td>id</td><td colspan="4">shape</td><td colspan="4">item</td></tr>
-<tr align="center"><td>##type</td><td>int</td><td colspan="4">Shape</td><td colspan="4">Item</td></tr>
+<tr align="center"><td>##type</td><td>int</td><td colspan="4">Shape</td><td colspan="4">Item?</td></tr>
 <tr align="center"><td>##var</td><td></td><td>$type</td><td>radius</td><td>width</td><td>height</td><td>$type</td><td>item_id</td><td>num</td><td>desc</td></tr>
 <tr align="center"><td/><td>1</td><td>Circle</td><td>10</td><td/><td/><td>Item</td><td>1001</td><td>1</td><td>item 1</td></tr>
 <tr align="center"><td/><td>2</td><td>Rectangle</td><td></td><td>10</td><td>20</td><td>{}</td><td>1001</td><td>2</td><td>item 1</td></tr>
