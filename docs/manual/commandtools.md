@@ -1,4 +1,4 @@
-# 介绍
+# 命令行工具
 
 ## Luban.Client 、Luban.Server和 Luban.ClientServer的功能和区别
 
@@ -22,25 +22,18 @@ Luban工具有两种部属方式。
 
 ### 部属 luban-server
 
-- 基于 docker (强烈推荐以这种方式在服务器上部属luban-server，因为可以充分利用缓存机制大幅缩短生成时间)
+基于 .net 6 runtime （可跨平台，不需要重新编译）。
 
-    docker run -d --rm --name luban-server -p 8899:8899 focuscreativegames/luban-server:latest
-
-- 基于 .net 6 runtime （可跨平台，不需要重新编译）
-  - 自行安装 .net 6 runtime.
-  - 从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.ClientServer)拷贝整个Luban.ClientServer目录（**可跨平台，即使在linux、mac平台也不需要重新编译**）
-  - 在Luban.ClientServer目录下运行 dotnet Luban.Server.dll (提示：Win平台可以直接运行 Luban.Server.exe)
+- 自行安装 .net 6 runtime 或 sdk.
+- 从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.ClientServer)拷贝整个Luban.ClientServer目录（**可跨平台，即使在linux、mac平台也不需要重新编译**）
+- 在Luban.ClientServer目录下运行 dotnet Luban.Server.dll (提示：Win平台可以直接运行 Luban.Server.exe)
 
 ### 安装 luban-client
 
-- 基于 docker (只推荐与jenkins之类devops工具配合使用，因为docker容器启动会增加一定的延迟)
+基于 .net 6 runtime （推荐win平台使用，可跨平台，不需要重新编译）。
 
-    docker run --rm -v $PWD/.cache.meta:/bin/.cache.meta  focuscreativegames/luban-client <参数>
-
-    提醒！ .cache.meta这个文件用于保存本地生成或者提交到远程的文件md5缓存，**强烈推荐** 添加-v $PWD/.cache.meta:/bin/.cache.meta 映射，不然每次重新计算所有涉及文件的md5,这可能在项目后期会造成多达几秒的延迟。
-- 基于 .net 6 runtime （推荐win平台使用，可跨平台，不需要重新编译）
-  - 自行安装 .net 6 runtime.
-  - 从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.Client)拷贝 Luban.Client（**可跨平台，即使在linux、mac平台也不需要重新编译**）
+- 自行安装 .net 6 runtime 或 sdk.
+- 从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.Client)拷贝 Luban.Client（**可跨平台，即使在linux、mac平台也不需要重新编译**）
 
 ## 方法2： Client与Server一体模式
 
