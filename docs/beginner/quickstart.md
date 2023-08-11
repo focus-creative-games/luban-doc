@@ -11,15 +11,9 @@
 
 ## 创建Reward表
 
-在`MiniTemplate/Datas`目录下创建reward.xlsx文件，内容如下：
+在`MiniTemplate/Datas`目录下创建`reward.xlsx`文件，内容如下：
 
-   |##var|id|name|desc|count|
-   |-|-|-|-|-|
-   |##type|int|string|string|int|
-   |##group||c|c,s|s|
-   |##|id|名字|描述|个数|
-   ||1001|item1| desc1| 10|
-   ||1002|item2| desc2| 10|
+![reward](/img/cases/quickstart_reward.jpg)
 
 简略介绍一下文件格式：
 
@@ -34,19 +28,18 @@ luban并没有限制标题头行的位置和数量。像`##xxx`之类的行可�
 推荐使用`xx_yy_zz`风格的字段名，因为luban会根据生成的语言，自动转化为
 该语言推荐的命名风格的名称。你也可以手动指定你期望的命令风格。
 
-在Datas目录下的__tables__.xlsx添加reward表声明，如下图：
+在Datas目录下的`__tables__.xlsx`添加reward表声明，如下图：
 
-  |##var|full_name|value_type|read_schema_from_file|input|...|
-  |-|-|-|-|-|-|-|
-  ||demo.TbReward|demo.Reward|true|reward.xlsx||
+![reward](/img/cases/quickstart_table.jpg)
 
 至此完成reward表的创建工作！
 
 ## 项目准备
 
-以最常见的 unity + c# + json 为例。示例参考项目为 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)。
+以最常见的 unity + c# + json 为例。示例参考项目为 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)，
+其他类型请参考 Projects目录下的相应项目。
 
-拷贝Csharp_Unity_Json项目中`Assets\LubanLib`目录到你的Unity项目中，位置没有限制。**然后在Unity的PlayerSettings里开启unsafe选项**（如果你们项目要求不开启unsafe，请到群里求助）。
+拷贝Csharp_Unity_Json项目中`Assets\LubanLib`目录到你的Unity项目中，位置没有要求。**然后在Unity的PlayerSettings里开启unsafe选项**（如果你们项目要求不开启unsafe，请到群里求助）。
 此时尝试编译项目，如果没有编译错误，表示成功引入了Luban相关库代码。
 
 
@@ -82,7 +75,7 @@ pause
 - 'outputCodeDir' c#代码的输出目录
 - 'outputDataDir' json数据的输出目录
 
-调整bat文件中各项配置路径为恰当的值。如果有疑惑，可以参考 `Csharp_Unity_Json`项目的`gen.bat`文件。运行该脚本如果一切正常，会产生一系列日志，最终一行是 `bye~`。
+调整bat文件中各项配置路径为恰当的值。如果有疑惑，可以参考 `Csharp_Unity_Json`项目的`gen.bat`文件。运行该脚本，如果一切正常，会产生一系列日志，最终一行是 `bye~`。
 
 ## 加载配置
 
@@ -90,7 +83,8 @@ pause
 
 ```csharp
 
-var tables = new cfg.Tables(file => JSON.Parse(File.ReadAllText(gameConfDir + "/" + file + ".json")));
+string gameConfDir = "<outputDataDir>"; // 替换为gen.bat中outputDataDir指向的目录
+var tables = new cfg.Tables(file => JSON.Parse(File.ReadAllText($"{gameConfDir}/{file}.json")));
 
 ```
 
@@ -105,7 +99,7 @@ Console.WriteLine("reward:{0}", reward);
 ```
 
 你可能会注意到，reward表字段名 id,name,desc的首字母被大写了。这是因为工具会根据输出的语言，自动作相应代码风格的字段名转换，也即 boo_bar 会被转换为 BooBar 这样的名字。
-因此推荐配置字段定义时统一使用 xx_yy_zz 的风格。
+因此推荐配置中字段名时统一使用 xx_yy_zz 的风格。
 
-至此完成 配置加载与使用!
+至此完成配置使用示例!
 

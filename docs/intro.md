@@ -5,7 +5,7 @@
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT) ![star](https://img.shields.io/github/stars/focus-creative-games/luban?style=flat-square)
 
 
-luban是一个极其强大、易用、优雅、稳定的游戏配置解决方案。它设计目标为解决满足从小型到超大型游戏项目的简单到复杂的游戏配置工作流需求。
+luban是一个极其强大、易用、优雅、稳定的游戏配置解决方案。它设计目标为满足从小型到超大型游戏项目的简单到复杂的游戏配置工作流需求。
 luban可以处理丰富的文件类型，支持主流的语言，可以生成多种导出格式，支持丰富的数据检验功能，具有良好的跨平台能力，并且生成极快。
 luban统一了游戏配置开发工作流，极大提升了策划和程序的工作效率。
 
@@ -18,7 +18,7 @@ luban的目标是成为游戏行业的标准配置解决方案。
 - 丰富的源数据格式。支持excel族(csv,xls,xlsx,xlsm)、json、xml、yaml、lua等
 - 丰富的导出格式。 支持生成binary、json、bson、xml、lua、yaml等格式数据
 - 增强的excel格式。可以简洁地配置出像简单列表、子结构、结构列表，以及任意复杂的深层次的嵌套结构
-- 完备的类型系统。**支持OOP类型继承**，灵活优雅表达行为树、技能、剧情、副本之类复杂GamePlay数据
+- 完备的类型系统。不仅能表达常见的规范行列表，由于**支持OOP类型继承**，能灵活优雅表达行为树、技能、剧情、副本之类复杂GamePlay数据
 - 支持多种的语言。支持生成c#、java、go、lua、python、typescript 等语言代码
 - 支持主流的消息方案。 protobuf(schema + binary + json)、flatbuffers(schema + json)、msgpack(binary)
 - 强大的数据校验能力。ref引用检查、path资源路径、range范围检查等等
