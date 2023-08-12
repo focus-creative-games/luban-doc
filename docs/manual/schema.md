@@ -57,13 +57,12 @@ group的个数和命名没有限制，只不过约定俗成会这么设计。
 
 |字段|类型|可空|描述|
 |-|-|-|-|
-|namespace|string|string|是|命名空间|
+|namespace|string|是|命名空间|
 |name|string|否|类型名|
 |isFlags|bool|是|是否为标志位类型，对应c#的FlagsAttribute语义|
 |isUniqueItemId|bool|否|枚举值是否唯一|
 |comment|string|是|注释|
 |tags|map,string,string|是|自定义tag对|
-|alias|string|是|别名，主要用于英文不好的策划填写枚举名，如Red能填'红'来表达|
 |groups|list,string|是|导出分组，可以为0到多个|
 |items|list,EnumItem|是|枚举项列表|
 |typeMappers|list,TypeMapper|是|外部类型映射相关配置|
@@ -71,10 +70,22 @@ group的个数和命名没有限制，只不过约定俗成会这么设计。
 groups、tags、typeMappers请阅读公共属性小节中的详细介绍。
 
 
-EnumItem的定义如下
+EnumItem的定义如下：
+
+|字段|类型|可空|描述|
+|-|-|-|-|
+|name|string|否|枚举项名|
+|alias|string|是|别名|
+|value|string|是|枚举值|
+|comment|string|是|注释|
+|tags|map,string,string|是|自定义tag对|
+
+value如果为空，则自动从上一个枚举项值开始递增，如果是第一个枚举值，则值取0。value可以为10进制整数或者0x10之类的16进制整数。
+value也可以是其他枚举值的或组合，如`A|B`。
 
 ### bean 
 
+用于定义复合结构，对应于C#里的class或struct。
 
 |字段|类型|可空|描述|
 |-|-|-|-|
@@ -92,25 +103,74 @@ EnumItem的定义如下
 
 groups、tags、typeMappers请阅读公共属性小节中的详细介绍。
 
-bean支持继承和多态。如果parent字段为非空，则表示继承该父类的字段。所有有子类的bean都是抽象类，不可实例化。类型系统中允许使用抽象bean为
-类型，但埴写数据时，必须使用某个子类去实例化它。这种多态特性使得luban具备表达任意复杂数据结构的能力。
+bean支持继承和多态。如果parent字段为非空，则表示继承该父类的字段。如果parent不包含命名空间，会从bean当前命名空间内查找该类型，否则全局查找。
+所有补继承的bean都是抽象类，不可实例化。类型系统中允许使用抽象bean为类型，但埴写数据时，必须使用某个子类去实例化它。
+这种多态特性使得luban具备表达任意复杂数据结构的能力。
 
-## 特殊定义 table
+Field的即bean的成员字段，定义如下：
 
+|字段|类型|可空|描述|
+|-|-|-|-|
+|name|string|否|字段名|
+|type|string|否|字段类型，详见[类型系统](./types)|
+|comment|string|是|注释|
+|tags|map,string,string|自定义tag对|
+|NotNameValidation|bool|否|不检查字段名合法性|
+|groups|list,string|是|分组|
 
+groups详细说明请阅读公共属性小节的文档。
 
+## table
+
+table是数据表的逻辑表示。table并非类型，不能用于field的type定义。
+
+|字段|类型|可空|描述|
+|-|-|-|-|
+|namespace|string|string|是|命名空间|
+|name|string|否|类型名|
+|index|string|是|索引字段列表，可为0到多个|
+|mode|TableMode|是|表模式|
+|valueType|string|否|记录类型|
+|readSchemaFromFile|bool|否|是否从inputFiles中解析valueType定义|
+|comment|string|是|注释|
+|tags|map,string,string|是|自定义tag对，可以0到多个|
+|groups|list,string|是|导出分组，可以为0到多个|
+|inputFiles|list,string|否|输入的数据文件列表，不可为空|
+|outputFileName|string|是|输出的文件名，如果为空，则取 `FullName.LowerCase().Replace('.', '_')`|
+
+如果index为空，并且mode=map或空，则自动取valueType第一个字段为index。
+
+TableMode为表模式枚举，可取one(或singleton)、map、list。留空则根据index决定具体mode值：如果index为空或1个主键则为map，index为valueType的第1个字段；
+如果index为多个主键，则mode为list。
 
 ## 公共属性
 
 ### groups
 
-由导出table的valueType计算出所有直接或者间接引用的类型，称之为默认导出集合。如果某个bean在默认导出集合内，即使它的groups不属于当前导出目标，也会被导出。
+由导出table的valueType计算出所有直接或者间接引用的类型（enum和bean），称之为默认导出集合。如果某个类型在默认导出集合内，即使它的groups不属于当前导出目标，也会被导出。
+
+field（bean的字段列表）没有默认导出集合的概念，如果groups为空，则导出给所有分组。
 
 ### tags
 
 tags主要有两个用途：[校验器](./validator)和特殊代码生成。
 
 有时候想对某个类型生成一些特殊代码时，可以给该类型添加一些特殊tag属性，然后在代码模板中根据tag属性值作特殊处理。这种机制不常用，但有时候很有用。
+has_tag函数用于检查是否有某个tag, get_tag用于获得某个tag对应的值，具体请看模板相关文档。
 
 ### typeMapper
+
+有时候你希望生成的代码中能直接使用现成的结构类型，而不是使用生成的类型代码。例如vector3是非常常见的类型，你在配置中定义了vector3后，可能希望生成的C#代码中涉及到
+vector3类型的地方能直接使用UnityEngine.Vector3，而不是生成的vector3类。Luban支持这种外部类型映射机制，可以将配置类映射到外部现成的enum或者class类型。
+
+|字段|类型|可空|描述|
+|-|-|-|-|
+|targets|list,string|否|匹配的输出目标，此target即为全局定义中的target|
+|codeTargets|list,string|否|匹配的代码目标|
+|options|map,string,string|生成需要的参数|
+
+实际项目中，服务器和客户端的语言可能不一样，有可能客户端需要对某个类型映射，而服务器不需要。targets和codeTargets即用来处理这种情形，只有target和codeTarget
+都匹配时，才会对生成的代码作类型映射。
+
+options应该有哪些参数，完全由具体的CodeTarget决定，不同的codeTarget需要的参数不同。
 

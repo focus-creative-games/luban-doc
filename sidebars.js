@@ -45,9 +45,9 @@ const sidebars = {
       collapsed: true,
       items: [
         'manual/architecture',
-        'manual/types',
-        'manual/schema',
         'manual/traits',
+        'manual/schema',
+        'manual/types',
         'manual/commandtools',
         'manual/deploy',
         'manual/generatecodedata',
