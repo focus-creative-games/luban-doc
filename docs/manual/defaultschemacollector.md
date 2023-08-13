@@ -1,10 +1,10 @@
 # 配置定义
 
-Luban有一套独立于具体实现的[Schema逻辑结构](./schema.md)实现。对怎么定义配置没有要求，只要最终的定义能被
+Luban有一套独立于具体实现的[Schema逻辑结构](./schema)实现。对怎么定义配置没有要求，只要最终的定义能被
 加载解析为schema逻辑结构，就能被统一处理。Luban.Schema.Builtin模块提供了一个默认的SchemaCollector
 实现。如果不能满足要求，开发者可以实现自定义的SchemaCollector，适应自己的项目需要。
 
-本文档介绍DefaultSchemaCollector实现的配置定义格式。由于DefaultSchemaCollector是[Schema逻辑结构](./schema.md)
+本文档介绍DefaultSchemaCollector实现的配置定义格式。由于DefaultSchemaCollector是[Schema逻辑结构](./schema)
 的实现，**大多数配置项是一一对应的**。因此除了特殊情况，不再介绍这些字段的具体含义，请直接查阅该文档。
 
 

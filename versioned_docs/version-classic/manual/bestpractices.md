@@ -10,7 +10,7 @@
 默认是按照每个语言的推荐风格生成名称，例如 xxxx_yyyy在c#下是XxxxYyyy。有时候你想调整这个命名风格，
 比如说，使用原始形式，你可以通过参数 --naming_convention:bean_member none 来达到这一点。
 
-更多可以参考 [命令行](/manual/commandtools.md) 中的文档
+更多可以参考 [命令行](../manual/commandtools) 中的文档
 
 ## 灵活选择xml与excel定义
 
@@ -22,7 +22,7 @@
 
 ## Luban.Server还是Luban.ClientServer
 
-Luban.Server需要部属，对于新手可能有些麻烦，但优点在于能利用缓存极大缩短生成时间，另外，更新Luban时也不需要大家更新工具了，有条件的项目推荐部属Luban.Server（使用docker部属其实就一行命令，非常简单，参见[命令行](/manual/commandtools.md)。
+Luban.Server需要部属，对于新手可能有些麻烦，但优点在于能利用缓存极大缩短生成时间，另外，更新Luban时也不需要大家更新工具了，有条件的项目推荐部属Luban.Server（使用docker部属其实就一行命令，非常简单，参见[命令行](../manual/commandtools)。
 
 中小项目，省事起见，也可以直接用Luban.ClientServer。
 

@@ -101,7 +101,7 @@ luban_examples\MiniTemplate
   - --output_code_dir 参数为生成的代码文件存放的路径。 建议建议指向 unity的 Assets 目录下的某级子目录
   - --output_data_dir 参数为生成的数据文件的存放路径。 建议指向Assets同级目录。
 
-    详细的命令文档请看 [command_tools](/manual/commandtools.md)。
+    详细的命令文档请看 [command_tools](/manual/commandtools)。
 
     如果一切正常，会产生一系列日志，最终一行是 == succ == 。
 
@@ -163,7 +163,7 @@ luban_examples\MiniTemplate
   - --output_code_dir 参数为生成的代码文件存放的路径。 建议建议指向 unity的 Assets 目录下的某级子目录
   - --output_data_dir 参数为生成的数据文件的存放路径。 建议指向Assets同级目录。
 
-    详细的命令文档请看 [command_tools](/manual/commandtools.md)。
+    详细的命令文档请看 [command_tools](/manual/commandtools)。
 
     如果一切正常，会产生一系列日志，最终一行是 == succ == 。
 
@@ -246,4 +246,4 @@ dotnet %Luban.ClientServer.dll%
 ### 其他项目类型
   
 不同项目之间，仅仅是准备工作及`--gen_types`不一样， 请从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目匹配的项目，
-参考相应目录下的 gen_xxx.bat 即可。生成的代码一般会依赖于一些工具类，请从相应项目里拷贝这些代码到自己项目即可。更多可以参考 [代码与数据生成](/manual/generatecodedata.md) 这个文档。
+参考相应目录下的 gen_xxx.bat 即可。生成的代码一般会依赖于一些工具类，请从相应项目里拷贝这些代码到自己项目即可。更多可以参考 [代码与数据生成](../manual/generatecodedata) 这个文档。

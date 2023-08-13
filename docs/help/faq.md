@@ -15,11 +15,11 @@ set GEN_CLIENT=%WORKSPACE%\Tools\Luban.Client\Luban.Client.exe
 set GEN_CLIENT=%WORKSPACE%\Tools\Luban.ClientServer\Luban.ClientServer.exe
 ```
 
-详细参见 [luban命令行工具](/manual/commandtools.md)
+详细参见 [luban命令行工具](../manual/commandtools)
 
 ## 如何指定主键
 
-table的index字段指定主键列表。 详细请参见 [配置相关定义](/manual/define.md) 中关于table的mode和index的相关文档。
+table的index字段指定主键列表。 详细请参见 [配置相关定义](../manual/schema) 中关于table的mode和index的相关文档。
 
 map及list表支持主键概念，未指定mode和index的情况下，自动为mode=map模式，并记录bean的第一个字段作为主键。
 
@@ -39,11 +39,11 @@ map及list表支持主键概念，未指定mode和index的情况下，自动为m
 
 ## 支持多主键吗？
 
-支持。 table mode=list时，支持联合多主键模式和独立多主键模式。详细文档参见 [配置相关定义](/manual/define.md#table的mode详细介绍) 中关于table的mode的相关文档。
+支持。 table mode=list时，支持联合多主键模式和独立多主键模式。详细文档参见 [配置相关定义](../manual/schema) 中关于table的mode的相关文档。
 
 ## 支持按client和server导出不同表及不同字段吗？
 
-支持。[配置相关定义](/manual/define.md#分组导出-group)
+支持。[配置相关定义](../manual/schema)
 中关于 分级定义及分组导出相关文档。
 
 ## 支持哪些源数据文件类型
@@ -56,12 +56,12 @@ map及list表支持主键概念，未指定mode和index的情况下，自动为m
 
 ## 配置表的数据可以来源于多个文件吗？
 
-可以。 参见 [配置相关定义](/manual/define.md#table-input-数据源详细介绍)
+可以。 参见 [配置相关定义](../manual/schema)
 中关于 table.input的文档。 
 
 ## 可以将多个表放到同一个excel文件吗？
 
-可以。 参见 [配置相关定义](/manual/define.md#table-input-数据源详细介绍)
+可以。 参见 [配置相关定义](../manual/schema)
 中关于 table.input的文档。 
 
 ## 当数据文件为xlsx文件时，luban会读入第一个sheet还是所有sheet？
@@ -90,11 +90,11 @@ luban支持数据tag的概念。 excel第一列为tag。
 ## 我想每个json保存一个记录，文件太多，在input中指定很麻烦，怎么解决？
 
 使用 目录数据源。 把所有json文件放到一个目录下（可以是目录树），将input设为该目录。luban会自动遍历整个目录树，将每个文件当作
-一个记录读入。 详细参见[其它数据源-json](/manual/datasource.md#数据源文件)
+一个记录读入。 详细参见[其它数据源-json](../manual/datasource#数据源文件)
 
 ## 一个json文件可以包含多个记录吗？
 
-可以。但必须在数据源中以 *@xxx.json形式指定。详细参见[其它数据源-json](/manual/datasource.md#数据源文件)
+可以。但必须在数据源中以 *@xxx.json形式指定。详细参见[其它数据源-json](../manual/datasource#数据源文件)
 
 ## 记录可以来自json文件的某个深层次字段吗？
 
@@ -103,34 +103,34 @@ luban支持数据tag的概念。 excel第一列为tag。
 - 从字段中读入一个记录，则以 a.b.c@xx.json的形式指定
 - 从字段中读入记录列表，则以 *a.b.c@xx.json的形式指定
 
-详细参见[其它数据源-json](/manual/datasource.md#数据源文件)
+详细参见[其它数据源-json](../manual/datasource#数据源文件)
 
 ## 可以像xlsx那样，将多个表的数据都放到一个json文件中吗？
 
 可以。 与excel数据源类似，只要每个表用 field@xx.json或者 *field@xx.json的形式指定即可。
-详细参见[其它数据源-json](/manual/datasource.md#数据源文件)
+详细参见[其它数据源-json](../manual/datasource#数据源文件)
 
 ## 支持异步加载配置表吗？
 
 不直接支持。但你可以通过自定义模板方式实现异步加载。
 
-参见 [代码与数据模板](/manual/template.md)，以及相应异步加载示例项目 [csharp_async_load](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_CustomTemplate_AsyncLoad)
+参见 [代码与数据模板](../manual/template)，以及相应异步加载示例项目 [csharp_async_load](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_CustomTemplate_AsyncLoad)
 
 ## 支持自定义代码或者数据生成吗
 
-支持。 参见 [数据与代码模板](/manual/template.md)
+支持。 参见 [数据与代码模板](../manual/template)
 
 ## 如何导出protobuf的定义及数据
 
-参见 [代码与数据生成](/manual/generatecodedata.md)
+参见 [代码与数据生成](../manual/generatecodedata)
 
 ## 如何导出msgpack的数据
 
-参见 [代码与数据生成](/manual/generatecodedata.md)
+参见 [代码与数据生成](../manual/generatecodedata)
 
 ## 如何导出flatbuffers的定义及数据
 
-参见 [代码与数据生成](/manual/generatecodedata.md)
+参见 [代码与数据生成](../manual/generatecodedata)
 
 ## 生成后，本地目录会产生一个 .cache.meta，这个文件的用途是什么？
 
@@ -145,4 +145,4 @@ luban支持数据tag的概念。 excel第一列为tag。
 
 ## 可以引用现有的枚举和结构吗？比如生成的代码中想使用UnityEngine.AudioType和UnityEngine.Color
 
-可以，支持external类型的枚举和结构，但目前只支持c#语言。 详细文档参见 [配置定义介绍](/manual/define.md) 中的external类型相关文档。
+可以，支持external类型的枚举和结构，但目前只支持c#语言。 详细文档参见 [配置定义介绍](../manual/schema) 中的external类型相关文档。
