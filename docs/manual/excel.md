@@ -367,21 +367,6 @@ luban会智能猜测出它的编码，正确处理。
 || false|  10| 100| 1000| 1.23| 1.2345|hello|1,2|1,2,3|1,2,3,4|
 || true |  20| 200| 1000| 1.23| 1.2345|world|1,2|1,2,3|1,2,3,4|
 
-## text 类型
-
-该类型数据包含两个字段, key和text， 其中 key 可以重复出现，但要求text完全相同，否则报错。这么设计是为了防止意外写重了key。**注意：不允许key为空而text不为空**
-
-如果想填空的本地化字符串， key和text完全留空即可，工具会特殊对待，不会加入 key集合。
-
-text的key和text字段都是string类型，因此在连续单元格或者sep产生的连续数据流模式中，同样要遵循用""来表达空白字符串的规则。
-
-|##var|id|x|
-|-|-|-|
-|##type|int|text#sep=,|
-|| 1| /demo/key1,aaaa|
-||2|  /demo/key2,bbbb|
-||3| | |
-
 ## datetime 类型
 
 时间是常用的数据类型。Luban 特地提供了支持。  
@@ -412,15 +397,6 @@ text的key和text字段都是string类型，因此在连续单元格或者sep产
 ||2|  null|B|
 ||3| 2|null|
 
-## 向量类型 vector2,vector3,vector4
-
-vector3 有三个字段 float x, float y, float z, 适合用于表示坐标之类的数据。
-
-|##var| id | x2|x3|x4|
-|-|-|-| -| -|
-|##type|int| vector2|vector3|vector4|
-|| 1| 1,2|11,22,33|12,33,44,55|
-||2|  2,3|22,44,55|6.5,4.7,8.9|
 
 ## 原生数据列表
 

@@ -96,14 +96,14 @@ value也可以是其他枚举值的或组合，如`A|B`。
 |comment|string|是|注释|
 |tags|map,string,string|是|自定义tag对，可以0到多个|
 |alias|string|是|别名，主要用于英文不好的策划填写多态名，如Circle类也能填'圆'来表达|
-|sep|string|是|默认字段分割符，用于excel中紧凑地填写复合结构，如在一个单元格内`1,2,3`表达一个vector3结构，而不是强行占据多个单元格|
+|sep|string|是|默认字段分割符，用于excel中紧凑地填写复合结构，如在一个单元格内`1,2,3`表达一个vector3结构，而不是强行占据多个单元格。sep可以是多个字符，表示用sep中任意一个字符分割，而不是整个sep作为分割符|
 |groups|list,string|是|导出分组，可以为0到多个|
 |fields|list,Field|是|字段列表|
 |typeMappers|list,TypeMapper|是|外部类型映射相关配置|
 
 groups、tags、typeMappers请阅读公共属性小节中的详细介绍。
 
-bean支持继承和多态。如果parent字段为非空，则表示继承该父类的字段。如果parent不包含命名空间，会从bean当前命名空间内查找该类型，否则全局查找。
+**bean支持继承和多态**。如果parent字段为非空，则表示继承该父类的字段。如果parent不包含命名空间，会从bean当前命名空间内查找该类型，否则全局查找。
 所有补继承的bean都是抽象类，不可实例化。类型系统中允许使用抽象bean为类型，但埴写数据时，必须使用某个子类去实例化它。
 这种多态特性使得luban具备表达任意复杂数据结构的能力。
 
@@ -138,10 +138,20 @@ table是数据表的逻辑表示。table并非类型，不能用于field的type�
 |inputFiles|list,string|否|输入的数据文件列表，不可为空|
 |outputFileName|string|是|输出的文件名，如果为空，则取 `FullName.LowerCase().Replace('.', '_')`|
 
-如果index为空，并且mode=map或空，则自动取valueType第一个字段为index。
+如果index为空，并且mode=map或空，则自动取valueType第一个字段为index。当table有多个主键时，如果是联合主键，则以'key1+key2+,,,+keyn'方式填写，如果是独立主键，
+则以'key1,key2,,,keyn'方式配置。
 
 TableMode为表模式枚举，可取one(或singleton)、map、list。留空则根据index决定具体mode值：如果index为空或1个主键则为map，index为valueType的第1个字段；
 如果index为多个主键，则mode为list。
+
+inputFiles指定了多个输入数据源，定义方式极其灵活。每个数据源可以是以下值：
+
+- 来自某个excel文件的所有单元薄。例如 xxx.xlsx
+- 来自某个excel文件的指定单元薄。例如 sheet@xxx.xlsx
+- 来自json、xml、lua、yaml、unity scriptable asset文件。例如 xx.json或xx.xml或xx.lua或xx.yml
+- 来自json、xml、lua、yaml、unity scriptable asset子字段。 例如 *items@item_module.json或item.consts@item_module.json之类，其他格式同理
+- 来自目录。目录树下所有文件（包含递归子目录）都会被当作数据源读入，每个文件(excel族例外)对应一个记录。例如 skill_json_dir
+- 以上的随意组合。如  xx.xlsx,sheet2@yy.xls,abc@zz.json,ccc_dir
 
 ## 公共属性
 

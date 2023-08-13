@@ -46,8 +46,8 @@ args：
 |-s, --schemaCollector|否|default|schema根收集器|
 |--schemaPath|是||schema根收集器的根输入文件|
 |-t， --target|是||生成目标，取schema全局参数target中的一个|
-|-c, --codeTarget|是||生成的代码目标。可以有多个。如 `-c cs-bin -c java-json`|
-|-d, --dataTarget|是||生成的数据目标。可以有多个。如 `-d bin -d json`|
+|-c, --codeTarget|否||生成的代码目标。可以有0-n个。如 `-c cs-bin -c java-json`|
+|-d, --dataTarget|否||生成的数据目标。可以有0-n个。如 `-d bin -d json`|
 |-p, --pipeline|否|default|生成管线。默认为内置的DefaultPipeline|
 |-i, --inlcudeTag|否||包含该tag的记录会被输出到数据目标|
 |-e, --excludeTag|否||包含该tag的记录不会被输出到数据目标|
@@ -87,6 +87,12 @@ code target必须与data target匹配，否则会加载失败。
 
 :::
 
+一次生成多个code target时，必须为每个code target单独指定输出目录，否则会相互覆盖。实践中也不可能让不同的代码输出到同一个目录下。
+
+Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./cascadingoption)机制，你只需要用`<code target name>.outputCodeDir`参数
+分别为每个target指定输出目录参数即可。
+
+
 ## Data Target
 
 内置支持以下 data target：
@@ -104,6 +110,11 @@ code target必须与data target匹配，否则会加载失败。
 |protobuf-json|protobuf3起支持的json格式|
 |flatbuffers-json|flatbuffers支持的json格式|
 
+
+如果要一次输出多个target，解决办法与code target类似。只需要用`<data target name>.outputDataDir`参数
+分别为每个target指定输出目录参数即可。
+
+
 ## Pipeline
 
 Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者可以实现自己的Pipeline。
@@ -114,21 +125,27 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 
 内置模块用到的参数有：
 
-|参数|描述|示例|
-|-|-|-|
-|inputDataDir|源数据文件的根目录| -x inputDataDir=/my/datatable/path|
-|outputCodeDir|代码目标的输出目录| -x outputCodeDir=/my/output/dir|
-|outputDataDir|数据目标的输出目录| -x outputDataDir=/my/output/dir|
-|codeStyle|代码目标的命名风格| -x codeStyle=pascal|
-|dataExporter|数据导出器| -x dataExporter=default|
-|codePostprocess|代码后处理器，可以为多个| -x codePostProcess=a,b,c|
-|dataPostprocess|数据后处理器，可以为多个| -x dataPostProcess=a,b|
-|outputSaver|数据保存器| -x outputSaver=local|
-|l10n.textProviderName|本地化文本Provider| -x l10n.textProviderName=default|
-|l10n.textProviderFile|本地化文本数据文件| -x l10n.textProviderFile=xxxx|
-|forceLoadDatas|即使没有data target，也要加载源数据| -x forceLoadDatas=1|
-|pathValidator.rootDir|path校验器的查找根目录| -x pathValidator.rootDir=/xx/yy|
+|参数|描述|可用值|示例|
+|-|-|-|-|
+|inputDataDir|源数据文件的根目录|| -x inputDataDir=/my/datatable/path|
+|outputCodeDir|代码目标的输出目录|| -x outputCodeDir=/my/output/dir|
+|outputDataDir|数据目标的输出目录|| -x outputDataDir=/my/output/dir|
+|codeStyle|代码目标的命名风格，内置实现的Code Target都会自动设置与目标语言相匹配的codeStyle，不需要显式指定|none、csharp-default、java-default、go-default、lua-default、typescript-default、cpp-default、python-default| -x codeStyle=csharp-default|
+|dataExporter|数据导出器| null、default|-x dataExporter=default|
+|codePostprocess|代码后处理器，可以为多个|未实现任何内置postprocess| -x codePostProcess=a,b,c|
+|dataPostprocess|数据后处理器，可以为多个|未实现任何内置postprocess| -x dataPostProcess=a,b|
+|outputSaver|数据保存器，默认为local，即输出到本地目录，如果不想输出任何文件，可以用null|null、local| -x outputSaver=local|
+|l10n.textProviderName|本地化文本Provider|| -x l10n.textProviderName=default|
+|l10n.textProviderFile|本地化文本数据文件|| -x l10n.textProviderFile=xxxx|
+|forceLoadDatas|即使没有data target，也要加载源数据|| -x forceLoadDatas=1|
+|pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 
+## OutputSaver
+
+最终生成的数据的保存器。当前实现了两个保存器local和null。
+
+local将文件保存到本地目录。null则不执行任何操作。local是默认使用的保存器，一般生成任务使用local。对于只想校验配置表，不想生成任何数据，使用null
+保存器可以达到这个目标。
 
 ## 示例
 
@@ -252,4 +269,46 @@ dotnet %LUBAN_DLL% ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
+```
+
+### 用于策划检查配置，不生成任何代码和文件
+
+示例项目 [ConfigCheck](https://github.com/focus-creative-games/luban_examples/tree/main/DesignerConfigs)。
+
+```bat
+set WORKSPACE=..
+
+set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
+set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+
+dotnet %LUBAN_DLL% ^
+    -t all ^
+    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
+    -x inputDataDir=%CONF_ROOT%\Datas ^
+    -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
+    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json ^
+    -x forceLoadDatas=1
+```
+
+### 同时生成 cs-bin和java-bin代码
+
+```bat
+
+set WORKSPACE=..\..
+
+set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
+set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+
+dotnet %LUBAN_DLL% ^
+    -t all ^
+    -c cs-bin,java-bin ^
+    -d bin  ^
+    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
+    -x inputDataDir=%CONF_ROOT%\Datas ^
+    -x cs-bin.outputCodeDir=cs_output_path ^
+    -x java-bin.outputCodeDir=java_output_path ^
+    -x outputDataDir=..\GenerateDatas\bytes ^
+    -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
+    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
+
 ```

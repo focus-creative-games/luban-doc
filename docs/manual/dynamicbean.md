@@ -2,7 +2,7 @@
 
 ## 定义及配置
 
-参见 [配置定义](/manual/define.md) 中关于多态类型的介绍
+参见 [schema逻辑结构](/manual/schema) 中关于多态类型的介绍。
 
 ## 最佳实践
 
