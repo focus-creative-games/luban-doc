@@ -1,127 +1,70 @@
 # excel格式介绍
 
-## 创建一个普通的xlsx 配置表
 
-- 假设你要创建的配置为装备表.
-- 在MyConfigs/Datas 目录下创建 equip.xlsx（实践中推荐按模块创建子目录，在模块目录创建配置，便于维护管理）, 其内容如下
+## 基础规则
 
-|##var| id | name | attr | value|
-| - | - | - | - | - |
-| ##type |int|string|int| float |
-|##group|c|s|c,s||
-| | 1 | equip1 | 10|1.2|
-| | 2 | equip2 | 15|3.4|
+### 支持的excel文件族
 
-- 在 MyConfigs/Datas/\_\_tables\_\_.xlsx 里新增一行。 有些不相关列被忽略了
+支持 xls、 xlsx、 xlm、 xlmx、csv 。基本上excel能打开的都可以读取。
 
-|##var|full_name|value_type|define_from_excel|input|...|
-|-|-|-|-|-|-|
-||demo.TbItem|Item|true|equip.xlsx||
 
-- 至此，完成添加新表工具。 运行 check.bat 检查是否成功生成！
+### excel文件 读取规则
 
-## excel 标题头行的介绍
+- 如果未指定sheet，则默认会读取所有sheet
+- 可以用 sheet@xxx.xlsx 指定只读入这个sheet数据
+- 如果A1单元格数据不以##开头，则会被当作非数据sheet，被忽略
+
+### 读取非GKB和UTF-8编码的csv文件
+
+luban会智能猜测出它的编码，正确处理。
+
+### 灵活的文件组织形式
+
+- 可以几个表都放到一个xlsx中，每个表占一个sheet。 只需要为每个表的input指定为该单元薄即可，如`xxx@item/test/abs.xlsx`
+- 可以一个表拆分为几个xlsx。 如 `item/a.xlsx,bag/b.xlsx,c.xlsx`
+- 可以一个读入一个目录下的所有xlsx。 如 `xlsx_files` 。
+
+## 标题头行格式
+
+一个典型的配置表示例：
+
+![excel](/img/cases/simple1.jpg)
 
 - 第1列单元格为 `##var` 表示这行是字段定义行
 - 第1列单元格为 `##type` 表示这行是 类型定义行
 - 第1列单元格为 `##group` 表示这行是 导出分组行。**此行可选**。另外，单元格留空表示对所有分组导出。
 - 第1列单元格以##**开头** 表示这是注释行，如果有多个##行，默认以第一个行作为代码中字段的注释，你可以通过##comment 显式指定某行为代码注释行。
 - 填写多级字段名行时，以##var表示这是次级字段行
-- 你可以随意调整##xxx和##yyy之类的行的顺序，**但注意** 如果第一行是注释行，必须使用##comment，而不是##。否则会把第一行当字段名行而出错（这是出于兼容性，早期强制第一行是字段名行，允许只以##开头）
+- 你可以随意调整以`##<name>`开头的行的顺序。例如`##var`行与`##group`行调换顺序，完全不影响最终结果
 
-<table  border="1">
-<tr align="center">
-  <td>##var</td>
-  <td>id</td>
-  <td>name</td>
-  <td colspan="6">*stages</td>
-</tr>
-<tr align="center">
-  <td>##var</td>
-  <td/>
-  <td/>
-  <td>id</td>
-  <td>name</td>
-  <td>desc</td>
-  <td>location</td>
-  <td>item_id</td>
-  <td>num</td>
-</tr>
-<tr align="center">
-  <td>##type</td>
-  <td>int</td>
-  <td>string</td>
-  <td colspan="6">list,Stage</td>
-</tr>
-<tr align="center">
-  <td>##</td>
-  <td>id</td>
-  <td>desc1</td>
-  <td>desc1</td>
-  <td>desc2</td>
-  <td>desc3</td>
-  <td>desc4</td>
-  <td>desc5</td>
-  <td>desc6</td>
-</tr>
-<tr align="center">
-  <td>##comment</td>
-  <td>id</td>
-  <td>名字</td>
-  <td>注释1</td>
-  <td>desc2</td>
-  <td>desc3</td>
-  <td>desc4</td>
-  <td>desc5</td>
-  <td>desc6</td>
-</tr>
-<tr align="center">
-<td/>
-<td>1</td>
-<td>task1</td>
-<td>1</td><td>stage1</td><td>stage desc1</td><td>1,2,3</td><td>1001</td><td>1</td>
-</tr>
-<tr align="center">
-<td/><td/><td/><td>2</td><td>stage2</td><td>stage desc2</td><td>1,2,3</td><td>1001</td><td>1</td>
-</tr>
-<tr align="center">
-<td/><td/><td/><td>3</td><td>stage3</td><td>stage desc3</td><td>1,2,3</td><td>1002</td><td>1</td>
-</tr>
-<tr align="center">
-<td/><td>2</td>
-<td>task2</td>
-<td>1</td><td>stage1</td><td>stage desc1</td><td>1,2,3</td><td>1001</td><td>1</td>
-</tr>
-<tr align="center">
-<td/><td/><td/><td>2</td><td>stage2</td><td>stage desc2</td><td>1,2,3</td><td>1002</td><td>1</td>
-</tr>
-</table>
 
 ## 注释行或列
 
-当标题行字段名为空或者以'#'、'_'开头时，这个列会被当作注释列而忽略。
+当标题行字段名为空或者以'#'、'_'开头时，这个列会被当作注释列而忽略。当数据行的第一列以##开头时，这一行会被当作注释行而被忽略。
 
-当数据行的第一列以##开头时，这一行会被当作注释行而被忽略。
+![excel](/img/cases/ignorefield.jpg)
 
-## excel文件 读取规则
 
-- 如果未指定sheet，则默认会读取所有sheet
-- 可以用 sheet@xxx.xlsx 指定只读入这个sheet数据
-- 如果A1单元格数据不以##开头，则会被当作非数据sheet，被忽略
+以上示例中，D列和E列被注释而忽略，第7行由于以##开头，也被注释而不会导出。
 
-## 支持的excel文件族
+## 基础数据格式
 
-支持 xls、 xlsx、 xlm、 xlmx、csv 。基本上excel能打开的都可以读取。
+如下图所示，数据填法基本与常识相符。
 
-## 支持非GKB和UTF-8编码的csv文件
+![primitive_type](/img/cases/primitive_type.jpg)
 
-luban会智能猜测出它的编码，正确处理。
+特殊说明：
 
-## 灵活的配置文件组织形式
+- bool类型： `true、false、0、1、是、否` 都是有效值。另外大小写不敏感，如True也是合法bool值。填其他值如abc、4则会发生解析错误
+- datetime支持以下几种格式
+  - excel中的内置日期格式
+  - yyyy-mm-dd hh:mm:ss 字符串格式
+  - yyyy-mm-dd hh:mm 字符串格式。此时秒自动取0
+  - yyyy-mm-dd hh 字符串格式。此时分与秒取0
+  - yyyy-mm-dd 字符串格式。此时时分秒都取0
 
-- 可以几个表都放到一个xlsx中，每个表占一个sheet。 只需要为每个表的input指定为该单元薄即可，如 input="xxx@item/test/abs.xlsx"。
-- 可以一个表拆分为几个xlsx。 如 input="item/a.xlsx,bag/b.xlsx,c.xlsx"。
-- 可以一个读入一个目录下的所有xlsx。 如 input="bag" 。
+**除了datetime以外的基础数据格式都可以留空**，自动取默认值，如第10行所示。
+
 
 ## 单元格留空取默认值
 

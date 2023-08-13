@@ -2,7 +2,7 @@
 
 ## 安装
 
-1. 安装[dotnet sdk 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)
+1. 安装[dotnet sdk 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)或更高版本sdk
 2. 下载[luban_examples项目](https://github.com/focus-creative-games/luban_examples)。该项目中包含测试配置以及大量的示例项目。为方便起见，后续提及到的文件，默认都指这个项目中的文件。
 
 ## 准备配置工程

@@ -95,12 +95,110 @@ Luban.Client和Luban.ClientServer提供了watch生成机制。使用参数 -w di
 
 有些数据批量临时制作，很多引用值都不合法，但暂时未被程序使用，生成时因为ref失败而打印大量警告。可以为这些记录加上 unchecked 标签，luban就不会检查这些数据了。
 
-## datetime
+## 使用datetime来表示时间
 
 使用datetime来标识时间，注意配合时区参数使用。
 
-## 本地化
+## 多态类型使用场合
 
-- 使用text来标识你要本地化的文本类型，不要像之前那样定义一个本地化key字段！
-- 如果导出时便完成本土化，则请使用静态本土化机制
-- 如果运行时需要切换语言，请使用动态本土化机制。
+- 推荐用于 类型多变的场合，尤其是 GamePlay数据，比如技能、AI、任务、副本等等
+- 简单的可以在excel配置，更复杂，尤其是技能这种需要独立技能编辑器中编辑的，推荐以json格式保存数据
+
+## 代码中使用多态类型
+
+假设是如下多态类型：
+
+```csharp
+public abstract class Shape : BeanBase
+{
+    // xxxx
+}
+
+public class Triangle : Shape
+{
+    float a;
+    float b;
+    float c;
+}
+
+public class Circle : Shape
+{
+    float radius;
+}
+
+public class Rectangle : Shape
+{
+    float width;
+    float height;
+}
+```
+
+假设配置中 有个Shape字段shape。实际逻辑代码中要根据它的实际类型来不同处理。
+有三种常见写法。当类型数量很少时，这三种方法都可以，按个人喜好选择。当类型数量较多时，推荐按照方法3的办法，更为高效。
+
+### 方法1
+
+```csharp
+    if (shape is Circle c)
+    {
+        // xxx
+    }
+    else if(shape is Triangle t)
+    {
+        // xxx
+    }
+    else if(shape is Rectangle r)
+    {
+        // xxx
+    }
+
+```
+
+### 方法2
+
+```csharp
+switch(shape)
+{
+    case Circle c:
+    {
+        // xxx;
+        break;
+    }
+    case Triangle t:
+    {
+        // xxx
+        break;
+    }
+    case Rectangle r:
+    {
+        // xxx;
+        break;
+    }
+}
+```
+
+### 方法3
+
+```csharp
+switch(shape.GetTypeId())
+{
+    case Circle::__ID__:
+    {
+        Circle c = (Circle)shape;
+        // xxx;
+        break;
+    }
+    case Triangle::__ID__:
+    {
+        Triangle t = (Triangle)shape;
+        // xxx
+        break;
+    }
+    case Rectangle::__ID__:
+    {
+        Rectangle r = (Rectangle)shape;
+        // xxx;
+        break;
+    }
+}
+```

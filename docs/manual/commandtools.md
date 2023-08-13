@@ -1,5 +1,8 @@
 # 命令行工具
 
+## 跨平台
+
+得益于.net的跨平台能力，Luban可以在主流的Win、Linux及macOS操作系统上运行。
 
 ## 命令格式
 
@@ -114,6 +117,7 @@ Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./casc
 如果要一次输出多个target，解决办法与code target类似。只需要用`<data target name>.outputDataDir`参数
 分别为每个target指定输出目录参数即可。
 
+每个code target只能读取一种相匹配的数据格式。例如cs-bin生成的c#代码只能读取bin格式数据， java-json生成的java代码只能读取json格式。
 
 ## Pipeline
 
