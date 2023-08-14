@@ -107,3 +107,74 @@ map以key、value为键值对，依次填写。
 
 ![nullable](/img/cases/nullable.jpg)
 
+## 无主键表
+
+有时候只想得到一个记录列表，无主键。mode="list"并且index为空，表示无主键表。
+
+定义表
+
+```xml
+<table name="TbNotKeyList" value="NotKeyList" mode="list" input="not_key_list.xlsx"/>
+```
+
+![table_list_not_key](/img/cases/table_list_not_key.jpg)
+
+## 多主键表（联合索引）
+
+多个key构成联合唯一主键。使用"+"分割key，表示联合关系。
+
+定义表
+
+```xml
+<table name="TbUnionMultiKey" value="UnionMultiKey" index="key1+key2+key3" input="union_multi_key.xlsx"/>
+```
+
+![table_list_union_key](/img/cases/table_list_union_key.jpg)
+
+## 多主键表（独立索引）
+
+多个key，各自独立唯一索引。与联合索引写法区别在于使用 ","来划分key，表示独立关系。
+
+定义表
+
+```xml
+<table name="TbMultiKey" value="MultiKey" index="key1,key2,key3" input="multi_key.xlsx"/>
+```
+
+![table_list_indep_key](/img/cases/table_list_indep_key.jpg)
+
+## 单例表
+
+有一些配置全局只有一份，比如 公会模块的开启等级，背包初始大小，背包上限。此时使用单例表来配置这些数据比较合适。
+
+|##var| guld_open_level | bag_init_capacity | bag_max_capacity | newbie_tasks |
+| - |- | - | - | - |
+| ##type | int | int | int | list,int|
+| ## |desc1 | desc 2 | desc 3 | desc 4 |
+| | 10 | 100| 500| 10001,10002 |
+
+## 纵表
+
+大多数表都是横表，即一行一个记录。有些表，比如单例表，如果纵着填，一行一个字段，会比较舒服。A1为##column表示使用纵表模式。 上面的单例表，以纵表模式填如下。
+
+<table border="1">
+<tr align="center">
+<td>##var#column</td>
+<td>##type</td>
+<td>##</td>
+<td></td>
+</tr>
+<tr align="center">
+<td>guild_open_level</td><td>int</td><td>desc1</td><td>10</td>
+</tr>
+<tr align="center">
+<td>bag_init_capacity</td><td>int</td><td>desc2</td><td>100</td>
+</tr>
+<tr align="center">
+<td>bag_max_capacity</td><td>int</td><td>desc3</td><td>500</td>
+</tr>
+<tr align="center">
+<td>newbie_tasks</td><td>(list#sep=,),int</td><td>desc4</td><td>10001,10002</td>
+</tr>
+</table>
+
