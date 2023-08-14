@@ -52,6 +52,7 @@ const sidebars = {
         'manual/cascadingoption',
         'manual/defaultschemacollector',
         'manual/excel',
+        'manual/exceladvanced',
         'manual/generatecodedata',
         'manual/loadconfigatruntime',
         'manual/excelsep',

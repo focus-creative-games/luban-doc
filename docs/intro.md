@@ -5,9 +5,9 @@
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT) ![star](https://img.shields.io/github/stars/focus-creative-games/luban?style=flat-square)
 
 
-luban是一个极其强大、易用、优雅、稳定的游戏配置解决方案。它设计目标为满足从小型到超大型游戏项目的简单到复杂的游戏配置工作流需求。
-luban可以处理丰富的文件类型，支持主流的语言，可以生成多种导出格式，支持丰富的数据检验功能，具有良好的跨平台能力，并且生成极快。
+luban是一个强大、易用、优雅、稳定的游戏配置解决方案。它设计目标为满足从小型到超大型游戏项目的简单到复杂的游戏配置工作流需求。
 
+luban可以处理丰富的文件类型，支持主流的语言，可以生成多种导出格式，支持丰富的数据检验功能，具有良好的跨平台能力，并且生成极快。
 luban有清晰优雅的生成管线设计，支持良好的模块化和插件化，方便开发者进行二次开发。开发者很容易就能将luban适配到自己的配置格式，定制出满足项目要求的强大的配置工具。
 
 luban标准化了游戏配置开发工作流，可以极大提升策划和程序的工作效率。
@@ -24,7 +24,7 @@ luban标准化了游戏配置开发工作流，可以极大提升策划和程序
 - 完善的本地化支持
 - 支持所有主流的游戏引擎和平台。支持Unity、Unreal、Cocos2x、Godot、微信小游戏等
 - 良好的跨平台能力。能在Win,Linux,Mac平台良好运行。
-- 支持所有主流的热更新方案。hybridclr、ilruntime、lua、typescript等
+- 支持所有主流的热更新方案。hybridclr、ilruntime、{x,t,s}lua、puerts等
 - 清晰优雅的生成管线，很容易在luban基础上进行二次开发，定制出适合自己项目风格的配置工具。
 
 ## Excel格式概览
