@@ -1,4 +1,19 @@
-# 检验器
+# 数据校验器
+
+Luban.DataValidtor.Builtin模块中实现多种常见的数据校验器。
+
+## notDefaultValue 校验器
+
+要求数据不能为默认值。例如int类型字段不能为0，int?类型字段不能null。
+
+### 格式
+
+在类型名后面加上!字符，例如：
+
+- `type="int!"` 要求不该字段为能为0
+- `type=int?!` 要求该字段不能为null
+- `type="list,int!` 要求列表的元素值不能为0
+- `type="map,int!,string!` 要求map的key不能为0，value不能为长度为0的字符串
 
 ## ref 校验器
 
@@ -20,7 +35,7 @@ ref可以用于任何可以当作key的数据类型上，也可以是容器的�
 ```xml
 <bean name="TestRef">
    <var name="x1" type="int#ref=item.TbItem"/> x1必须是item.TbItem表的合法id
-   <var name="x2" type="int" ref="item.TbItem"/> 等价于上一行，纯粹一个语法糖。注意，如果是容器类型，则只对value type生效。
+   <var name="x2" type="int#ref=item.TbItem"/> 等价于上一行，纯粹一个语法糖。注意，如果是容器类型，则只对value type生效。
    <var name="x2" type="list,int#ref=item.TbItem"/> x2列表中每个元素都必须是合法id
    <var name="x2_2" type="list,(int#ref=item.TbItem)"/> 为了清晰，加上括号限定
    <var name="x3" type="map,int#ref=item.TbItem,int"/> x3的key必须是 item.TbItem合法id
@@ -116,24 +131,34 @@ public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; 
 ## path 校验器
 
 与ref的定义方法相似，但path只能作用于string类型数据。path校验器有几种子类型，参数有细微不同。path校验器的工作原理为根据字段值，产生一个路径，
-然后再检查这个路径是否存在，因此使用path检验器要求设置 --validate_root_dir 参数指定路径的根目录。
+然后再检查这个路径是否存在，因此使用path检验器要求命令行中使用 `-x pathValidator.rootDir=xxx` 指定检查路径的根目录。
 
-### unity 校验器
+### normal 检验器
 
-检查 --validate_root_dir 选项指定的目录下，是否有对应的文件。
-
-一个典型的使用场景是与与unity引擎的Addressable配合工作,将 --validate_root_dir 指向项目的Assets目录，将资源路径值
+normal检验器需要参数，格式为 path=normal;\<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
 
 ```xml
 <bean name="TestPath">
-  <var name="x" type="string#path=unity"/> 检查 完整路径 ${validate_root_dir}/${x} 对应的文件是否存在
-  <var name="x2" type="list,string#path=unity"/> 检查x2的每个元素e ${validate_root_dir}/${e} 对应的文件是否存在
+  <var name="x" type="string#path=normal;UI/*.text"/> 检查完整路径${pathValidator.rootDir}/UI/${x}.text 对应的资源是否存在
+  <var name="x2" type="list,string#path=Prefabs/*.prefab"/> 检查x2的每个元素e ，${pathValidator.rootDir}/Prefabs/${e}.prefab 对应的资源是否存在
+</bean>
+```
+
+### unity 校验器
+
+直接检查是否存在 `${pathValidator.rootDir}/{path}`文件。一个典型的使用场景是与与unity引擎的Addressable配合工作,将`pathValidator.rootDir`指向项目的根目录。
+
+
+```xml
+<bean name="TestPath">
+  <var name="x" type="string#path=unity"/> 检查完整路径${pathValidator.rootDir}/{x} 对应的资源是否存在
+  <var name="x2" type="list,string#path=unity"/> 检查x2的每个元素e ，${pathValidator.rootDir}/{e} 对应的资源是否存在
 </bean>
 ```
 
 ### ue 校验器
 
-检查是否有字段同名的资源，特别针对UE4的资源系统优化，--validate_root_dir必须指向项目的Content目录。
+检查是否有字段同名的资源，特别针对UE4的资源系统优化，`pathValidator.rootDir` 必须指向项目的Content目录。
 与unity不同，unity中的资源值必须包含文件后缀，ue中不包含文件后缀，ue检验器，会自动检查${x}.uasset 或者 ${x}.umap 对应的资源是否存在。
 如果资源值中还带有前缀如 "blueprint'/character/Mouse"，则会自动剔除 blueprint前缀后再去查找相应的资源。
 
@@ -144,20 +169,10 @@ public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; 
 </bean>
 ```
 
-### normal 检验器
-
-normal检验器需要参数，格式为 path=normal;\<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
-
-```xml
-<bean name="TestPath">
-  <var name="x" type="string#path=normal;UI/*.text"/> 检查 完整路径 ${validate_root_dir}/UI/${x}.text 对应的资源是否存在
-  <var name="x2" type="list,string#path=Prefabs/*.prefab"/> 检查x2的每个元素e ，${validate_root_dir}/Prefabs/${e}.prefab 对应的资源是否存在
-</bean>
-```
 
 ## index 校验器
 
-对于`list,Bean`或`array,Bean`类型，有时候你希望不只是按index访问，希望按照Bean的某个字段作key来访问。`index`检验器满足这个需求。index校验器还会检查那个字段的唯一性。
+对于`list,Bean`、`array,Bean`类型，有时候你希望按照Bean的某个字段唯一。`index`检验器满足这个需求。
 
 ```xml
 <bean name="Foo">
@@ -166,19 +181,19 @@ normal检验器需要参数，格式为 path=normal;\<pattern\>。 pattern中出
 </bean>
 
 <bean name="Bar">
-  <var name="foos" type="(list#index=id),Foo"/>
+  <var name="foos" type="(list#index=id),Foo"/>要求列表内id字段唯一
 </bean>
 ```
 
 ### 代码生成中对index的特殊处理
 
-只用c#等少数语言的代码对index作了特殊处理，额外生成一个 map类型的 xxx_index，key为index字段的类型，value为
+只用c#等少数语言的代码对index作了特殊处理，额外生成一个 map类型的 `xxx_{index}`，key为index字段的类型，value为
 列表的元素类型。大致如下。
 
 ```csharp
 
   List<Foo> Foos;
-  Dictionary<int, Foo> Foos_index;
+  Dictionary<int, Foo> Foos_id;
 ```
 
 ## range 校验器

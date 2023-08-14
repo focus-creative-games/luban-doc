@@ -1,10 +1,8 @@
-# tag 介绍
-
-## 关于Tag
+# 数据tag
 
 luban支持记录级别的tag标记，每个数据可以有0到多个tag。 tag可用标识记录为注释，或者过滤导出，或者指示检验器不检查此记录。
 
-## tag格式介绍
+## 格式介绍
 
 不同文件格式下，记录tag的填写方式如下，也可以参考 [luban_examples](https://github.com/focus-creative-games/luban_examples)/DesignerConfigs/Data/tag_datas目录下的示例。
 
