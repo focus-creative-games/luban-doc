@@ -62,6 +62,7 @@ const sidebars = {
         'manual/l10n',
         'manual/migrate',
         'manual/bestpractices',
+        'manual/extendluban'
       ],
     },
     'help/faq',
