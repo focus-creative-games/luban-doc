@@ -5,7 +5,7 @@
 ## 创建扩展模块
 
 源码中除了`Luban.Core`和`Luban`以外的项目都是扩展项目，开发者可以参考它们给Luban添加扩展模块。
-DefaultPipeline会自动搜索模块名中包含Luban的模块，因此**扩展模块名中最好都包含Luban**，否则需要
+SimpleLauncher会自动搜索模块名中包含Luban的模块，因此**扩展模块名中最好都包含Luban**，否则需要
 自己使用`SimpleLauncher.ScanResigerAssembly`注册自定义的扩展类。
 
 
