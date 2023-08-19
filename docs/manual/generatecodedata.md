@@ -24,7 +24,8 @@
 - skynet
 - ET
 - GameFramework
-- xlua-framework
+- QFramework
+- 其他
 
 ##  支持主流的游戏开发语言
 
@@ -81,7 +82,7 @@
 
 ## 生成
 
-
+具体请见[命令行工具](./commandtools)。
 
 
 

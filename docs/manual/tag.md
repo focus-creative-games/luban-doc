@@ -1,27 +1,22 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 数据tag
 
 luban支持记录级别的tag标记，每个数据可以有0到多个tag。 tag可用标识记录为注释，或者过滤导出，或者指示检验器不检查此记录。
 
 ## 格式介绍
 
-不同文件格式下，记录tag的填写方式如下，也可以参考 [luban_examples](https://github.com/focus-creative-games/luban_examples)/DesignerConfigs/Data/tag_datas目录下的示例。
+不同文件格式下，记录tag的填写方式相似，也可以参考 [luban_examples](https://github.com/focus-creative-games/luban_examples)/DesignerConfigs/Data/tag_datas目录下的示例。
 
-- excel格式。 在记录第一列填写tag。
+### excel格式
 
-|##var|id|name|
-|-|-|-|
-|##type|int|string|
-||1|xxx|
-|dev|2|xxx|
-|debug|3|yyy|
-|unchecked|4|zzz|
-|dev,main|5|aaa|
-|dev,unchecked|6|bbb|
+在记录第一列填写tag。
 
-- 其它格式，在字段 \_\_tag__中填写tag。
+![tag](/img/cases/tag2.jpg)
 
-:::: tabs cache-lifetime="5" :options="{ useUrlFragment: false }"
-::: tab JSON 
+### json格式
+
 ```json
 {
   "__tag__": "dev",
@@ -29,8 +24,9 @@ luban支持记录级别的tag标记，每个数据可以有0到多个tag。 tag�
   "name":"xxx"
 }
 ```
-:::
-::: tab lua格式
+
+### lua格式
+
 ```lua
 return {
   __tag__ = "dev",
@@ -38,8 +34,10 @@ return {
   name = "xxx",
 }
 ```
-:::
-::: tab xml格式
+
+### xml格式
+
+
 ```xml
 <data>
   <__tag__>dev</__tag__>
@@ -47,16 +45,16 @@ return {
   <name>xxx</name>
 </data>
 ```
-:::
-::: tab yaml格式
+
+
+### yaml格式
+
 ```yaml
 __tag__ : dev
 id : 1
 name : xxx
 ```
-:::
 
-::::
 
 ## 特殊的tag名
 
@@ -73,7 +71,7 @@ name : xxx
 - 有些记录希望测试和发布有不同版本
 - 一些简单多版本管理，比如某个记录只在某个版本或者分支才导出
 
-通过luban.client的命令行选项 -—output:exclude_tags tag1,tag2,... ，包含参数中指定的任意一个tag的记录都不会导出，以下为使用示例。
+通过命令行参数 `--includeTag` 或 `--excludeTag` 来包含或者排除指定tag的数据，以下为使用示例。
 
 |##var| id | name |  |
 | - | - | - | - |
@@ -81,7 +79,7 @@ name : xxx
 | ## | id | desc1| 注释 |
 | | 1 | item1 | 永远导出 |
 |##| 2 | item2 | 永远不导出 |
-|test| 4 | item4 | -—output:exclude_tags test 时不导出 |
-|TEST| 5 | item5 | -—output:exclude_tags test 时不导出 |
-|dev |6 | item6 | -—output:exclude_tags dev 时不导出 |
+|test| 4 | item4 | --excludeTag test 时不导出 |
+|TEST| 5 | item5 | --excludeTag test 时不导出 |
+|dev |6 | item6 | --excludeTag dev 时不导出 |
 | | 7|item7| 永远导出 |

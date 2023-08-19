@@ -1,6 +1,11 @@
-# 数据定义
+# 非excel数据格式
 
-大多数数据格式填法符合直觉，而且数据定义是完全一样的，不同数据结构在xml中格式示例如下：
+大多数数据格式填法符合直觉，而且数据定义是完全一样的。
+
+
+## 演示所用的类型
+
+以下面的DemoType2为例，展示如何在其他文件格式中填写该类型对应的数据。
 
 ```xml
 <bean name="DemoType2" >
@@ -13,9 +18,6 @@
   <var name="x12" type="DemoType1"/>
   <var name="x13" type="DemoEnum"/>
   <var name="x14" type="DemoDynamic" sep=","/>多态数据结构
-  <var name="v2" type="vector2"/>
-  <var name="v3" type="vector3"/>
-  <var name="v4" type="vector4"/>
   <var name="t1" type="datetime"/>
   <var name="k1" type="array,int"/> 使用;来分隔
   <var name="k2" type="list,int"/>
@@ -27,32 +29,21 @@
 <table name="TbDataFromSingle" value="DemoType2" input="test/datas"/> 
 ```
 
-## 数据源文件
+## 数据目录
 
-### 以目录树形式组织
+如果table.inputFiles指向目录，则会自动遍历整个目录树，忽略以`.~_`字符开头的文件，将剩下的文件当作数据文件输入。
+这些数据文件格式则对应下面的单记录格式。注意，如果遇到excel文件，仍然默认试图从一个文件中读取多个记录。
 
-典型用法是，以目录为数据源（会遍历整棵目录树），目录树下每个文件为一个记录读入。如下示例，递归遍历整个目录树，**按文件名排序后**依次将每个文件当作一个记录读入。
+## 单记录格式
 
-:::tip
-数据为json lua xml或其它的任意源文件混合在一起时，luban都能正确载入数据
-:::
+### json格式
 
-1. Json数据源特点：
+json格式的一些特殊点：
 
 - set类型。填法为 `[v1,v2,...]`
 - map类型。由于json只支持string类型的key，因此map格式填法为 `[[k1,v1],[k2,v2]...]`
-- 多态bean类型。需要 $type 属性来指定具体类型名
-- text类型，填法为 {"key":key, "text":text}
+- 多态bean类型。需要`$type`属性来指定具体类型名
 
-2. Lua数据源特点：
-
-- 数据前有一个return，这是因为 lua 数据是当作 lua 文件加载的，每个加载后的结果当作一个记录读入
-- set 的格式为 `{v1, v2, ...}`
-- 与json不同，lua 的table的key支持任意格式，所以lua的map可以直接  `{[key1] = value1, [key2] = value2, ,,,}`
-- 多态bean类型。需要 \_type\_属性来指定具体类型名
-- text类型，填法为 `{key = key, text = text}`
-
-示例配置文件内容如下：
 
 ```json
 {
@@ -64,13 +55,9 @@
   "x6":1.2,
   "x7":1.23432,
   "x10":"hq",
-  "t1": {"key":"/key/xx1","text":"apple"},
   "x12": { "x1":10},
   "x13":"B",
   "x14":{"$type": "DemoD2", "x1":1, "x2":2},
-  "v2":{"x":1, "y":2},
-  "v3":{"x":1.1, "y":2.2, "z":3.4},
-  "v4":{"x":10.1, "y":11.2, "z":12.3, "w":13.4},
   "t1":"1970-01-01 00:00:00",
   "k1":[1,2],
   "k2":[2,3],
@@ -80,6 +67,15 @@
   "k15":[{"$type": "DemoD2", "x1":1, "x2":2}]
 }
 ```
+
+### lua格式
+
+Lua数据源特点：
+
+- 数据前有一个return，这是因为 lua 数据是当作 lua 文件加载的，每个加载后的结果当作一个记录读入
+- set 的格式为 `{v1, v2, ...}`
+- 与json不同，lua 的table的key支持任意格式，所以lua的map可以直接  `{[key1] = value1, [key2] = value2, ,,,}`
+- 多态bean类型。需要 `_type_`属性来指定具体类型名
 
 ```lua
 return 
@@ -92,13 +88,9 @@ return
   x6 = 1.3,
   x7 = 1122,
   x10 = "yf",
-  t1 = {key="/key/ab1", text="apple"},
   x12 = {x1=1},
   x13 = "D",
   x14 = { _type_="DemoD2", x1 = 1, x2=3},
-  v2 = {x= 1,y = 2},
-  v3 = {x=0.1, y= 0.2,z=0.3},
-  v4 = {x=1,y=2,z=3.5,w=4},
   t1 = "1970-01-01 00:00:00",
   k1 = {1,2},
   k2 = {2,3},
@@ -107,6 +99,10 @@ return
   k15 = { { _type_="DemoD2", x1 = 1, x2=3} },
 }
 ```
+
+
+### xml格式
+
 
 ```xml
 <data>
@@ -121,10 +117,6 @@ return
   <x12> <x1>1</x1> </x12>
   <x13>C</x13>
   <x14 __type__="DemoD2">  <x1>1</x1>  <x2>2</x2> </x14>
-  <v2>1,2</v2>
-  <v3>1.2,2.3,3.4</v3>
-  <v4>1.2,2.2,3.2,4.3</v4>
-  <t1>1970-01-01 00:00:00</t1>
   <k1> <item>1</item> <item>2</item> </k1>
   <k2> <item>1</item> <item>2</item> </k2>
   <k8>
@@ -140,6 +132,14 @@ return
   </k15>
 </data>
 ```
+
+### yaml格式
+
+yaml格式的特性性与json相似：
+
+- set类型。填法对应json列表 `[v1,v2,...]`
+- map类型。由于json只支持string类型的key，因此map格式填法对于json中kv列表 `[[k1,v1],[k2,v2]...]`
+- 多态bean类型。需要 `$type`属性来指定具体类型名
 
 ```yaml
 x1: true
@@ -157,21 +157,6 @@ x14:
   $type: DemoD2
   x1: 1
   x2: 2
-s1:
-  key: "/key32"
-  text: aabbcc22
-v2:
-  x: 1
-  y: 2
-v3:
-  x: 1.1
-  y: 2.2
-  z: 3.4
-v4:
-  x: 10.1
-  y: 11.2
-  z: 12.3
-  w: 13.4
 t1: '1970-01-01 00:00:00'
 k1:
 - 1
@@ -195,11 +180,11 @@ k15:
   x2: 2
 ```
 
-### 以复合文件形式组织
 
-这里只给出JSON数据源文件示例，其它格式类似
+## 复合文件格式
 
-整个表以一个或者多个json文件的形式组织。在table的input属性中手动指定json数据源，有以下几种格式：
+如果在一个文件中包含多个记录，则需要在文件名前加上`*@`，表示该文件包含一个记录列表，而不是一个记录。
+这里以json格式为例。table的inputFiles，有以下几种格式：
 
 - `xxx.json`，把xxx.json当作一个记录读入。
 - `*@xxx.json`，把xxx.json当作记录列表读入。
@@ -228,29 +213,7 @@ k15:
     <var name="b" type="int"/>
 </bean>
 
-<table name="TbCompositeJsonTable1" value="CompositeJsonTable1" 
-        input="*table1@composite_tables.json,*@composite_tables2.json,one_record.json"/>
-<table name="TbCompositeJsonTable2" value="CompositeJsonTable2" 
-        input="*table2@composite_tables.json"/>
-<table name="TbCompositeJsonTable3" value="CompositeJsonTable3" mode="one" 
-        input="table3@composite_tables.json"/>
-```
-
-## 数据tag
-
-与excel格式类似，json格式支持记录tag，用 `__tag__` 属性来指明tag，示例如下：
-
-```json
-{
-    "__tag__":"dev",
-    "x":1,
-    "y":2
-}
-```
-```lua
-return {
-    __tag__ = "dev",
-    x = 1,
-    y = 2,
-}
+<table name="TbCompositeJsonTable1" value="CompositeJsonTable1" input="*table1@composite_tables.json,*@composite_tables2.json,one_record.json"/>
+<table name="TbCompositeJsonTable2" value="CompositeJsonTable2" input="*table2@composite_tables.json"/>
+<table name="TbCompositeJsonTable3" value="CompositeJsonTable3" mode="one" input="table3@composite_tables.json"/>
 ```

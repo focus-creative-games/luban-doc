@@ -32,6 +32,8 @@ args：
 
   --timeZone                 timezone
 
+  --customTemplateDir        custom template search dir
+
   --validationFailAsError    validation fail as error
 
   -x, --xargs                args like -x a=1 -x b=2. allow multi instance.
@@ -55,7 +57,8 @@ args：
 |-i, --inlcudeTag|否||包含该tag的记录会被输出到数据目标|
 |-e, --excludeTag|否||包含该tag的记录不会被输出到数据目标|
 |-o, --outputTable|否||指定要生成的table，可以有多个，例如`-o item.tbItem -o bag.TbBag`。如果未指定此参数，则按照group规则计算导出的table列表|
-|--timeZone|否||指定当前时区，默认取本地时区。此参数会影响datetime类型|
+|--timeZone|否||指定当前时区，默认取本地时区。此参数会影响datetime类型。该参数为linux或win下的时区名，例如 `Asia/Shanghai` 或 `China Standard Time`|
+|--customTemplateDir|否||自定义template搜索路径，优先级搜索此路径，再搜索默认的Templates路径|
 |--validationFailAsError|否|false|如果有任何校验器未通过，则生成失败。此参数一般在正式发布时使用|
 |-x, --xargs|否||指定一些特殊参数。具体需要哪些参数由生成管线运行过程中涉及的模块决定|
 

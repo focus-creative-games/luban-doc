@@ -24,7 +24,7 @@
 
     private static JSONNode LoadJson(string file)
     {
-        return JSON.Parse(File.ReadAllText($"{Application.dataPath}/../../GenerateDatas/json/{file}.json", System.Text.Encoding.UTF8));
+        return JSON.Parse(File.ReadAllText($"{your_json_dir}/{file}.json", System.Text.Encoding.UTF8));
     }
 
 ```
@@ -55,12 +55,12 @@
 
     private static JSONNode LoadJson(string file)
     {
-        return JSON.Parse(File.ReadAllText($"{Application.dataPath}/../../GenerateDatas/json/{file}.json", System.Text.Encoding.UTF8));
+        return JSON.Parse(File.ReadAllText($"{your_json_dir}/{file}.json", System.Text.Encoding.UTF8));
     }
 
     private static ByteBuf LoadByteBuf(string file)
     {
-        return new ByteBuf(File.ReadAllBytes($"{Application.dataPath}/../../GenerateDatas/bytes/{file}.bytes"));
+        return new ByteBuf(File.ReadAllBytes($"{your_json_dir}/{file}.bytes"));
     }
 ```
 
