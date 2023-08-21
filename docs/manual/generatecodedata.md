@@ -35,7 +35,7 @@
   - lua (5.1+)
   - typescript (3.0+)
   - python (3.0+)
-  - c++ (11+)。 classic 版本Luban支持，暂未迁移到当前版本。
+  - c++ (11+)。
   - erlang (18+)。 classic 版本Luban支持，暂未迁移到当前版本。
   - rust (1.5+)。classic 版本Luban支持，暂未迁移到当前版本。
   - godot。 classic 版本Luban支持，暂未迁移到当前版本。

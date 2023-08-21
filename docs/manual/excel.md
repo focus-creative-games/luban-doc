@@ -148,34 +148,11 @@ map以key、value为键值对，依次填写。
 
 有一些配置全局只有一份，比如 公会模块的开启等级，背包初始大小，背包上限。此时使用单例表来配置这些数据比较合适。
 
-|##var| guld_open_level | bag_init_capacity | bag_max_capacity | newbie_tasks |
-| - |- | - | - | - |
-| ##type | int | int | int | list,int|
-| ## |desc1 | desc 2 | desc 3 | desc 4 |
-| | 10 | 100| 500| 10001,10002 |
+![singleton](/img/cases/singleton2.jpg)
 
 ## 纵表
 
 大多数表都是横表，即一行一个记录。有些表，比如单例表，如果纵着填，一行一个字段，会比较舒服。A1为##column表示使用纵表模式。 上面的单例表，以纵表模式填如下。
 
-<table border="1">
-<tr align="center">
-<td>##var#column</td>
-<td>##type</td>
-<td>##</td>
-<td></td>
-</tr>
-<tr align="center">
-<td>guild_open_level</td><td>int</td><td>desc1</td><td>10</td>
-</tr>
-<tr align="center">
-<td>bag_init_capacity</td><td>int</td><td>desc2</td><td>100</td>
-</tr>
-<tr align="center">
-<td>bag_max_capacity</td><td>int</td><td>desc3</td><td>500</td>
-</tr>
-<tr align="center">
-<td>newbie_tasks</td><td>(list#sep=,),int</td><td>desc4</td><td>10001,10002</td>
-</tr>
-</table>
+![singleton](/img/cases/singleton.jpg)
 
