@@ -133,7 +133,7 @@ import语法为:
 |-|-|-|-|
 |full_name|否||类型全名，即可以是不包含命名空间，如 Hello，也可以包含命名空间如 item.Item|
 |parent|是||父类名，如果名字不包含命名空间，会优先从当前命名空间找，再从全局命名空间找|
-|valueType|是|false|对应schema逻辑结果中isValueType字段|
+|valueType|是|false|对应schema逻辑结构中isValueType字段|
 |sep|是|||
 |alias|是|false||
 |comment|是|||
@@ -292,7 +292,7 @@ mapper可包含0-n个option子元素，option格式如下：
 |-|-|-|-|
 |name|否||类型名，不能包含命名空间|
 |parent|是||父类名，如果名字不包含命名空间，会优先从当前命名空间找，再从全局命名空间找|
-|valueType|是|false|对应schema逻辑结果中isValueType字段|
+|valueType|是|false|对应schema逻辑结构中isValueType字段|
 |sep|是|||
 |alias|是|false||
 |comment|是|||

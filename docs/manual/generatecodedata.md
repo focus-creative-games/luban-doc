@@ -51,6 +51,7 @@
 
 
 - binary 格式。 格式紧凑，加载高效，但基本不具体可读性。推荐只用于正式发布。
+- bin-offset 格式。记录以bin格式导出的数据文件中每个记录的索引位置，可以用于以记录为粒度的lazy加载|
 - 标准 json 格式
 - **protobuf** bin和json
 - flatbuffers json
@@ -60,7 +61,48 @@
 - erlang
 - yaml
 
+### bin-offset 格式
 
+有时候不想直接加载整个表，而是希望以记录为粒度，访问到哪个记录时再加载某个记录。bin-offset格式记录了bin格式下每个记录在
+bin文件中的偏移，这样可以实现访问到某个记录时，如果未加载则直接从bin文件中读取相应偏移的数据。
+
+bin-offset按记录顺序序列化每个record的key和offset信息。
+
+| record_index 1 | record_index 2| ... | record_index n|
+
+其中 record_index k的实现为序列化记录的所有key，再序列化记录的offset。
+
+```text
+buf.Write(key1);
+buf.Write(key2);
+...
+buf.Write(Key N);
+buf.WriteSize(offset);
+```
+
+直接从bin-offset的源码能理解更清楚一些。
+
+```csharp
+    // x 为 输出的bin-offset文件
+    private void WriteList(DefTable table, List<Record> datas, ByteBuf x)
+    {
+        // buf 对应输出的bin文件
+        ByteBuf buf = new ByteBuf();
+        buf.WriteSize(datas.Count);
+        foreach (var d in datas)
+        {
+            foreach (var indexInfo in table.IndexList)
+            {
+                DType keyData = d.Data.Fields[indexInfo.IndexFieldIdIndex];
+                // 序列化记录的每个key
+                keyData.Apply(BinaryDataVisitor.Ins, x);
+            }
+            // 序列化记录的offset
+            x.WriteSize(buf.Size);
+            d.Data.Apply(BinaryDataVisitor.Ins, buf);
+        }
+    }
+```
 
 ## 不同语言支持的格式如下：
 

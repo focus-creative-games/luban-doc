@@ -107,6 +107,7 @@ Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./casc
 |data target|描述|
 |-|-|
 |bin| Luban独有的binary格式，紧凑、高效，推荐用于正式发布|
+|bin-offset|记录以bin格式导出的数据文件中每个记录的索引位置，可以用于以记录为粒度的lazy加载|
 |json|json格式|
 |lua|lua格式|
 |xml|xml格式|
