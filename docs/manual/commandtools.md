@@ -310,7 +310,8 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 
 dotnet %LUBAN_DLL% ^
     -t all ^
-    -c cs-bin,java-bin ^
+    -c cs-bin ^
+    -c java-bin ^
     -d bin  ^
     --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
     -x inputDataDir=%CONF_ROOT%\Datas ^
