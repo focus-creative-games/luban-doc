@@ -110,7 +110,7 @@ Luban内置了丰富的特性。
 - unreal + sluaunreal
 - unreal + puerts
 - cocos2d-x + lua
-- cocos2d-x + js
+- cocos2d-x + ts
 - godot + gdscript
 - 微信小程序平台
 - 其他家基于js的小程序平台
