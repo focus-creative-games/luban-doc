@@ -100,7 +100,7 @@ bean数据格式
 
 枚举的列限定格式
 
-![titlle_enum](/img/cases/titlle_enum.jpg)
+![titlle_enum](/img/cases/title_enum.jpg)
 
 多态bean列限定格式
 
