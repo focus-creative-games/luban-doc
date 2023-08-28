@@ -1,27 +1,27 @@
 {
   "解决配置痛点，当前最强大的游戏配置解决方案": {
-    "message": "解决配置痛点，当前最强大的游戏配置解决方案"
+    "message": "Solve configuration pain points, currently the most powerful game configuration solution"
   },
   "快速上手": {
-    "message": "快速上手"
+    "message": "Get started quickly"
   },
   "增强的excel格式": {
-    "message": "增强的excel格式"
+    "message": "Enhanced excel format"
   },
   "可以简洁地配置出像简单列表、子结构、结构列表，以及任意复杂的深层次的嵌套结构。": {
-    "message": "可以简洁地配置出像简单列表、子结构、结构列表，以及任意复杂的深层次的嵌套结构。"
+    "message": "Simple configurations such as simple lists, substructures, structured lists, and arbitrarily complex deep nested structures can be concisely configured。"
   },
   "强大的数据校验能力": {
-    "message": "强大的数据校验能力"
+    "message": "Powerful data verification ability"
   },
   "支持ref引用检查、path资源路径、range范围检查等等。": {
-    "message": "支持ref引用检查、path资源路径、range范围检查等等。"
+    "message": "Support ref reference check, path resource path, range range check, etc."
   },
   "支持众多语言": {
-    "message": "支持众多语言"
+    "message": "Supports many languages"
   },
   "支持生成c#、java、go、c++、lua、python、javascript、typescript、erlang、rust、gdscript 代码。": {
-    "message": "支持生成c#、java、go、c++、lua、python、javascript、typescript、erlang、rust、gdscript 代码。"
+    "message": "Supports generating c#, java, go, c++, lua, python, javascript, typescript, erlang, rust, gdscript code."
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
