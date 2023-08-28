@@ -117,7 +117,7 @@ sep可以出现在以下位置：
 
 用枚举项作为列名，最终值为所有非0或空的枚举项的**或值**。
 
-![titlle_enum](/img/cases/titlle_enum.jpg)
+![titlle_enum](/img/cases/title_enum.jpg)
 
 
 ### 多态bean支持 $type与$value 分别配置的列限定或流式格式的混合填写方式
