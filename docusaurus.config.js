@@ -98,7 +98,7 @@ const config = {
           // },
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/focus-creative-games/hybridclr',
+            href: 'https://github.com/focus-creative-games/luban',
             label: 'GitHub',
             position: 'right',
           },
@@ -150,11 +150,11 @@ const config = {
               // },
               {
                 label: 'GitHub',
-                href: 'https://gitee.com/focus-creative-games/luban',
+                href: 'https://github.com/focus-creative-games/luban',
               },
               {
                 label: 'Gitee',
-                href: 'https://github.com/focus-creative-games/luban',
+                href: 'https://gitee.com/focus-creative-games/luban',
               },
             ],
           },
