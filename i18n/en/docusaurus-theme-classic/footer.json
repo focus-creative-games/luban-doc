@@ -1,0 +1,42 @@
+{
+  "link.title.Docs": {
+    "message": "Docs",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Repository": {
+    "message": "Repository",
+    "description": "The title of the footer links column with title=Repository in the footer"
+  },
+  "link.title.More": {
+    "message": "More",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.文档": {
+    "message": "Document",
+    "description": "The label of footer link with label=文档 linking to /docs/intro"
+  },
+  "link.item.label.luban_examples": {
+    "message": "luban_examples",
+    "description": "The label of footer link with label=luban_examples linking to https://github.com/focus-creative-games/luban_examples"
+  },
+  "link.item.label.Excel2TextDiff": {
+    "message": "Excel2TextDiff",
+    "description": "The label of footer link with label=Excel2TextDiff linking to https://github.com/focus-creative-games/Excel2TextDiff"
+  },
+  "link.item.label.hybridclr": {
+    "message": "hybridclr",
+    "description": "The label of footer link with label=hybridclr linking to https://github.com/focus-creative-games/hybridclr"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/focus-creative-games/luban"
+  },
+  "link.item.label.Gitee": {
+    "message": "Gitee",
+    "description": "The label of footer link with label=Gitee linking to https://gitee.com/focus-creative-games/luban"
+  },
+  "copyright": {
+    "message": "Copyright © 2023 <a href=\"https://code-philosophy.com/\">Code Philosophy</a>. All Rights Reserved.",
+    "description": "The footer copyright"
+  }
+}

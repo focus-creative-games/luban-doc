@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Luban",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "My Site Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.文档": {
+    "message": "Document",
+    "description": "Navbar item with label document"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

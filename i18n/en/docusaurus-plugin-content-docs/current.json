@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.新手教程": {
+    "message": "The tutorial",
+    "description": "The label for category the tutorial in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.使用指南": {
+    "message": "User Guide",
+    "description": "The label for category user guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.其他": {
+    "message": "Other",
+    "description": "The label for category other in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.doc.介绍": {
+    "message": "Introduce",
+    "description": "The label for the doc item introduce in sidebar tutorialSidebar, linking to the doc intro"
+  }
+}
