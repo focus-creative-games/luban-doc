@@ -46,6 +46,7 @@ const sidebars = {
       items: [
         'manual/architecture',
         'manual/traits',
+        'manual/luban.conf',
         'manual/schema',
         'manual/defaultschemacollector',
         'manual/commandtools',

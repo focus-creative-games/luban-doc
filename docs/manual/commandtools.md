@@ -14,7 +14,7 @@ args：
 
   -s, --schemaCollector      schema collector name
 
-  --schemaPath               Required. schema path
+  --conf                     Required. luban global config file
 
   -t, --target               Required. target name
 
@@ -49,7 +49,7 @@ args：
 |参数|必选|默认值|描述|
 |-|-|-|-|
 |-s, --schemaCollector|否|default|schema根收集器|
-|--schemaPath|是||schema根收集器的根输入文件|
+|--conf|是||schema根收集器的根输入文件|
 |-t， --target|是||生成目标，取schema全局参数target中的一个|
 |-c, --codeTarget|否||生成的代码目标。可以有0-n个。如 `-c cs-bin -c java-json`|
 |-d, --dataTarget|否||生成的数据目标。可以有0-n个。如 `-d bin -d json`|
@@ -75,6 +75,7 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |cs-bin| C#，读取bin格式文件|
 |cs-simple-json| C#，使用SimpleJSON读取json文件，推荐用于Unity客户端|
 |cs-dotnet-json| C#，使用System.Text.Json库读取json文件，推荐用于dotnet core服务器|
+|cs-editor-json| C#，读取与保存记录为单个json文件，适用于自定义编辑器保存与加载原始配置文件|
 |lua-lua| lua，读取lua格式的文件|
 |lua-bin| lua，读取bin格式文件|
 |java-bin| java，读取bin格式文件|
@@ -137,7 +138,6 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 
 |参数|描述|可用值|示例|
 |-|-|-|-|
-|inputDataDir|源数据文件的根目录|| -x inputDataDir=/my/datatable/path|
 |outputCodeDir|代码目标的输出目录|| -x outputCodeDir=/my/output/dir|
 |outputDataDir|数据目标的输出目录|| -x outputDataDir=/my/output/dir|
 |codeStyle|代码目标的命名风格，内置实现的Code Target都会自动设置与目标语言相匹配的codeStyle，不需要显式指定|none、csharp-default、java-default、go-default、lua-default、typescript-default、cpp-default、python-default| -x codeStyle=csharp-default|
@@ -176,8 +176,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c cs-bin ^
     -d bin  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Assets/Gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
@@ -201,8 +200,7 @@ dotnet %GEN_CLIENT% ^
     -t all ^
     -c cs-simple-json ^
     -d json  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Assets/Gen ^
     -x outputDataDir=..\GenerateDatas\json ^
     -x pathValidator.rootDir=D:\workspace2\luban_examples\Projects\Csharp_Unity_bin ^
@@ -225,8 +223,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c cs-bin ^
     -d bin  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
@@ -249,8 +246,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c go-bin ^
     -d bin  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
@@ -273,8 +269,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c java-bin ^
     -d bin  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=src/main/gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
@@ -293,8 +288,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 
 dotnet %LUBAN_DLL% ^
     -t all ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json ^
     -x forceLoadDatas=1
@@ -314,8 +308,7 @@ dotnet %LUBAN_DLL% ^
     -c cs-bin ^
     -c java-bin ^
     -d bin  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x cs-bin.outputCodeDir=cs_output_path ^
     -x java-bin.outputCodeDir=java_output_path ^
     -x outputDataDir=..\GenerateDatas\bytes ^
