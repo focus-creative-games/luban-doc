@@ -26,7 +26,7 @@
 	[
 		{"name":"server", "manager":"Tables", "groups":["s"], "topModule":"cfg"},
 		{"name":"client", "manager":"Tables", "groups":["c"], "topModule":"cfg"},
-		{"name":"all", "manager":"Tables", "groups":["c,s,e"], "topModule":"cfg"}
+		{"name":"all", "manager":"Tables", "groups":["c","s","e"], "topModule":"cfg"}
 	]
 }
 
