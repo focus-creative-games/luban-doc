@@ -45,6 +45,10 @@ luban并没有限制标题头行的位置和数量。像`##xxx`之类的行可�
 
 ## 准备生成脚本
 
+:::warn
+如果你的excel文件目录不像MiniTemplates那样为luban.conf文件同级目录的Datas目录，则需要修改luban.conf中的dataDir字段。
+:::
+
 创建`gen.bat`文件，放到项目下（位置无要求）。
 
 ```bat
@@ -56,7 +60,7 @@ dotnet %LUBAN_DLL% ^
     -t client ^
     -c cs-simple-json ^
     -d json  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x inputDataDir=%CONF_ROOT%\Datas ^
     -x outputCodeDir=<cs代码输出目录> ^
     -x outputDataDir=<json数据输出目录>
@@ -71,7 +75,6 @@ pause
 - '-t' 生成目标。可以为 client、server、all之类的值
 - '-c' 生成的代码类型。 `cs-simple-json`为生成使用SimpleJSON加载json数据的c#代码
 - '-d' 生成的数据类型
-- 'inputDataDir' 配置表（如xlsx）的根目录
 - 'outputCodeDir' c#代码的输出目录
 - 'outputDataDir' json数据的输出目录
 
