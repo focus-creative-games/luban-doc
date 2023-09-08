@@ -6,7 +6,7 @@ vector3类型的地方能直接使用UnityEngine.Vector3，而不是生成的vec
 类型映射的定义方式请阅读文档[schema逻辑结构](schema)及[配置定义](defaultschemacollector)。
 由于类型映射影响了代码生成，目前**只有C#代码(cs-bin、cs-xxx-json之类)**支持类型映射。如果其他语言也需要类型，请仿照修改即可。
 
-[builtin.xml](https://github.com/focus-creative-games/luban_examples/blob/main/DesignerConfigs/Defines/builtin.xml)中提供极好的类型映射的示例。
+[builtin.xml](https://github.com/focus-creative-games/luban_examples/blob/main/DataTables/Defines/builtin.xml)中提供极好的类型映射的示例。
 
 ## enum类型映射
 

@@ -5,7 +5,7 @@ Sometimes you want to use ready-made struct types directly in the generated code
 For the definition of type mapping, please read the document [schema logical structure] (schema) and [configuration definition] (defaultschemacollector).
 Since type mapping affects code generation, currently **only C# code (cs-bin, cs-xxx-json, etc.)** supports type mapping. If other languages also need types, please modify them as follows.
 
-[builtin.xml](https://github.com/focus-creative-games/luban_examples/blob/main/DesignerConfigs/Defines/builtin.xml) provides an excellent example of type mapping.
+[builtin.xml](https://github.com/focus-creative-games/luban_examples/blob/main/DataTables/Defines/builtin.xml) provides an excellent example of type mapping.
 
 ## enum type mapping
 

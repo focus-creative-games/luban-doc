@@ -4,6 +4,7 @@
 
 1. 安装[dotnet sdk 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)或更高版本sdk
 2. 下载[luban_examples项目](https://github.com/focus-creative-games/luban_examples)。该项目中包含测试配置以及大量的示例项目。为方便起见，后续提及到的文件，默认都指这个项目中的文件。
+3. 下载Luban工具。从[release](https://github.com/focus-creative-games/luban/releases)下载Luban.7z文件，直接解压到Tools目录下即可，确保最终Luban程序的位置为`luban_examples/Tools/Luban/Luban.exe`。
 
 ## 准备配置工程
 
@@ -54,7 +55,7 @@ luban并没有限制标题头行的位置和数量。像`##xxx`之类的行可�
 ```bat
 
 set LUBAN_DLL=<Luban.dll路径>
-set CONF_ROOT=<DesignerConfigs路径>
+set CONF_ROOT=<DataTables路径>
 
 dotnet %LUBAN_DLL% ^
     -t client ^
@@ -71,7 +72,7 @@ pause
 简单介绍bat文件中各项参数：
 
 - LUBAN_DLL Luban.dll文件的路径。 指向 `luban_examples/Tools/Luban/Luban.dll`
-- CONF_ROOT 配置项目的路径。指向 `luban_examples/DesignerConfigs`
+- CONF_ROOT 配置项目的路径。指向 `luban_examples/DataTables`
 - '-t' 生成目标。可以为 client、server、all之类的值
 - '-c' 生成的代码类型。 `cs-simple-json`为生成使用SimpleJSON加载json数据的c#代码
 - '-d' 生成的数据类型

@@ -273,7 +273,7 @@ code_cs_unity_json使用了第三方的SimpleJson库，兼容unity的.net版本�
 
 ## binary与json格式加载性能对比
 
-以luban_examples的DesignerConfigs配置为测试数据，以Projects下的csharp_Unity_bin和csharp_Unity_json项目为测试对比，
+以luban_examples的DataTables配置为测试数据，以Projects下的csharp_Unity_bin和csharp_Unity_json项目为测试对比，
 加载100遍cfg.Table。
 
 binary格式耗时28ms，json格式耗时112ms。

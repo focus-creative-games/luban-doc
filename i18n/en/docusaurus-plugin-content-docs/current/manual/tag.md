@@ -7,7 +7,7 @@ Luban supports record-level tag marking, and each data can have 0 or more tags. 
 
 ## Format Introduction
 
-In different file formats, the way to fill in the record tag is similar, you can also refer to [luban_examples/DesignerConfigs/Data/tag_datas](https://github.com/focus-creative-games/luban_examples/tree/main/DesignerConfigs/Datas/tag_datas ) directory examples.
+In different file formats, the way to fill in the record tag is similar, you can also refer to [luban_examples/DataTables/Data/tag_datas](https://github.com/focus-creative-games/luban_examples/tree/main/DataTables/Datas/tag_datas ) directory examples.
 
 ### excel format
 

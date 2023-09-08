@@ -170,7 +170,7 @@ local将文件保存到本地目录。null则不执行任何操作。local是默
 set WORKSPACE=..\..
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
@@ -180,7 +180,7 @@ dotnet %LUBAN_DLL% ^
     -x outputCodeDir=Assets/Gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 
 ```
 
@@ -194,7 +194,7 @@ dotnet %LUBAN_DLL% ^
 set WORKSPACE=..\..
 
 set GEN_CLIENT=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %GEN_CLIENT% ^
     -t all ^
@@ -204,7 +204,7 @@ dotnet %GEN_CLIENT% ^
     -x outputCodeDir=Assets/Gen ^
     -x outputDataDir=..\GenerateDatas\json ^
     -x pathValidator.rootDir=D:\workspace2\luban_examples\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@D:\workspace2\luban_examples\DesignerConfigs\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@D:\workspace2\luban_examples\DataTables\Datas\l10n\texts.json
 
 
 ```
@@ -217,7 +217,7 @@ dotnet %GEN_CLIENT% ^
 set WORKSPACE=..\..
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
@@ -227,7 +227,7 @@ dotnet %LUBAN_DLL% ^
     -x outputCodeDir=Gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 
 ```
 
@@ -240,7 +240,7 @@ dotnet %LUBAN_DLL% ^
 set WORKSPACE=..\..
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
@@ -250,7 +250,7 @@ dotnet %LUBAN_DLL% ^
     -x outputCodeDir=gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json ^
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
     -x lubanGoModule=demo/luban
 
 ```
@@ -263,7 +263,7 @@ dotnet %LUBAN_DLL% ^
 set WORKSPACE=..\..
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
@@ -273,24 +273,24 @@ dotnet %LUBAN_DLL% ^
     -x outputCodeDir=src/main/gen ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 ```
 
 ### 用于策划检查配置，不生成任何代码和文件
 
-示例项目 [ConfigCheck](https://github.com/focus-creative-games/luban_examples/tree/main/DesignerConfigs)。
+示例项目 [ConfigCheck](https://github.com/focus-creative-games/luban_examples/tree/main/DataTables)。
 
 ```bat
 set WORKSPACE=..
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
     --conf %CONF_ROOT%\luban.conf ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json ^
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
     -x forceLoadDatas=1
 ```
 
@@ -301,7 +301,7 @@ dotnet %LUBAN_DLL% ^
 set WORKSPACE=..\..
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
-set CONF_ROOT=%WORKSPACE%\DesignerConfigs
+set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
@@ -313,6 +313,6 @@ dotnet %LUBAN_DLL% ^
     -x java-bin.outputCodeDir=java_output_path ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 
 ```
