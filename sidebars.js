@@ -57,6 +57,7 @@ const sidebars = {
         'manual/exceladvanced',
         'manual/otherdatasource',
         'manual/generatecodedata',
+        'manual/codestyle',
         'manual/loadconfigatruntime',
         'manual/validator',
         'manual/template',

@@ -8,51 +8,54 @@
 
 ```bat
 
-dotnet <path_of_luban.dll> [args] 
+dotnet <path_of_luban.dll> [args]
 
-args：
+args:
 
-  -s, --schemaCollector      schema collector name
+  -s, --schemaCollector        schema collector name
 
-  --conf                     Required. luban global config file
+  --conf                       Required. luban conf file
 
-  -t, --target               Required. target name
+  -t, --target                 Required. target name
 
-  -c, --codeTarget           code target name. allow multi instance.
+  -c, --codeTarget             code target name
 
-  -d, --dataTarget           data target name. allow multi instance.
+  -d, --dataTarget             data target name
 
-  -p, --pipeline             pipeline name
+  -p, --pipeline               pipeline name
 
-  -i, --includeTag           include tag. allow multi instance.
+  -f, --forceLoadTableDatas    force load table datas when not any dataTarget
 
-  -e, --excludeTag           exclude tag. allow multi instance.
+  -i, --includeTag             include tag
 
-  -o, --outputTable          output table. allow multi instance.
+  -e, --excludeTag             exclude tag
 
-  --timeZone                 timezone
+  -o, --outputTable            output table
 
-  --customTemplateDir        custom template search dir
+  --timeZone                   time zone
 
-  --validationFailAsError    validation fail as error
+  --customTemplateDir          custom template dirs
 
-  -x, --xargs                args like -x a=1 -x b=2. allow multi instance.
+  --validationFailAsError      validation fail as error
 
-  -v, --verbose              verbose
+  -x, --xargs                  args like -x a=1 -x b=2
 
-  --help                     Display this help screen.
+  -v, --verbose                verbose
 
-  --version                  Display version information.
+  --help                       Display this help screen.
+
+  --version                    Display version information.
 
 ```
 
 |参数|必选|默认值|描述|
 |-|-|-|-|
 |-s, --schemaCollector|否|default|schema根收集器|
-|--conf|是||schema根收集器的根输入文件|
+|--conf|是||luban配置项|
 |-t， --target|是||生成目标，取schema全局参数target中的一个|
 |-c, --codeTarget|否||生成的代码目标。可以有0-n个。如 `-c cs-bin -c java-json`|
 |-d, --dataTarget|否||生成的数据目标。可以有0-n个。如 `-d bin -d json`|
+|-f, --forceLoadTableDatas|否|false|即使没有指定任何dataTarget也要强行加载配置数据，适用于在配置表提交前检查配置合法性|
 |-p, --pipeline|否|default|生成管线。默认为内置的DefaultPipeline|
 |-i, --inlcudeTag|否||包含该tag的记录会被输出到数据目标|
 |-e, --excludeTag|否||包含该tag的记录不会被输出到数据目标|
@@ -141,13 +144,13 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |outputCodeDir|代码目标的输出目录|| -x outputCodeDir=/my/output/dir|
 |outputDataDir|数据目标的输出目录|| -x outputDataDir=/my/output/dir|
 |codeStyle|代码目标的命名风格，内置实现的Code Target都会自动设置与目标语言相匹配的codeStyle，不需要显式指定|none、csharp-default、java-default、go-default、lua-default、typescript-default、cpp-default、python-default| -x codeStyle=csharp-default|
+|namingConvention.{codeTarget}.{location}|codeTarget为`--codeTarget`参数中指定的target名。location为风格位置，可选值为namespace、type、method、property、field、enumItem，详见[代码风格](./codestyle)。该参数为层级选项，如果不指定{codeTarget}，则对所有target生效|none、pascal、camel、upper、snake|-x namingConvention.cs-bin.field=pascal|
 |dataExporter|数据导出器| null、default|-x dataExporter=default|
 |codePostprocess|代码后处理器，可以为多个|未实现任何内置postprocess| -x codePostProcess=a,b,c|
 |dataPostprocess|数据后处理器，可以为多个|未实现任何内置postprocess| -x dataPostProcess=a,b|
 |outputSaver|数据保存器，默认为local，即输出到本地目录，如果不想输出任何文件，可以用null|null、local| -x outputSaver=local|
 |l10n.textProviderName|本地化文本Provider|| -x l10n.textProviderName=default|
 |l10n.textProviderFile|本地化文本数据文件|| -x l10n.textProviderFile=xxxx|
-|forceLoadDatas|即使没有data target，也要加载源数据|| -x forceLoadDatas=1|
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 
 ## OutputSaver
