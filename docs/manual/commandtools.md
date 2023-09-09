@@ -122,6 +122,7 @@ Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./casc
 |protobuf-bin|protobuf的二进制格式|
 |protobuf-json|protobuf3起支持的json格式|
 |flatbuffers-json|flatbuffers支持的json格式|
+|text-list|输出配置出现的所有text key，按从小到大排序|
 
 
 如果要一次输出多个target，解决办法与code target类似。只需要用`<data target name>.outputDataDir`参数
@@ -151,6 +152,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |outputSaver|数据保存器，默认为local，即输出到本地目录，如果不想输出任何文件，可以用null|null、local| -x outputSaver=local|
 |l10n.textProviderName|本地化文本Provider|| -x l10n.textProviderName=default|
 |l10n.textProviderFile|本地化文本数据文件|| -x l10n.textProviderFile=xxxx|
+|l10n.textListFile|输出的配置中所有text key的列表的文件，配合 DataTarget text-list使用|
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 
 ## OutputSaver
