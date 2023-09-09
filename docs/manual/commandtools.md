@@ -150,6 +150,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |codePostprocess|代码后处理器，可以为多个|未实现任何内置postprocess| -x codePostProcess=a,b,c|
 |dataPostprocess|数据后处理器，可以为多个|未实现任何内置postprocess| -x dataPostProcess=a,b|
 |outputSaver|数据保存器，默认为local，即输出到本地目录，如果不想输出任何文件，可以用null|null、local| -x outputSaver=local|
+|outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|输出文件前是否清除outputCodeDir或者outputDataDir目录中多余的文件，默认为true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
 |l10n.textProviderName|本地化文本Provider|| -x l10n.textProviderName=default|
 |l10n.textProviderFile|本地化文本数据文件|| -x l10n.textProviderFile=xxxx|
 |l10n.textListFile|输出的配置中所有text key的列表的文件，配合 DataTarget text-list使用|

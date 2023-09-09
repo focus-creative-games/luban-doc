@@ -149,6 +149,7 @@ The parameters used by the built-in modules are:
 |codePostprocess|Code postprocessor, can be multiple|Does not implement any built-in postprocess| -x codePostProcess=a,b,c|
 |dataPostprocess|Data postprocessor, can be multiple|Does not implement any built-in postprocess| -x dataPostProcess=a,b|
 |outputSaver|Data saver, the default is local, that is, output to the local directory. If you do not want to output any files, you can use null|null, local| -x outputSaver=local|
+|outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|Whether to clear redundant files in the outputCodeDir or outputDataDir directory before outputting the file, the default is true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
 |l10n.textProviderName|Localized text Provider|| -x l10n.textProviderName=default|
 |l10n.textProviderFile|Localized text data file|| -x l10n.textProviderFile=xxxx|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
