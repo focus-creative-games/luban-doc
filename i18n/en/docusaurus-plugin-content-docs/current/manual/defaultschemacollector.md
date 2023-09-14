@@ -4,69 +4,6 @@ Luban has a set of [Schema logical structure](./schema) implementation independe
 
 This document describes the configuration definition format for the DefaultSchemaCollector implementation. Since DefaultSchemaCollector is the implementation of [Schema logical structure](./schema), **most configuration items are one-to-one correspondence**. Therefore, except for special cases, the specific meanings of these fields will not be introduced, please refer to this document directly.
 
-
-## root definition file
-
-The root definition file contains some global definitions, and is responsible for importing all sub-definition files, and then loads definitions such as enum, bean, and table from the sub-definition files.
-
-
-A typical root.xml definition looks like this:
-
-```xml
-<root>
-	<group name="c" default="1"/> client
-	<group name="s" default="1"/> server
-	<group name="e" default="1"/> editor
-	
-	<import name="."/>
-	
-	<import name="../Datas/__tables__.xlsx" type="table"/>
-	<import name="../Datas/__enums__.xlsx" type="enum"/>
-	<import name="../Datas/__beans__.xlsx" type="bean"/>
-	
-
-	<target name="server" manager="Tables" group="s" topModule="cfg"/>
-	<target name="client" manager="Tables" group="c" topModule="cfg"/>
-	<target name="all" manager="Tables" group="c,s,e" topModule="cfg"/>
-</root>
-```
-
-### group
-
-Corresponds to the group in the schema. There can be multiple groups, and most projects will define at least one group for each client and server.
-
-| field   | nullable | default value | supplementary |
-| ------- | -------- | ------------- | ------------- |
-| name    | No       |               |               |
-| default | is       | 0             |               |
-
-### target
-
-Corresponds to the target in the schema. There are 1-n targets. Generally at least one should be defined for the client and one for the server.
-
-| field     | nullable | default value | supplementary                                                |
-| --------- | -------- | ------------- | ------------------------------------------------------------ |
-| name      | No       |               |                                                              |
-| manager   | No       |               |                                                              |
-| group     | No       |               | The group contained in this target. There can be more than one, separated by ',' |
-| topModule | Yes      |               |                                                              |
-
-### import
-
-Import subdefinition files. The subdefinition file contains specific definitions such as enum, bean, and table.
-
-| field | nullable | default value | supplementary                                                |
-| ----- | -------- | ------------- | ------------------------------------------------------------ |
-| name  | No       |               | The imported file or directory. If it is a directory, it will recursively lead to all files in the directory |
-| type  | Yes      |               | schema file type, which is meaningless for xml type definition files. For excel type definition files, it is necessary to distinguish enum, bean, and table, because the definition types configured in different type definition files are different |
-
-name can point to a cell book, such as `xx@abc.xlsx`. When name points to a directory, and the type attribute is defined, the type attribute is used recursively for all subfiles. It is equivalent to importing all files in the directory, and the type of each import is the type of the directory.
-
-
-## sub definition file
-
-Currently, subdefinition files in excel format and xml format are supported. These two types of definition files are almost completely equivalent, except for some definitions that are only supported by xml definition files, such as refgroup and typeMapper.
-
 ## excel definition file
 
 Since excel tables are suitable for expressing similar definitions, enum, bean, and table need to be defined in different cell books or files.

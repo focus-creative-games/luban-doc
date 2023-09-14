@@ -8,70 +8,6 @@ Luban有一套独立于具体实现的[Schema逻辑结构](./schema)实现。对
 的实现，**大多数配置项是一一对应的**。因此除了特殊情况，不再介绍这些字段的具体含义，请直接查阅该文档。
 
 
-## 根定义文件
-
-根定义文件包含一些全局定义，并且负责import所有子定义文件，再从子定义文件中加载enum、bean、table之类定义。
-
-
-一个典型的root.xml定义类似这样：
-
-```xml
-<root>
-	<group name="c" default="1"/> client
-	<group name="s" default="1"/> server
-	<group name="e" default="1"/> editor
-	
-	<import name="."/>
-	
-	<import name="../Datas/__tables__.xlsx" type="table"/>
-	<import name="../Datas/__enums__.xlsx" type="enum"/>
-	<import name="../Datas/__beans__.xlsx" type="bean"/>
-	
-
-	<target name="server" manager="Tables" group="s" topModule="cfg"/>
-	<target name="client" manager="Tables" group="c" topModule="cfg"/>
-	<target name="all" manager="Tables" group="c,s,e" topModule="cfg"/>
-</root>
-```
-
-
-### group
-
-对应schema中group。group可以有多个，大多数项目至少会为客户端和服务器各定义一个group。
-
-|字段|可空|默认值|补充说明|
-|-|-|-|-|
-|name|否|||
-|default|是|0||
-
-### target
-
-对应schema中target。target有1-n个。一般至少要为客户端和服务器各定义一个。
-
-|字段|可空|默认值|补充说明|
-|-|-|-|-|
-|name|否|||
-|manager|否|||
-|group|否||该target所包含的分组。可以有多个，以','分割|
-|topModule|是|||
-
-### import
-
-导入子定义文件。子定义文件中包含enum、bean、table之类的具体定义。
-
-|字段|可空|默认值|补充说明|
-|-|-|-|-|
-|name|否||导入的文件或者目录。如果为目录时，会递归导致目录下所有文件|
-|type|是||schema文件类型，对于xml类型定义文件没有意义，对于excel类型定义文件，需要区分enum、bean、table，因为不同类型定义文件中配置的定义类型不一样|
-
-name可以指向某个单元薄，如 `xx@abc.xlsx`。当name指向目录，并且定义了type属性时，会将type属性递归用于所有子文件。相当于导入目录下所有文件，并且每个import
-的type为目录的type。
-
-
-## 子定义文件
-
-目前支持excel格式与xml格式的子定义文件。这两类定义文件几乎是完全等价的，除了一些只有xml定义文件支持的定义，如refgroup和typeMapper。
-
 ## excel定义文件
 
 由于excel表格适用于表达相似的定义，因此enum、bean、table需要分别在不同的单元薄或者文件中定义。
@@ -182,7 +118,7 @@ import语法为:
 
 ## xml定义文件
 
-目前只支持一种xml定义文件格式，要求import的type属性未定义或者为空。
+由于xml天然可以填写不同结构的数据，因此xml文件不需要像excel文件那样区分类型，要求import的type属性未定义或者为空。
 
 
 典型的xml定义文件如下：
