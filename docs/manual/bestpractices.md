@@ -7,10 +7,7 @@
 
 ## 调整生成的代码的命名约定
 
-默认是按照每个语言的推荐风格生成名称，例如 xxxx_yyyy在c#下是XxxxYyyy。有时候你想调整这个命名风格，
-比如说，使用原始形式，你可以通过参数 --naming_convention:bean_member none 来达到这一点。
-
-更多可以参考 [命令行](../manual/commandtools) 中的文档
+默认是按照每个语言的推荐风格生成名称，例如 xxxx_yyyy在c#下是XxxxYyyy。如果你想调整命名风格，请参阅[代码风格](./codestyle)文档。
 
 ## 灵活选择xml与excel定义
 
@@ -20,11 +17,6 @@
 
 如果使用xml定义，建议每个模块对应一个xml文件，并且有独立的模块名，便于管理和查找。
 
-## Luban.Server还是Luban.ClientServer
-
-Luban.Server需要部属，对于新手可能有些麻烦，但优点在于能利用缓存极大缩短生成时间，另外，更新Luban时也不需要大家更新工具了，有条件的项目推荐部属Luban.Server（使用docker部属其实就一行命令，非常简单，参见[命令行](../manual/commandtools)。
-
-中小项目，省事起见，也可以直接用Luban.ClientServer。
 
 ## 模块化
 
@@ -51,31 +43,17 @@ Luban.Server需要部属，对于新手可能有些麻烦，但优点在于能�
 参考 [githooks-demo](https://github.com/focus-creative-games/luban_examples/tree/main/githooks-demo)
 
 
-## 推荐使用 watch 机制，自动监测变更后 重新生成
+## 策划检查配置脚本可以不指定codeTarget和dataTarget
 
-Luban.Client和Luban.ClientServer提供了watch生成机制。使用参数 -w dir1,dir2,..  ，当相应目录变更时自动重新生成。例如一个示例脚本如下，当定义或者配置目录发生变化时，自动触发重新生成。
+由于策划往往只检查配置有效性而不想生成代码或者数据，可以不提供任何codeTarget和dataTarget。但如果没有任何dataTarget，
+默认不会加载数据，也不会校验数据，此时可以通过`-f `参数强迫没有任何dataTarget的情况下也加载配置数据，类似如下：
 
-```shell
-%GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg -w %CONF_ROOT%\Datas,%CONF_ROOT%\Defines --^
- -d %DEFINE_FILE%^
- --input_data_dir %CONF_ROOT%\Datas ^
- --output_code_dir TsScripts/src/Gen/Cfg ^
- --output_data_dir Assets\StreamingAssets\ConfigData ^
- --gen_types code_typescript_json,data_json ^
- -s client 
-```
-
-## 策划检查配置脚本推荐加上 --generateonly 参数
-
-注意，这个参数是Luban.Client的参数，必须加到 -- 之前。 加上此参数后Luban.Server仍然会生成数据，但Luban.Client不下载生成结果。可以进一步缩短时间。
-
-示例脚本如下
-
-```shell
-%LUBAN_CLIENT% -j cfg --generateonly -- ^
- --input_data_dir %DATA_DIR^ ^
- -- ...
- -- ...
+```bat
+dotnet %LUBAN_DLL% ^
+    -t all ^
+	-f ^
+    --conf %CONF_ROOT%\luban.conf ^
+    ...
 ```
 
 ## refgroup

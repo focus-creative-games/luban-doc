@@ -133,6 +133,10 @@ public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; 
 与ref的定义方法相似，但path只能作用于string类型数据。path校验器有几种子类型，参数有细微不同。path校验器的工作原理为根据字段值，产生一个路径，
 然后再检查这个路径是否存在，因此使用path检验器要求命令行中使用 `-x pathValidator.rootDir=xxx` 指定检查路径的根目录。
 
+:::tip
+如果未设置`pathValidator.rootDir`选项，则会自动禁用path检查，同时打印警告日志
+:::
+
 ### normal 检验器
 
 normal检验器需要参数，格式为 path=normal;\<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
