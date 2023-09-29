@@ -1,5 +1,5 @@
 {
-  "解决配置痛点，当前最强大的游戏配置解决方案": {
+  "一个强大、易用、优雅、稳定的游戏配置解决方案": {
     "message": "Solve configuration pain points, currently the most powerful game configuration solution"
   },
   "快速上手": {
@@ -9,7 +9,7 @@
     "message": "Enhanced excel format"
   },
   "可以简洁地配置出像简单列表、子结构、结构列表，以及任意复杂的深层次的嵌套结构。": {
-    "message": "Simple configurations such as simple lists, substructures, structured lists, and arbitrarily complex deep nested structures can be concisely configured。"
+    "message": "luban is a powerful, easy-to-use, elegant and stable game configuration solution."
   },
   "强大的数据校验能力": {
     "message": "Powerful data verification ability"

@@ -15,7 +15,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle"><Translate>解决配置痛点，当前最强大的游戏配置解决方案</Translate></p>
+        <p className="hero__subtitle"><Translate>一个强大、易用、优雅、稳定的游戏配置解决方案</Translate></p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
