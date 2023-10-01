@@ -62,7 +62,6 @@ dotnet %LUBAN_DLL% ^
     -c cs-simple-json ^
     -d json  ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
     -x outputCodeDir=<cs代码输出目录> ^
     -x outputDataDir=<json数据输出目录>
 

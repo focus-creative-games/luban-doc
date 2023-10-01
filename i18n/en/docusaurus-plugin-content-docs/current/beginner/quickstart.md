@@ -55,7 +55,6 @@ dotnet %LUBAN_DLL% ^
     -c cs-simple-json ^
     -d json  ^
     --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
     -x outputCodeDir=<cs code output directory> ^
     -x outputDataDir=<json data output directory>
 
