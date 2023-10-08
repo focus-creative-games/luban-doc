@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[5917],{7753:e=>{e.exports=JSON.parse('{"title":"User Guide","slug":"/basic","permalink":"/en/docs/basic","navigation":{"previous":{"title":"Get started quickly","permalink":"/en/docs/beginner/quickstart"},"next":{"title":"design philosophy","permalink":"/en/docs/manual/architecture"}}}')}}]);
