@@ -46,7 +46,7 @@ luban并没有限制标题头行的位置和数量。像`##xxx`之类的行可�
 
 ## 准备生成脚本
 
-:::warn
+:::warning
 如果你的excel文件目录不像MiniTemplates那样为luban.conf文件同级目录的Datas目录，则需要修改luban.conf中的dataDir字段。
 :::
 

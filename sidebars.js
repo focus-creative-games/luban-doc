@@ -44,6 +44,7 @@ const sidebars = {
       },
       collapsed: true,
       items: [
+        'manual/migrate',
         'manual/architecture',
         'manual/traits',
         'manual/luban.conf',
@@ -63,7 +64,6 @@ const sidebars = {
         'manual/template',
         'manual/tag',
         'manual/l10n',
-        'manual/migrate',
         'manual/bestpractices',
         'manual/extendluban'
       ],

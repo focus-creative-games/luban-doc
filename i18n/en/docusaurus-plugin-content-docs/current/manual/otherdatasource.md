@@ -8,25 +8,25 @@ Most of the data format filling methods are intuitive, and the data definitions 
 Take the following DemoType2 as an example to show how to fill in the corresponding data of this type in other file formats.
 
 ```xml
-<bean name="DemoType2">
-   <var name="x4" type="int" convert="DemoEnum"/>
-   <var name="x1" type="bool"/>
-   <var name="x5" type="long" convert="DemoEnum"/>
-   <var name="x6" type="float"/>
-   <var name="x7" type="double"/>
-   <var name="x10" type="string"/>
-   <var name="x12" type="DemoType1"/>
-   <var name="x13" type="DemoEnum"/>
-   <var name="x14" type="DemoDynamic" sep=","/> polymorphic data structure
-   <var name="t1" type="datetime"/>
-   <var name="k1" type="array,int"/> use; to separate
-   <var name="k2" type="list,int"/>
-   <var name="k8" type="map,int,int"/>
-   <var name="k9" type="list,DemoE2" sep="," index="y1"/>
-   <var name="k15" type="array,DemoDynamic" sep=","/>
+<bean name="DemoType2" >
+  <var name="x4" type="int"/>
+  <var name="x1" type="bool"/>
+  <var name="x5" type="long"/>
+  <var name="x6" type="float"/>
+  <var name="x7" type="double"/>
+  <var name="x10" type="string"/>
+  <var name="x12" type="DemoType1"/>
+  <var name="x13" type="DemoEnum"/>
+  <var name="x14" type="DemoDynamic#sep=,"/>
+  <var name="t1" type="datetime"/>
+  <var name="k1" type="array,int"/>
+  <var name="k2" type="list,int"/>
+  <var name="k8" type="map,int,int"/>
+  <var name="k9" type="(list#sep=,#index=y1),DemoE2"/>
+  <var name="k15" type="(array#sep=,),DemoDynamic"/> 
 </bean>
 
-<table name="TbDataFromSingle" value="DemoType2" input="test/datas"/>
+<table name="TbDataFromSingle" value="DemoType2" input="test/datas"/> 
 ```
 
 ## data directory

@@ -9,21 +9,21 @@
 
 ```xml
 <bean name="DemoType2" >
-  <var name="x4" type="int" convert="DemoEnum"/>
+  <var name="x4" type="int"/>
   <var name="x1" type="bool"/>
-  <var name="x5" type="long" convert="DemoEnum"/>
+  <var name="x5" type="long"/>
   <var name="x6" type="float"/>
   <var name="x7" type="double"/>
   <var name="x10" type="string"/>
   <var name="x12" type="DemoType1"/>
   <var name="x13" type="DemoEnum"/>
-  <var name="x14" type="DemoDynamic" sep=","/>多态数据结构
+  <var name="x14" type="DemoDynamic#sep=,"/>多态数据结构
   <var name="t1" type="datetime"/>
   <var name="k1" type="array,int"/> 使用;来分隔
   <var name="k2" type="list,int"/>
   <var name="k8" type="map,int,int"/>
-  <var name="k9" type="list,DemoE2" sep="," index="y1"/>
-  <var name="k15" type="array,DemoDynamic" sep=","/> 
+  <var name="k9" type="(list#sep=,#index=y1),DemoE2"/>
+  <var name="k15" type="(array#sep=,),DemoDynamic"/> 
 </bean>
 
 <table name="TbDataFromSingle" value="DemoType2" input="test/datas"/> 
