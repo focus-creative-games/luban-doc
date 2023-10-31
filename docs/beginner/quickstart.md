@@ -4,7 +4,7 @@
 
 1. 安装[dotnet sdk 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)或更高版本sdk
 2. 下载[luban_examples项目](https://github.com/focus-creative-games/luban_examples)。该项目中包含测试配置以及大量的示例项目。为方便起见，后续提及到的文件，默认都指这个项目中的文件。
-3. 下载Luban工具。从[release](https://github.com/focus-creative-games/luban/releases)下载Luban.7z文件，直接解压到Tools目录下即可，确保最终Luban程序的位置为`luban_examples/Tools/Luban/Luban.exe`。
+3. 下载Luban工具。从[release](https://github.com/focus-creative-games/luban/releases)下载Luban.7z文件，直接解压到Tools目录下即可，确保最终Luban程序的位置为`luban_examples/Tools/Luban/Luban.dll`。
 
 ## 准备配置工程
 

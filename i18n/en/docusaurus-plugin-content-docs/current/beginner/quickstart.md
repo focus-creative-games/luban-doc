@@ -4,7 +4,7 @@
 
 1. Install [dotnet sdk 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or higher version sdk
 2. Download [luban_examples project](https://github.com/focus-creative-games/luban_examples). The project contains test configurations and a large number of example projects. For convenience, the files mentioned later refer to the files in this project by default.
-3. Download the Luban tool. Download the Luban.7z file from [release](https://github.com/focus-creative-games/luban/releases) and unzip it directly to the Tools directory. Make sure that the final Luban program location is `luban_examples/Tools/ Luban/Luban.exe`.
+3. Download the Luban tool. Download the Luban.7z file from [release](https://github.com/focus-creative-games/luban/releases) and unzip it directly to the Tools directory. Make sure that the final Luban program location is `luban_examples/Tools/ Luban/Luban.dll`.
 
 ## Prepare to configure the project
 
