@@ -153,6 +153,7 @@ The parameters used by the built-in modules are:
 |l10n.textProviderName|Localized text Provider|| -x l10n.textProviderName=default|
 |l10n.textProviderFile|Localized text data file|| -x l10n.textProviderFile=xxxx|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
+|lineEnding|The line ending character of the generated code file|can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending character|-x lineEnding=LF|
 
 ## OutputSaver
 
