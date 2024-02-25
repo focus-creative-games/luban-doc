@@ -1,7 +1,7 @@
 # load configuration
 
-Loading data depends on some Luban Runtime code, please find the project that matches your project type in [Example Project](https://github.com/focus-creative-games/luban_examples/tree/main/Projects),
-Copy the Luban-related runtime code from this project.
+Loading data relies on some Luban Runtime code. For Unity+C#, the `com.code-philosophy.luban` package has been provided. Install the com.code-philosophy.luban package in Package Manager at the address `https://github.com/focus-creative-games/luban_unity.git` (or from `https://github.com/focus-creative-games/luban_unity`download). For other languages, please find the project that matches your project type in [Example Projects](https://github.com/focus-creative-games/luban_examples/tree/main/Projects).
+Copy the Luban related runtime code from this project.
 
 ##unity + c# + json
 

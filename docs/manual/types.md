@@ -50,5 +50,5 @@ Luban有完备的类型系统，尤其是**bean支持类型继承和多态**，�
 
 ## 特殊类型 tables
 
-为大多数语言生成代码时会包含一个所有表的管理类，类名在全局schema的target.TopModule字段定义。一般取名为Tables。
+为大多数语言生成代码时会包含一个所有表的管理类，类名在`luban.conf`中的`targets[xxx].manager`字段定义，一般取名为Tables。
 

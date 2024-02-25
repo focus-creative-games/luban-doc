@@ -50,4 +50,4 @@ When generating code for most languages, a class will be generated for each tabl
 
 ## special type tables
 
-When generating code for most languages, a management class for all tables is included, and the class name is defined in the target.TopModule field of the global schema. Generally named Tables.
+When generating code for most languages, a management class for all tables will be included. The class name is defined in the `targets[xxx].manager` field in `luban.conf` and is generally named Tables.

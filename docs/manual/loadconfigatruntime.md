@@ -1,6 +1,6 @@
 # 加载配置
 
-加载数据依赖一些Luban Runtime代码，请在 [示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目类型相符的项目，
+加载数据依赖一些Luban Runtime代码。对于Unity+C#，已经提供了`com.code-philosophy.luban`包。在Package Manager中安装com.code-philosophy.luban包，地址 `https://github.com/focus-creative-games/luban_unity.git`(或者从`https://github.com/focus-creative-games/luban_unity`下载)。对于其他语言请在 [示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目类型相符的项目，
 从该项目中复制Luban相关的Runtime代码。
 
 ## unity + c# + json 
