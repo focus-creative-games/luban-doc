@@ -12,7 +12,6 @@
 ## excel格式调整
 
 - excel A1单元以`##`开头则第一行会被当作注释行，而旧版本则当作是字段名定义行。
-- table定义中define_from_file属性改名为read_schema_from_file
 
 ## 命令行参数调整
 
@@ -26,7 +25,7 @@
 ## 定义调整
 
 - enum、bean支持group参数
-- table的read_from_file属性调整为readSchemaFromFile
+- table的read_from_file属性调整为readSchemaFromFile，相应的excel格式中read_from_file改为read_schema_from_file
 - 移除externaltype类型，改为typeMapper，并且直接在enum与bean的子元素中定义
 
 
