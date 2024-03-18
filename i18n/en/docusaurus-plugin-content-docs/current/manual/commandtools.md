@@ -87,7 +87,7 @@ Currently, the following code targets are supported built-in:
 |go-bin| go, read bin format files|
 |go-json| go, read json format files|
 |python-json|python, read json format files|
-|gdscript-json|gdscript, reads json format files. Note that if you develop using C# language, it is recommended to use the more efficient cs-bin format|
+|gdscript-json|gdscript, reads json format files. Note that if you develop using C# language, it is recommended to use the more efficient cs-bin format |
 |typescript-json| typescript, read json format files|
 |protobuf2| Generate schema file of proto2 syntax|
 |protobuf3| Generate schema file of proto3 syntax|
@@ -111,7 +111,7 @@ Built-in support for the following data targets:
 
 |data target|description|
 |-|-|
-|bin| Luban’s unique binary format, compact and efficient, recommended for official release |
+|bin| Luban’s unique binary format, compact and efficient, recommended for official release|
 |bin-offset|Records the index position of each record in the data file exported in bin format, which can be used for lazy loading with record granularity|
 |json|json format|
 |lua|lua format|
@@ -122,6 +122,7 @@ Built-in support for the following data targets:
 |protobuf-bin|binary format of protobuf|
 |protobuf-json|json format supported from protobuf3|
 |flatbuffers-json|json format supported by flatbuffers|
+|text-list|Output all text keys that appear in the configuration, sorted from small to large|
 
 
 If you want to output multiple targets at one time, the solution is similar to code target. Just use the `<data target name>.outputDataDir` parameter
@@ -150,8 +151,12 @@ The parameters used by the built-in modules are:
 |dataPostprocess|Data postprocessor, can be multiple|Does not implement any built-in postprocess| -x dataPostProcess=a,b|
 |outputSaver|Data saver, the default is local, that is, output to the local directory. If you do not want to output any files, you can use null|null, local| -x outputSaver=local|
 |outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|Whether to clear redundant files in the outputCodeDir or outputDataDir directory before outputting the file, the default is true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
-|l10n.textProviderName|Localized text Provider|| -x l10n.textProviderName=default|
-|l10n.textProviderFile|Localized text data file|| -x l10n.textProviderFile=xxxx|
+|l10n.provider|Localized text Provider. If this parameter is not set, no localization related operations will be performed, including text verification and static conversion |default| -x l10n.provider=default|
+|l10n.textFile.path|Localized text data file, this value is required when l10.provider is set|| -x l10n.textFile.path=xxxx|
+|l10n.textFile.keyFieldName|The field name of the data item key field in the localized text data file|| -x l10n.textFile.keyFieldName=key|
+|l10n.textFile.languageFieldName|The field name of the text value field corresponding to the language of the data item in the localized text data file|| -x l10n.languageFieldName=en|
+|l10n.convertTextKeyToValue|Perform static localization and replace the key with the text value of the corresponding language|| -x l10n.convertTextKeyToValue=1|
+|l10n.textListFile|The file containing the list of all text keys in the output configuration, used with DataTarget text-list|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|The line ending character of the generated code file|can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending character|-x lineEnding=LF|
 
@@ -162,7 +167,7 @@ The holder of the final generated data. Two savers, local and null, are currentl
 local saves files to a local directory. null performs no operation. Local is the saver used by default. Generally, local is used for generation tasks. If you only want to verify the configuration table and do not want to generate any data, use null
 Saver can achieve this goal.
 
-## Examples
+## Example
 
 Some common generation command examples are shown below. For more examples, please refer to [luban_examples/Projects](https://github.com/focus-creative-games/luban_examples/tree/main/Projects).
 

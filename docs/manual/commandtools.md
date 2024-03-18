@@ -151,8 +151,11 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |dataPostprocess|数据后处理器，可以为多个|未实现任何内置postprocess| -x dataPostProcess=a,b|
 |outputSaver|数据保存器，默认为local，即输出到本地目录，如果不想输出任何文件，可以用null|null、local| -x outputSaver=local|
 |outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|输出文件前是否清除outputCodeDir或者outputDataDir目录中多余的文件，默认为true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
-|l10n.textProviderName|本地化文本Provider|| -x l10n.textProviderName=default|
-|l10n.textProviderFile|本地化文本数据文件|| -x l10n.textProviderFile=xxxx|
+|l10n.provider|本地化文本Provider，如果未设置此参数则不进行任何本地化相关操作，包括text校验和静态转换|default| -x l10n.provider=default|
+|l10n.textFile.path|本地化文本数据文件，当设置了l10.provider时必填此值|| -x l10n.textFile.path=xxxx|
+|l10n.textFile.keyFieldName|本地化文本数据文件中数据项key字段的字段名|| -x l10n.textFile.keyFieldName=key|
+|l10n.textFile.languageFieldName|本地化文本数据文件中数据项对应语言的文本值字段的字段名|| -x l10n.languageFieldName=en|
+|l10n.convertTextKeyToValue|执行静态本地化，将key替换为对应语言的文本值|| -x l10n.convertTextKeyToValue=1|
 |l10n.textListFile|输出的配置中所有text key的列表的文件，配合 DataTarget text-list使用|
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|生成的代码文件的行尾符|可为CR、LF、CRLF，如果未指定则取Environment.NewLine为行尾符|-x lineEnding=LF|
