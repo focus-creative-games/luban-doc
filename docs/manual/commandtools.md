@@ -159,6 +159,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |l10n.textListFile|输出的配置中所有text key的列表的文件，配合 DataTarget text-list使用|
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|生成的代码文件的行尾符|可为CR、LF、CRLF，如果未指定则取Environment.NewLine为行尾符|-x lineEnding=LF|
+|{dataTarget}.json.compact|是否输出紧凑无缩进的json数据，默认为0|0、1、true、false|-x json.compact=1|
 
 ## OutputSaver
 

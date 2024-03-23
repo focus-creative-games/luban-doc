@@ -159,6 +159,7 @@ The parameters used by the built-in modules are:
 |l10n.textListFile|The file containing the list of all text keys in the output configuration, used with DataTarget text-list|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|The line ending character of the generated code file|can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending character|-x lineEnding=LF|
+|{dataTarget}.json.compact|output compact json file format，default is 0|0、1、true、false|-x json.compact=1|
 
 ## OutputSaver
 
