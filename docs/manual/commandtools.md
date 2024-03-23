@@ -83,7 +83,9 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |lua-bin| lua，读取bin格式文件|
 |java-bin| java，读取bin格式文件|
 |java-json| java，使用gson库读取json格式文件|
-|cpp-bin| cpp，读取bin格式文件|
+|~~cpp-bin~~| cpp，读取bin格式文件。自v2.3.0版本起移除|
+|cpp-sharedptr-bin| cpp，使用智能指针保存动态分配的对象，读取bin格式文件|
+|cpp-rawptr-bin| cpp，使用裸指针保存动态分配的对象，读取bin格式文件|
 |go-bin| go，读取bin格式文件|
 |go-json| go，读取json格式文件|
 |python-json|python，读取json格式文件|

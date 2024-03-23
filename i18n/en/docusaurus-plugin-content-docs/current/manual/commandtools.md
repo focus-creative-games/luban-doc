@@ -83,7 +83,9 @@ Currently, the following code targets are supported built-in:
 |lua-bin| lua, read bin format files|
 |java-bin| java, read bin format files|
 |java-json| java, use the gson library to read json format files|
-|cpp-bin| cpp, read bin format files|
+|~~cpp-bin~~| cpp, reads bin format files. Removed since v2.3.0 |
+|cpp-sharedptr-bin| cpp, use smart pointers to save dynamically allocated objects, read bin format files|
+|cpp-rawptr-bin| cpp, uses raw pointers to save dynamically allocated objects and reads bin format files|
 |go-bin| go, read bin format files|
 |go-json| go, read json format files|
 |python-json|python, read json format files|
