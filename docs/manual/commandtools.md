@@ -115,7 +115,8 @@ Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./casc
 |-|-|
 |bin| Luban独有的binary格式，紧凑、高效，推荐用于正式发布|
 |bin-offset|记录以bin格式导出的数据文件中每个记录的索引位置，可以用于以记录为粒度的lazy加载|
-|json|json格式|
+|json|json格式，map输出成[[key, value]]格式|
+|json2|与json格式类似，但map输出成{"key":"value"}格式|
 |lua|lua格式|
 |xml|xml格式|
 |yml|yaml格式|
@@ -161,7 +162,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |l10n.textListFile|输出的配置中所有text key的列表的文件，配合 DataTarget text-list使用|
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|生成的代码文件的行尾符|可为CR、LF、CRLF，如果未指定则取Environment.NewLine为行尾符|-x lineEnding=LF|
-|{dataTarget}.json.compact|是否输出紧凑无缩进的json数据，默认为0|0、1、true、false|-x json.compact=1|
+|json.compact|是否输出紧凑无缩进的json数据，与json或json2 dataTarget配合使用，默认为0|0、1、true、false|-x compact=1|
 
 ## OutputSaver
 

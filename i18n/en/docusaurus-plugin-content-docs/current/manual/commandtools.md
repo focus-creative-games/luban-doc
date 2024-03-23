@@ -115,7 +115,8 @@ Built-in support for the following data targets:
 |-|-|
 |bin| Luban’s unique binary format, compact and efficient, recommended for official release|
 |bin-offset|Records the index position of each record in the data file exported in bin format, which can be used for lazy loading with record granularity|
-|json|json format|
+|json|json format, map output is [[key, value]] format|
+|json2| is similar to json format, but map output is {"key":"value"} format|
 |lua|lua format|
 |xml|xml format|
 |yml|yaml format|
@@ -161,7 +162,7 @@ The parameters used by the built-in modules are:
 |l10n.textListFile|The file containing the list of all text keys in the output configuration, used with DataTarget text-list|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|The line ending character of the generated code file|can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending character|-x lineEnding=LF|
-|{dataTarget}.json.compact|output compact json file format，default is 0|0、1、true、false|-x json.compact=1|
+|json.compact|Whether to output compact unindented json data, used in conjunction with json or json2 dataTarget, the default is 0|0, 1, true, false|-x compact=1|
 
 ## OutputSaver
 
