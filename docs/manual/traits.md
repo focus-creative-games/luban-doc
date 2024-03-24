@@ -97,6 +97,8 @@ Luban内置了丰富的特性。
 - lua (5.1+)
 - typescript (3.0+)
 - python (2.7+ 及 3.0+)
+- gdscript (4.0+)
+- php
 
 
 ## 支持主流引擎、热更新方案和游戏平台

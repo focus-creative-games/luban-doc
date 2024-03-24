@@ -118,6 +118,7 @@ buf.WriteSize(offset);
 |go|:heavy_check_mark: | :heavy_check_mark: ||
 |python| :heavy_check_mark: | :heavy_check_mark: ||
 |typescript| :heavy_check_mark: | :heavy_check_mark: ||
+|php| | :heavy_check_mark: ||
 |rust|  | :heavy_check_mark: | |
 |godot|  | :heavy_check_mark: | |
 |protobuf|:heavy_check_mark:|:heavy_check_mark:|
