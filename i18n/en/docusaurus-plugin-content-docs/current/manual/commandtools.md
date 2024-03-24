@@ -91,6 +91,7 @@ Currently, the following code targets are supported built-in:
 |python-json|python, read json format files|
 |gdscript-json|gdscript, reads json format files. Note that if you develop using C# language, it is recommended to use the more efficient cs-bin format |
 |typescript-json| typescript, read json format files|
+|php-json| php, read json format files|
 |protobuf2| Generate schema file of proto2 syntax|
 |protobuf3| Generate schema file of proto3 syntax|
 |flatbuffers| Generate schema file for flatbuffers|

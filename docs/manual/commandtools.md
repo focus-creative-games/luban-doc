@@ -91,6 +91,7 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |python-json|python，读取json格式文件|
 |gdscript-json|gdscript，读取json格式文件。注意，如果你使用C#语言开发，推荐使用更高效的cs-bin格式|
 |typescript-json| typescript，读取json格式文件|
+|php-json|php，读取json格式文件|
 |protobuf2| 生成proto2语法的schema文件|
 |protobuf3| 生成proto3语法的schema文件|
 |flatbuffers| 生成flatbuffers的schema文件|
