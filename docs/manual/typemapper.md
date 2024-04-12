@@ -67,7 +67,7 @@ name为'type'的option项与enum完全相同，配置了目标类型。由于bea
 ## 生成类型映射后的代码
 
 对于不同的target，即使是同一种语言，前后端不一定使用相同的类型映射。例如对于vector3，前端可能想映射到UnityEngine.Vector3，而
-后面期望直接使用默认生成的类型或者映射到System.Numerics.Vector3。因此需要有机制可以区分这种情况。
+后端期望直接使用默认生成的类型或者映射到System.Numerics.Vector3。因此需要有机制可以区分这种情况。
 
 目前使用 mapper的target和codeTarget参数组合来表达映射需求。当 命令行的`-t $target`参数与`-c $codeTarget`参数分别与mapper的target
 及codeTarget的值匹配时，表示需要执行当前mapper指定的映射。

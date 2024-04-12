@@ -144,8 +144,8 @@ import语法为:
   <var name="desc" type="string"/>
 </bean>
 
-<table name="TbItem" value_type="Item" input="item.xlsx"/>
-<table name="TbItem2" value_type="Item2" input="item2.xlsx"/>
+<table name="TbItem" value="Item" input="item.xlsx"/>
+<table name="TbItem2" value="Item2" input="item2.xlsx"/>
 
 <refgroup name="item.TbItem,item.TbItem2"/>
 
@@ -171,7 +171,7 @@ import语法为:
     <var name="id" type="int"/>
     <var name="count" type="int"/>
   </bean>
-  <table name="TbSubItem" value_type="SubModuleType" input="submodule.xlsx"/>
+  <table name="TbSubItem" value="SubModuleType" input="submodule.xlsx"/>
 </module>
 
 
