@@ -2,7 +2,7 @@
 
 ## Install
 
-1. Install [dotnet sdk 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or higher version sdk
+1. Install [dotnet sdk 8.0](https://dotnet.microsoft.com/download/dotnet/8.0) or higher version sdk
 2. Download [luban_examples project](https://github.com/focus-creative-games/luban_examples). The project contains test configurations and a large number of example projects. For convenience, the files mentioned later refer to the files in this project by default.
 
 :::tip
