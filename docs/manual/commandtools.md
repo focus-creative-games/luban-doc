@@ -146,8 +146,8 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 
 |参数|描述|可用值|示例|
 |-|-|-|-|
-|outputCodeDir|代码目标的输出目录|| -x outputCodeDir=/my/output/dir|
-|outputDataDir|数据目标的输出目录|| -x outputDataDir=/my/output/dir|
+|{codeTarget}.outputCodeDir|代码目标的输出目录|| -x outputCodeDir=/my/output/dir|
+|{dataTarget}.outputDataDir|数据目标的输出目录|| -x outputDataDir=/my/output/dir|
 |codeStyle|代码目标的命名风格，内置实现的Code Target都会自动设置与目标语言相匹配的codeStyle，不需要显式指定|none、csharp-default、java-default、go-default、lua-default、typescript-default、cpp-default、python-default| -x codeStyle=csharp-default|
 |namingConvention.{codeTarget}.{location}|codeTarget为`--codeTarget`参数中指定的target名。location为风格位置，可选值为namespace、type、method、property、field、enumItem，详见[代码风格](./codestyle)。该参数为层级选项，如果不指定{codeTarget}，则对所有target生效|none、pascal、camel、upper、snake|-x namingConvention.cs-bin.field=pascal|
 |dataExporter|数据导出器| null、default|-x dataExporter=default|
@@ -164,6 +164,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|生成的代码文件的行尾符|可为CR、LF、CRLF，如果未指定则取Environment.NewLine为行尾符|-x lineEnding=LF|
 |json.compact|是否输出紧凑无缩进的json数据，与json或json2 dataTarget配合使用，默认为0|0、1、true、false|-x compact=1|
+|{dataTarget}.outputDataExtension|输出数据文件的文件名后缀||-x bin.outputDataExtension=bin|
 
 ## OutputSaver
 
