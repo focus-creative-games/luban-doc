@@ -121,7 +121,43 @@ inputFiles指定了多个输入数据源，定义方式极其灵活。每个数�
 ### groups
 
 由导出table的valueType计算出所有直接或者间接引用的类型（enum和bean），称之为默认导出集合。如果某个类型在默认导出集合内，即使它的groups不属于当前导出目标，也会被导出。
+
 如果groups中包含"\*"，则表示属于所有分组。如果enum、bean的groups包含"\*"，则意味着即使默认导出集合中没有引用这个类型，一定会为它生成代码。
+
+如果table、bean、enum的groups为空，当导出target的groups中有任意一个group的default为true时，将导出这些类型，否则不导出这些类型。
+
+以下面的luban.conf为例：
+
+```json
+{
+	"groups":
+	[
+		{"names":["c"], "default":true},
+		{"names":["s"], "default":true},
+		{"names":["e"], "default":true},
+		{"names":["t"], "default":false}
+	],
+	"schemaFiles":
+	[
+		{"fileName":"Defines", "type":""},
+		{"fileName":"Datas/__tables__.xlsx", "type":"table"},
+		{"fileName":"Datas/__beans__.xlsx", "type":"bean"},
+		{"fileName":"Datas/__enums__.xlsx", "type":"enum"}
+	],
+	"dataDir": "Datas",
+	"targets":
+	[
+		{"name":"test", "manager":"Tables", "groups":["t"], "topModule":"cfg"},
+		{"name":"server", "manager":"Tables", "groups":["s"], "topModule":"cfg"},
+		{"name":"client", "manager":"Tables", "groups":["c"], "topModule":"cfg"},
+		{"name":"editor", "manager":"Tables", "groups":["c"], "topModule":"editor.cfg"},
+		{"name":"all", "manager":"Tables", "groups":["c","s","e"], "topModule":"cfg"}
+	]
+}
+
+```
+
+如果bean MyVec的groups为空，即使没有任何导出table直接或者间接引用了它，当导出target为server时将导出MyVec类型，当导出target为test时将不会导出MyVec类型。
 
 field（bean的字段列表）没有默认导出集合的概念，如果groups为空，则导出给所有分组。
 

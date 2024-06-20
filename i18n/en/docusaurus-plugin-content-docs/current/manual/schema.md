@@ -155,7 +155,44 @@ inputFiles specifies multiple input data sources, and the definition method is e
 
 All directly or indirectly referenced types (enum and bean) are calculated from the valueType of the exported table, which is called the default export set. If a type is in the default export set, it will be exported even if its groups do not belong to the current export target.
 
-field (bean's field list) does not have the concept of exporting a collection by default. If groups is empty, it will be exported to all groups.
+If groups contains "\*", it means that it belongs to all groups. If the groups of enum and bean contain "\*", it means that code will be generated for it even if the type is not referenced in the default export set.
+
+If the groups of table, bean, and enum are empty, these types will be exported when any group in the export target's groups has default set to true, otherwise these types will not be exported.
+
+Take the following luban.conf as an example:
+
+```json
+{
+"groups":
+[
+{"names":["c"], "default":true},
+{"names":["s"], "default":true},
+{"names":["e"], "default":true},
+{"names":["t"], "default":false}
+],
+"schemaFiles":
+[
+{"fileName":"Defines", "type":""},
+{"fileName":"Datas/__tables__.xlsx", "type":"table"},
+{"fileName":"Datas/__beans__.xlsx", "type":"bean"},
+{"fileName":"Datas/__enums__.xlsx", "type":"enum"}
+],
+"dataDir": "Datas",
+"targets":
+[
+{"name":"test", "manager":"Tables", "groups":["t"], "topModule":"cfg"},
+{"name":"server", "manager":"Tables", "groups":["s"], "topModule":"cfg"},
+{"name":"client", "manager":"Tables", "groups":["c"], "topModule":"cfg"},
+{"name":"editor", "manager":"Tables", "groups":["c"], "topModule":"editor.cfg"},
+{"name":"all", "manager":"Tables", "groups":["c","s","e"], "topModule":"cfg"}
+]
+}
+
+```
+
+If the groups of bean MyVec is empty, even if there is no exported table directly or indirectly referencing it, the MyVec type will be exported when the export target is server, and the MyVec type will not be exported when the export target is test.
+
+There is no concept of a default export collection for field (the bean's field list). If groups is empty, it is exported to all groups.
 
 ### tags
 
