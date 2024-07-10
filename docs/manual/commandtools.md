@@ -92,6 +92,8 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |python-json|python，读取json格式文件|
 |gdscript-json|gdscript，读取json格式文件。注意，如果你使用C#语言开发，推荐使用更高效的cs-bin格式|
 |typescript-json| typescript，读取json格式文件|
+|rust-bin|生成rust代码，读取bin格式文件|
+|rust-json|生成rust代码，读取json格式文件|
 |php-json|php，读取json格式文件|
 |protobuf2| 生成proto2语法的schema文件|
 |protobuf3| 生成proto3语法的schema文件|
@@ -167,6 +169,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |lineEnding|生成的代码文件的行尾符|可为CR、LF、CRLF，如果未指定则取Environment.NewLine为行尾符|-x lineEnding=LF|
 |json.compact|是否输出紧凑无缩进的json数据，与json或json2 dataTarget配合使用，默认为0|0、1、true、false|-x compact=1|
 |{dataTarget}.outputDataExtension|输出数据文件的文件名后缀||-x bin.outputDataExtension=bin|
+|{codeTarget|dataTarget}.fileEncoding|输出文件的字符编码|-x lua.fileEncoding=gb2313|
 
 ## OutputSaver
 
