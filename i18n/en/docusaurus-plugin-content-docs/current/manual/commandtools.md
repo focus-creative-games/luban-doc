@@ -78,23 +78,29 @@ Currently, the following code targets are supported built-in:
 |cs-bin| C#, read bin format files|
 |cs-simple-json| C#, use SimpleJSON to read json files, recommended for Unity client|
 |cs-dotnet-json| C#, use System.Text.Json library to read json files, recommended for dotnet core server|
+|cs-newtonsoft-json| C#, use Newtonsoft.Json library to read json files|
 |cs-editor-json| C#, read and save records as a single json file, suitable for custom editors to save and load original configuration files|
-|lua-lua| lua, read files in lua format|
+|cs-protobuf| Generate code to load all protobuf bin format data, only contains Tables class|
+|lua-lua| lua, read lua format files|
 |lua-bin| lua, read bin format files|
 |java-bin| java, read bin format files|
-|java-json| java, use the gson library to read json format files|
-|~~cpp-bin~~| cpp, reads bin format files. Removed since v2.3.0 |
+|java-json| java, use gson library to read json format files|
+|~~cpp-bin~~| cpp, read bin format files. Removed since v2.3.0|
 |cpp-sharedptr-bin| cpp, use smart pointers to save dynamically allocated objects, read bin format files|
-|cpp-rawptr-bin| cpp, uses raw pointers to save dynamically allocated objects and reads bin format files|
+|cpp-rawptr-bin| cpp, use raw pointers to save dynamically allocated objects, read bin format files|
 |go-bin| go, read bin format files|
 |go-json| go, read json format files|
-|python-json|python, read json format files|
-|gdscript-json|gdscript, reads json format files. Note that if you develop using C# language, it is recommended to use the more efficient cs-bin format |
+|python-json| python, read json format files|
+|gdscript-json| gdscript, read json format files. Note that if you use C# language development, it is recommended to use the more efficient cs-bin format|
+|typescript-bin| typescript, read json format files|
 |typescript-json| typescript, read json format files|
-|php-json| php, read json format files|
-|protobuf2| Generate schema file of proto2 syntax|
-|protobuf3| Generate schema file of proto3 syntax|
-|flatbuffers| Generate schema file for flatbuffers|
+|typescript-protobuf| typescript, generate code to read protobuf format data, only contains Tables class|
+|rust-bin| Generate rust code, read bin format files|
+|rust-json| Generate rust code, read json format files|
+|php-json|php, read json format files|
+|protobuf2| Generate proto2 syntax schema files|
+|protobuf3| Generate proto3 syntax schema files|
+|flatbuffers| Generate flatbuffers schema files|
 
 :::caution
 
@@ -146,24 +152,27 @@ The parameters used by the built-in modules are:
 
 |Parameters|Description|Available values|Example|
 |-|-|-|-|
-|outputCodeDir|The output directory of the code target|| -x outputCodeDir=/my/output/dir|
-|outputDataDir|The output directory of the data target|| -x outputDataDir=/my/output/dir|
-|codeStyle|The naming style of the code target. The built-in Code Target will automatically set the codeStyle that matches the target language. There is no need to explicitly specify |none, csharp-default, java-default, go-default, lua-default, typescript -default,cpp-default,python-default| -x codeStyle=csharp-default|
-|namingConvention.{codeTarget}.{location}|codeTarget is the target name specified in the `--codeTarget` parameter. Location is the style location, and the optional values are namespace, type, method, property, field, and enumItem. For details, see [Code Style](./codestyle). This parameter is a hierarchical option. If {codeTarget} is not specified, it will take effect on all targets |none, pascal, camel, upper, snake|-x namingConvention.cs-bin.field=pascal|
-|dataExporter|Data Exporter| null, default|-x dataExporter=default|
-|codePostprocess|Code postprocessor, can be multiple|Does not implement any built-in postprocess| -x codePostProcess=a,b,c|
-|dataPostprocess|Data postprocessor, can be multiple|Does not implement any built-in postprocess| -x dataPostProcess=a,b|
-|outputSaver|Data saver, the default is local, that is, output to the local directory. If you do not want to output any files, you can use null|null, local| -x outputSaver=local|
-|outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|Whether to clear redundant files in the outputCodeDir or outputDataDir directory before outputting the file, the default is true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
-|l10n.provider|Localized text Provider. If this parameter is not set, no localization related operations will be performed, including text verification and static conversion |default| -x l10n.provider=default|
-|l10n.textFile.path|Localized text data file, this value is required when l10.provider is set|| -x l10n.textFile.path=xxxx|
-|l10n.textFile.keyFieldName|The field name of the data item key field in the localized text data file|| -x l10n.textFile.keyFieldName=key|
-|l10n.textFile.languageFieldName|The field name of the text value field corresponding to the language of the data item in the localized text data file|| -x l10n.languageFieldName=en|
-|l10n.convertTextKeyToValue|Perform static localization and replace the key with the text value of the corresponding language|| -x l10n.convertTextKeyToValue=1|
-|l10n.textListFile|The file containing the list of all text keys in the output configuration, used with DataTarget text-list|
+|{codeTarget}.outputCodeDir|Output directory of code target|| -x outputCodeDir=/my/output/dir|
+|{dataTarget}.outputDataDir|Output directory of data target|| -x outputDataDir=/my/output/dir|
+|codeStyle|Naming style of code target. Built-in Code Target will automatically set codeStyle that matches the target language. No explicit specification is required.|none, csharp-default, java-default, go-default, lua-default, typescript-default, cpp-default, python-default| -x codeStyle=csharp-default|
+|namingConvention.{codeTarget}.{location}|codeTarget is the target name specified in the `--codeTarget` parameter. location is the style location. Optional values ​​are namespace, type, method, property, field, enumItem. For details, see [Code Style](./codestyle). This parameter is a hierarchical option. If {codeTarget} is not specified, it will take effect on all targets|none, pascal, camel, upper, snake|-x namingConvention.cs-bin.field=pascal|
+|dataExporter|Data exporter| null, default|-x dataExporter=default|
+|codePostprocess|Code postprocessor, can be multiple|No built-in postprocess is implemented| -x codePostProcess=a,b,c|
+|dataPostprocess|Data postprocessor, can be multiple|No built-in postprocess is implemented| -x dataPostProcess=a,b|
+|outputSaver|Data saver, default is local, that is, output to the local directory. If you do not want to output any files, you can use null|null, local| -x outputSaver=local|
+|outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|Whether to clean up the redundant files in the outputCodeDir or outputDataDir directory before outputting files, default is true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
+|l10n.provider|Localized text provider. If this parameter is not set, no localization-related operations will be performed, including text verification and static conversion.|default| -x l10n.provider=default|
+|l10n.textFile.path|Localized text data file. This value must be filled in when l10.provider is set|| -x l10n.textFile.path=xxxx|
+|l10n.textFile.keyFieldName|The field name of the key field of the data item in the localized text data file|| -x l10n.textFile.keyFieldName=key|
+|l10n.textFile.languageFieldName|The field name of the text value field of the corresponding language of the data item in the localized text data file|| -x l10n.languageFieldName=en|
+|l10n.convertTextKeyToValue|Perform static localization and replace key with the text value of the corresponding language|| -x l10n.convertTextKeyToValue=1|
+|l10n.textListFile|The output file of all text key lists in the configuration, used with DataTarget text-list|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
-|lineEnding|The line ending character of the generated code file|can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending character|-x lineEnding=LF|
-|json.compact|Whether to output compact unindented json data, used in conjunction with json or json2 dataTarget, the default is 0|0, 1, true, false|-x compact=1|
+|lineEnding|The line ending of the generated code file|Can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending|-x lineEnding=LF|
+|json.compact|Whether to output compact json data without indentation, used with json or json2 dataTarget, the default is 0|0, 1, true, false|-x compact=1|
+|{dataTarget}.fileExt|The file name suffix of the output data file||-x bin.fileExt=bin|
+|~~{dataTarget}.outputDataExtension~~|The file name suffix of the output data file. Removed in v2.12.0, renamed to fileExt||-x bin.outputDataExtension=bin|
+|{codeTarget\|dataTarget}.fileEncoding|Character encoding of output file|-x lua.fileEncoding=gb2313|
 
 ## OutputSaver
 

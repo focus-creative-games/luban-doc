@@ -80,6 +80,7 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |cs-dotnet-json| C#，使用System.Text.Json库读取json文件，推荐用于dotnet core服务器|
 |cs-newtonsoft-json| C#，使用Newtonsoft.Json库读取json文件|
 |cs-editor-json| C#，读取与保存记录为单个json文件，适用于自定义编辑器保存与加载原始配置文件|
+|cs-protobuf| 生成加载所有protobuf bin格式数据的代码，仅含Tables类|
 |lua-lua| lua，读取lua格式的文件|
 |lua-bin| lua，读取bin格式文件|
 |java-bin| java，读取bin格式文件|
@@ -91,13 +92,14 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |go-json| go，读取json格式文件|
 |python-json|python，读取json格式文件|
 |gdscript-json|gdscript，读取json格式文件。注意，如果你使用C#语言开发，推荐使用更高效的cs-bin格式|
+|typescript-bin| typescript，读取json格式文件|
 |typescript-json| typescript，读取json格式文件|
+|typescript-protobuf| typescript，生成读取protobuf格式数据的代码，仅含Tables类|
 |rust-bin|生成rust代码，读取bin格式文件|
 |rust-json|生成rust代码，读取json格式文件|
 |php-json|php，读取json格式文件|
 |protobuf2| 生成proto2语法的schema文件|
 |protobuf3| 生成proto3语法的schema文件|
-|cs-protobuf| 生成C#版本加载所有pb table的Tables代码|
 |flatbuffers| 生成flatbuffers的schema文件|
 
 :::caution
@@ -168,8 +170,9 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |pathValidator.rootDir|path校验器搜索文件所用的根目录|| -x pathValidator.rootDir=/xx/yy|
 |lineEnding|生成的代码文件的行尾符|可为CR、LF、CRLF，如果未指定则取Environment.NewLine为行尾符|-x lineEnding=LF|
 |json.compact|是否输出紧凑无缩进的json数据，与json或json2 dataTarget配合使用，默认为0|0、1、true、false|-x compact=1|
-|{dataTarget}.outputDataExtension|输出数据文件的文件名后缀||-x bin.outputDataExtension=bin|
-|{codeTarget|dataTarget}.fileEncoding|输出文件的字符编码|-x lua.fileEncoding=gb2313|
+|{dataTarget}.fileExt|输出数据文件的文件名后缀||-x bin.fileExt=bin|
+|~~{dataTarget}.outputDataExtension~~|输出数据文件的文件名后缀。v2.12.0版本移除，改名为fileExt||-x bin.outputDataExtension=bin|
+|{codeTarget\|dataTarget}.fileEncoding|输出文件的字符编码|-x lua.fileEncoding=gb2313|
 
 ## OutputSaver
 
