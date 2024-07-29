@@ -33,6 +33,7 @@ const sidebars = {
       collapsed: false,
       items: [
         'beginner/quickstart',
+        'beginner/importtable',
       ],
     },
     {
@@ -50,6 +51,7 @@ const sidebars = {
         'manual/luban.conf',
         'manual/schema',
         'manual/defaultschemacollector',
+        'manual/importtable',
         'manual/commandtools',
         'manual/cascadingoption',
         'manual/types',
