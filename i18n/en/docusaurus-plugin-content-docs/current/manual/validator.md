@@ -133,12 +133,12 @@ Similar to the definition method of ref, but path can only act on string type da
 
 ### normal checker
 
-The normal checker requires parameters in the format path=normal;\<pattern\>. The * appearing in the pattern will be replaced by the field value to form the final value, and then check whether the corresponding file exists in the validate_root_dir directory.
+The normal checker requires parameters in the format path=normal;<pattern\>. The * appearing in the pattern will be replaced by the field value to form the final value, and then check whether the corresponding file exists in the validate_root_dir directory.
 
 ```xml
 <bean name="TestPath">
    <var name="x" type="string#path=normal;UI/*.text"/> Check whether the resource corresponding to the full path ${pathValidator.rootDir}/UI/${x}.text exists
-   <var name="x2" type="list,string#path=Prefabs/*.prefab"/> Check each element e of x2, the resource corresponding to ${pathValidator.rootDir}/Prefabs/${e}.prefab does it exist
+   <var name="x2" type="list,string#path=normal;Prefabs/*.prefab"/> Check each element e of x2, the resource corresponding to ${pathValidator.rootDir}/Prefabs/${e}.prefab does it exist
 </bean>
 ```
 

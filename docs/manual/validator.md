@@ -139,12 +139,12 @@ public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; 
 
 ### normal 检验器
 
-normal检验器需要参数，格式为 path=normal;\<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
+normal检验器需要参数，格式为 path=normal;<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
 
 ```xml
 <bean name="TestPath">
   <var name="x" type="string#path=normal;UI/*.text"/> 检查完整路径${pathValidator.rootDir}/UI/${x}.text 对应的资源是否存在
-  <var name="x2" type="list,string#path=Prefabs/*.prefab"/> 检查x2的每个元素e ，${pathValidator.rootDir}/Prefabs/${e}.prefab 对应的资源是否存在
+  <var name="x2" type="list,string#path=normal;Prefabs/*.prefab"/> 检查x2的每个元素e ，${pathValidator.rootDir}/Prefabs/${e}.prefab 对应的资源是否存在
 </bean>
 ```
 
@@ -253,3 +253,10 @@ size支持固定大小或者区间段的写法。
     <var name="x5" type="map,(int#set=1,2,3),(string#set=ab,cd)"/>
 </bean>
 ```
+
+
+## 其他复杂的自定义校验
+
+显然自带的校验器不可能支持所有校验需求，对于一些特殊的校验需求，使用单独的校验脚本会更适合。一个较优的办法是创建一个单独的校验项目，
+进行必须的校验，如果有错误，则打印错误并且返回失败。使用C#的测试框架来构建测试工程是一个非常合适的解决办法，具体可以
+参考 [CfgValidator](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/CfgValidator)项目。

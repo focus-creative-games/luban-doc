@@ -146,12 +146,12 @@ public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; 
 
 ### normal 检验器
 
-normal检验器需要参数，格式为 path=normal;\<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
+normal检验器需要参数，格式为 path=normal;<pattern\>。 pattern中出现的*会被字段值替换，形成最终值，再检查validate_root_dir目录下是否存在相应文件。
 
 ```xml
 <bean name="TestPath">
   <var name="x" type="string#path=normal;UI/*.text"/> 检查 完整路径 ${validate_root_dir}/UI/${x}.text 对应的资源是否存在
-  <var name="x2" type="list,string#path=Prefabs/*.prefab"/> 检查x2的每个元素e ，${validate_root_dir}/Prefabs/${e}.prefab 对应的资源是否存在
+  <var name="x2" type="list,string#path=normal;Prefabs/*.prefab"/> 检查x2的每个元素e ，${validate_root_dir}/Prefabs/${e}.prefab 对应的资源是否存在
 </bean>
 ```
 
