@@ -57,7 +57,7 @@ args:
 |-d, --dataTarget|No||The generated data target. There can be 0-n. Such as `-d bin -d json`|
 |-f, --forceLoadTableDatas|No|false|Forcibly load the configuration data even if no dataTarget is specified, suitable for checking the legality of the configuration before submitting the configuration table|
 |-p, --pipeline|No|default|Generate pipeline. Defaults to the built-in DefaultPipeline |
-|-i, --inlcudeTag|No||Records containing this tag will be output to the data target|
+|-i, --includeTag|No||Records containing this tag will be output to the data target|
 |-e, --excludeTag|No||Records containing this tag will not be output to the data target|
 |-o, --outputTable|No||Specify the table to be generated, there can be multiple, for example `-o item.tbItem -o bag.TbBag`. If this parameter is not specified, the exported table list is calculated according to group rules |
 |--timeZone|No||Specify the current time zone, which defaults to the local time zone. This parameter affects datetime types. This parameter is the time zone name under linux or win, such as `Asia/Shanghai` or `China Standard Time`|

@@ -57,7 +57,7 @@ args:
 |-d, --dataTarget|否||生成的数据目标。可以有0-n个。如 `-d bin -d json`|
 |-f, --forceLoadTableDatas|否|false|即使没有指定任何dataTarget也要强行加载配置数据，适用于在配置表提交前检查配置合法性|
 |-p, --pipeline|否|default|生成管线。默认为内置的DefaultPipeline|
-|-i, --inlcudeTag|否||包含该tag的记录会被输出到数据目标|
+|-i, --includeTag|否||包含该tag的记录会被输出到数据目标|
 |-e, --excludeTag|否||包含该tag的记录不会被输出到数据目标|
 |-o, --outputTable|否||指定要生成的table，可以有多个，例如`-o item.tbItem -o bag.TbBag`。如果未指定此参数，则按照group规则计算导出的table列表|
 |--timeZone|否||指定当前时区，默认取本地时区。此参数会影响datetime类型。该参数为linux或win下的时区名，例如 `Asia/Shanghai` 或 `China Standard Time`|
