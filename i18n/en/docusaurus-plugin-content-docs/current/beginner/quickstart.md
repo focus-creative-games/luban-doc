@@ -45,8 +45,8 @@ This completes the creation of the reward table!
 Take the most common unity + c# + json as an example. The example reference project is [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json),
 For other types, please refer to the corresponding projects in the Projects directory.
 
-Install the com.code-philosophy.luban package in Package Manager at the address `https://github.com/focus-creative-games/luban_unity.git` (or from `https://github.com/focus-creative- games/luban_unity`download).
-**Then turn on the unsafe option in Unity's PlayerSettings** (If your project requires not to turn on unsafe, please go to the group for help).
+Install the com.code-philosophy.luban package in Package Manager at the address `https://gitee.com/focus-creative-games/luban_unity.git`或`https://github.com/focus-creative-games/luban_unity.git` (or from `https://github.com/focus-creative- games/luban_unity`download).
+
 
 
 ## Prepare to generate script

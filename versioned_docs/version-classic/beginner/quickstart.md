@@ -77,7 +77,7 @@ luban_examples\MiniTemplate
 
 - 项目准备。  
 
-    拷贝示例项目中 Assets\LubanLib 目录到你的Unity项目中（可以自由组织位置），**===同时在Unity的PlayerSettings里开启unsafe选项===**（如果你们项目要求不开启unsafe，请群里求助）,此时尝试编译项目，理论上应该能成功编译。
+    拷贝示例项目中 Assets\LubanLib 目录到你的Unity项目中（可以自由组织位置），**===同时在Unity的PlayerSettings里开启unsafe选项===**,此时尝试编译项目，理论上应该能成功编译。
 
 - 运行生成命令（可以参考示例项目的gen_code_json.bat）
 
@@ -139,7 +139,7 @@ luban_examples\MiniTemplate
 
 - 项目准备。  
 
-    拷贝示例项目中 Assets\LubanLib 目录到你的Unity项目中（可以自由组织位置），**===同时在Unity的PlayerSettings里开启unsafe选项===**（如果你们项目要求不开启unsafe，请群里求助）,此时尝试编译项目，理论上应该能成功编译。
+    拷贝示例项目中 Assets\LubanLib 目录到你的Unity项目中（可以自由组织位置），**===同时在Unity的PlayerSettings里开启unsafe选项===**,此时尝试编译项目，理论上应该能成功编译。
 
 - 运行生成命令（可以参考示例项目的gen_code_json.bat）
 

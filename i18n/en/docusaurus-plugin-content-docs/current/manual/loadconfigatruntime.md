@@ -2,7 +2,7 @@
 
 ## Install Luban.Runtime
 
-Loading data depends on some Luban Runtime code. For Unity+C#, the `com.code-philosophy.luban` package is already provided. Install the com.code-philosophy.luban package in the Package Manager, address `https://github.com/focus-creative-games/luban_unity.git` (or download it from `https://github.com/focus-creative-games/luban_unity`). For other languages, please find the project that matches your project type in [Example Project](https://github.com/focus-creative-games/luban_examples/tree/main/Projects) and copy the Luban-related Runtime code from the project.
+Loading data depends on some Luban Runtime code. For Unity+C#, the `com.code-philosophy.luban` package is already provided. Install the com.code-philosophy.luban package in the Package Manager, address `https://gitee.com/focus-creative-games/luban_unity.git`或`https://github.com/focus-creative-games/luban_unity.git` (or download it from `https://github.com/focus-creative-games/luban_unity`). For other languages, please find the project that matches your project type in [Example Project](https://github.com/focus-creative-games/luban_examples/tree/main/Projects) and copy the Luban-related Runtime code from the project.
 
 ## unity + c# + json
 

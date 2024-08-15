@@ -45,8 +45,7 @@ luban并没有限制标题头行的位置和数量。像`##xxx`之类的行可�
 以最常见的 unity + c# + json 为例。示例参考项目为 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)，
 其他类型请参考 Projects目录下的相应项目。
 
-在Package Manager中安装com.code-philosophy.luban包，地址 `https://github.com/focus-creative-games/luban_unity.git`(或者从`https://github.com/focus-creative-games/luban_unity`下载)。
-**然后在Unity的PlayerSettings里开启unsafe选项**（如果你们项目要求不开启unsafe，请到群里求助）。
+在Package Manager中安装com.code-philosophy.luban包，地址 `https://gitee.com/focus-creative-games/luban_unity.git`或`https://github.com/focus-creative-games/luban_unity.git`(或者从`https://github.com/focus-creative-games/luban_unity`下载)。
 
 
 ## 准备生成脚本
