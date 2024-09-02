@@ -116,7 +116,7 @@ buf.WriteSize(offset);
 |lua| :heavy_check_mark: |  | :heavy_check_mark: |
 |c++| :heavy_check_mark: | ||
 |go|:heavy_check_mark: | :heavy_check_mark: ||
-|python| :heavy_check_mark: | :heavy_check_mark: ||
+|python| | :heavy_check_mark: ||
 |typescript| :heavy_check_mark: | :heavy_check_mark: ||
 |php| | :heavy_check_mark: ||
 |rust|  | :heavy_check_mark: | |

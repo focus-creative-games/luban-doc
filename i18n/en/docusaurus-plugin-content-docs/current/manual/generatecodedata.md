@@ -115,7 +115,7 @@ In the same language, different codes need to be generated for loading different
 | lua        | :heavy_check_mark: |                    | :heavy_check_mark: |
 | c++        | :heavy_check_mark: |                    |                    |
 | go         | :heavy_check_mark: | :heavy_check_mark: |                    |
-| python     | :heavy_check_mark: | :heavy_check_mark: |                    |
+| python     |                    | :heavy_check_mark: |                    |
 | typescript | :heavy_check_mark: | :heavy_check_mark: |                    |
 |php| | :heavy_check_mark: ||
 | rust       |                    | :heavy_check_mark: |                    |
