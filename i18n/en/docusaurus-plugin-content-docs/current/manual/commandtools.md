@@ -129,8 +129,10 @@ Built-in support for the following data targets:
 |yml|yaml format|
 |bson|bson format|
 |msgpack|binary format of msgpack|
-|protobuf-bin|binary format of protobuf|
-|protobuf-json|json format supported from protobuf3|
+|protobuf2-bin|binary format of protobuf2|
+|protobuf3-bin|binary format of protobuf3|
+|protobuf2-json|json format supported from protobuf2|
+|protobuf3-json|json format supported from protobuf3|
 |flatbuffers-json|json format supported by flatbuffers|
 |text-list|Output all text keys that appear in the configuration, sorted from small to large|
 

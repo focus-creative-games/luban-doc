@@ -129,8 +129,10 @@ Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./casc
 |yml|yaml格式|
 |bson|bson格式|
 |msgpack|msgpack的二进制格式|
-|protobuf-bin|protobuf的二进制格式|
-|protobuf-json|protobuf3起支持的json格式|
+|protobuf2-bin|protobuf2的二进制格式|
+|protobuf3-bin|protobuf3的二进制格式|
+|protobuf2-json|protobuf2支持的json格式|
+|protobuf3-json|protobuf3起支持的json格式|
 |flatbuffers-json|flatbuffers支持的json格式|
 |text-list|输出配置出现的所有text key，按从小到大排序|
 
