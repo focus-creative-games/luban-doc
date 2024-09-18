@@ -12,10 +12,10 @@
 
 虽然这样确实可以工作，但有几个问题：
 
-- 对于某个地区（如zh）来说，它并不需要其他地区的item_id，这个会增大了配置数据，也增加了无谓的内存开销
-- 程序员需要根据当前地区，选择从 item_id_zh 还是 item_id_en读取数据，这带来不便
+- 对于某个地区（如zh）来说，它并不需要其他地区的item\_id，这个会增大了配置数据，也增加了无谓的内存开销
+- 程序员需要根据当前地区，选择从 item\_id\_zh 还是 item\_id\_en读取数据，这带来不便
 
-字段变体较好地解决了此问题。无论是哪个地区的item_id_{xxx}，最终都会导出为一个公共的item_id字段，并且不包含其他用不到item_id_{yyy}。
+字段变体较好地解决了此问题。无论是哪个地区的item\_id\_{xxx}，最终都会导出为一个公共的item\_id字段，并且不包含其他用不到item\_id\_{yyy}。
 
 ## 定义
 
@@ -89,10 +89,9 @@ return {
 ## 导出数据
 
 一般来说，既然定义了变量变体，导出数据时应该为该变量指定当前应该使用的变体。命令参数`--variant {variantKey}={variantName}`用于为字段指定当前使用的变体。
+`{variantKey}`为`{beanFullName}.{fieldName}`, `{variantName}`为变体名。 例如`--variant TestVariant.value=en`表示导出数据时value字段取`value@en`列对应的值。
 
-`{variantKey}`为`{beanFullName}.{fieldName}`, `{variantName}`为变体名。 例如`--variant TestVariant.value=en`表示导出数据时value字段取`value_en`列对应的值。
-
-在为某个变量指定了当前使用的变体后，如果对应的字段不存在，则取默认字段的值。同样地，以变体en为例，如果`value_en`列不存在，则取`value`列的值，如果`value`列也不存在，则抛出字段找不到的错误。
+在为某个变量指定了当前使用的变体后，如果对应的字段不存在，则取默认字段的值。同样地，以变体en为例，如果`value@en`列不存在，则取`value`列的值，如果`value`列也不存在，则抛出字段找不到的错误。
 
 如果某个字段定义了变体，但没有在命令行中使用`--variant`指定该字段使用的变体名，则读取不含变量的原始变量的值。此时Luban会打印一行警告日志。
 
