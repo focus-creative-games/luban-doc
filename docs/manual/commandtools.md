@@ -10,8 +10,6 @@
 
 dotnet <path_of_luban.dll> [args]
 
-args:
-
   -s, --schemaCollector        schema collector name
 
   --conf                       Required. luban conf file
@@ -30,6 +28,8 @@ args:
 
   -e, --excludeTag             exclude tag
 
+  --variant                    field variants
+
   -o, --outputTable            output table
 
   --timeZone                   time zone
@@ -40,12 +40,15 @@ args:
 
   -x, --xargs                  args like -x a=1 -x b=2
 
+  -l, --logConfig              (Default: nlog.xml) nlog config file
+
+  -w, --watchDir               watch dir and regererate when dir changes
+
   -v, --verbose                verbose
 
   --help                       Display this help screen.
 
   --version                    Display version information.
-
 ```
 
 |参数|必选|默认值|描述|
@@ -57,8 +60,9 @@ args:
 |-d, --dataTarget|否||生成的数据目标。可以有0-n个。如 `-d bin -d json`|
 |-f, --forceLoadTableDatas|否|false|即使没有指定任何dataTarget也要强行加载配置数据，适用于在配置表提交前检查配置合法性|
 |-p, --pipeline|否|default|生成管线。默认为内置的DefaultPipeline|
-|-i, --includeTag|否||包含该tag的记录会被输出到数据目标|
-|-e, --excludeTag|否||包含该tag的记录不会被输出到数据目标|
+|-i, --includeTag|否||tag为空或者为该tag的记录会被输出到数据目标，其他tag数据会被忽略。 --includeTag与--excludeTag不能同时存在|
+|-e, --excludeTag|否||包含该tag的记录不会被输出到数据目标。 --includeTag与--excludeTag不能同时存在|
+|--variant|否||指定使用的字段变体，格式为 `--variant {variantKey}={variantName}`，其中`{variantKey}`为`{beanFullName}.{fieldName}`（如 `test.TestVariant.value`）。 可以有多个`--variant`用于为不同的字段指定变体。详细文档见[变量变体](./variants)|
 |-o, --outputTable|否||指定要生成的table，可以有多个，例如`-o item.tbItem -o bag.TbBag`。如果未指定此参数，则按照group规则计算导出的table列表|
 |--timeZone|否||指定当前时区，默认取本地时区。此参数会影响datetime类型。该参数为linux或win下的时区名，例如 `Asia/Shanghai` 或 `China Standard Time`|
 |--customTemplateDir|否||自定义template搜索路径，优先级搜索此路径，再搜索默认的Templates路径|

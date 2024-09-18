@@ -11,40 +11,45 @@ Thanks to the cross-platform capabilities of .net, Luban can run on mainstream W
 dotnet <path_of_luban.dll> [args]
 
 args:
+  -s, --schemaCollector        schema collector name
 
-   -s, --schemaCollector schema collector name
+  --conf                       Required. luban conf file
 
-   --conf Required. luban conf file
+  -t, --target                 Required. target name
 
-   -t, --target Required. target name
+  -c, --codeTarget             code target name
 
-   -c, --codeTarget code target name
+  -d, --dataTarget             data target name
 
-   -d, --dataTarget data target name
+  -p, --pipeline               pipeline name
 
-   -p, --pipeline pipeline name
+  -f, --forceLoadTableDatas    force load table datas when not any dataTarget
 
-   -f, --forceLoadTableDatas force load table datas when not any dataTarget
+  -i, --includeTag             include tag
 
-   -i, --includeTag include tag
+  -e, --excludeTag             exclude tag
 
-   -e, --excludeTag exclude tag
+  --variant                    field variants
 
-   -o, --outputTable output table
+  -o, --outputTable            output table
 
-   --timeZone time zone
+  --timeZone                   time zone
 
-   --customTemplateDir custom template dirs
+  --customTemplateDir          custom template dirs
 
-   --validationFailAsError validation fail as error
+  --validationFailAsError      validation fail as error
 
-   -x, --xargs args like -x a=1 -x b=2
+  -x, --xargs                  args like -x a=1 -x b=2
 
-   -v, --verbose verbose
+  -l, --logConfig              (Default: nlog.xml) nlog config file
 
-   --help Display this help screen.
+  -w, --watchDir               watch dir and regererate when dir changes
 
-   --version Display version information.
+  -v, --verbose                verbose
+
+  --help                       Display this help screen.
+
+  --version                    Display version information.
 
 ```
 
@@ -57,8 +62,9 @@ args:
 |-d, --dataTarget|No||The generated data target. There can be 0-n. Such as `-d bin -d json`|
 |-f, --forceLoadTableDatas|No|false|Forcibly load the configuration data even if no dataTarget is specified, suitable for checking the legality of the configuration before submitting the configuration table|
 |-p, --pipeline|No|default|Generate pipeline. Defaults to the built-in DefaultPipeline |
-|-i, --includeTag|No||Records containing this tag will be output to the data target|
-|-e, --excludeTag|No||Records containing this tag will not be output to the data target|
+|-i, --includeTag|No||Records with empty tag or this tag will be output to the data target, and other tag data will be ignored. --includeTag and --excludeTag cannot exist at the same time|
+|-e, --excludeTag|No||Records containing this tag will not be output to the data target. --includeTag and --excludeTag cannot exist at the same time|
+|--variant|No||Specify the field variant to be used, the format is `--variant {variantKey}={variantName}`, where `{variantKey}` is `{beanFullName}.{fieldName}` (such as `test.TestVariant.value`). There can be multiple `--variant` to specify variants for different fields. For detailed documentation, see [variant variants](./variants)|
 |-o, --outputTable|No||Specify the table to be generated, there can be multiple, for example `-o item.tbItem -o bag.TbBag`. If this parameter is not specified, the exported table list is calculated according to group rules |
 |--timeZone|No||Specify the current time zone, which defaults to the local time zone. This parameter affects datetime types. This parameter is the time zone name under linux or win, such as `Asia/Shanghai` or `China Standard Time`|
 |--customTemplateDir|No||Customize the template search path, search this path first, and then search the default Templates path|

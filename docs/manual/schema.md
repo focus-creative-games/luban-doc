@@ -75,11 +75,13 @@ Field的即bean的成员字段，定义如下：
 |字段|类型|可空|描述|
 |-|-|-|-|
 |name|string|否|字段名|
+|alias|string|是|字段别名。当从数据源解析字段数据时，如果按字段名找不到，则按别名查找|
 |type|string|否|字段类型，详见[类型系统](./types)|
 |comment|string|是|注释|
 |tags|map,string,string|自定义tag对|
 |NotNameValidation|bool|否|不检查字段名合法性|
 |groups|list,string|是|分组|
+|variants|list,string|是|字段变体，详见[字段变体](./variants)|
 
 groups详细说明请阅读公共属性小节的文档。
 

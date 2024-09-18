@@ -65,6 +65,7 @@ const sidebars = {
         'manual/validator',
         'manual/template',
         'manual/tag',
+        'manual/variants',
         'manual/l10n',
         'manual/bestpractices',
         'manual/extendluban'

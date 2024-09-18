@@ -69,13 +69,16 @@ For groups, tags, and typeMappers, please read the detailed introduction in the 
 
 EnumItem is defined as follows:
 
-| field   | type              | nullable | description           |
-| ------- | ----------------- | -------- | --------------------- |
-| name    | string            | No       | enumeration item name |
-| alias   | string            | Yes      | alias                 |
-| value   | string            | Yes      | enumeration value     |
-| comment | string            | Yes      | comment               |
-| tags    | map,string,string | Yes      | custom tag pair       |
+|Field|Type|Nullable|Description|
+|-|-|-|-|
+|name|string|No|Field name|
+|alias|string|Yes|Field alias. When parsing field data from the data source, if the field name cannot be found, it is searched by alias|
+|type|string|No|Field type, see [Type system](./types) for details|
+|comment|string|Yes|Comment|
+|tags|map,string,string|Custom tag pair|
+|NotNameValidation|bool|No|Do not check the validity of field names|
+|groups|list,string|Yes|Grouping|
+|variants|list,string|Yes|Field variants, see [Field variants](./variants) for details|
 
 If value is empty, it will automatically increment from the previous enumeration value, and if it is the first enumeration value, the value will be 0. value can be a decimal integer or a hexadecimal integer such as 0x10.
 value can also be a combination or combination of other enumeration values, such as `A|B`.
