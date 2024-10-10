@@ -176,7 +176,7 @@ The parameters used by the built-in modules are:
 |l10n.convertTextKeyToValue|Perform static localization and replace key with the text value of the corresponding language|| -x l10n.convertTextKeyToValue=1|
 |l10n.textListFile|The output file of all text key lists in the configuration, used with DataTarget text-list|
 |pathValidator.rootDir|The root directory used by the path validator to search for files|| -x pathValidator.rootDir=/xx/yy|
-|lineEnding|The line ending of the generated code file|Can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending|-x lineEnding=LF|
+|{code|data}.lineEnding|The line ending of the generated code and data files. This option is only valid for text output files, and is invalid for binary formats such as bin and bson.|Can be CR, LF, CRLF. If not specified, Environment.NewLine is used as the line ending|-x lineEnding=LF, -x code.LineEnding=LF, -x data.lineEnding=LF|
 |json.compact|Whether to output compact json data without indentation, used with json or json2 dataTarget, the default is 0|0, 1, true, false|-x compact=1|
 |{dataTarget}.fileExt|The file name suffix of the output data file||-x bin.fileExt=bin|
 |~~{dataTarget}.outputDataExtension~~|The file name suffix of the output data file. Removed in v2.12.0, renamed to fileExt||-x bin.outputDataExtension=bin|
