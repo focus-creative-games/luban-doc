@@ -24,6 +24,7 @@
 - skynet
 - ET
 - GameFramework
+- GameFrameX
 - QFramework
 - 其他
 
