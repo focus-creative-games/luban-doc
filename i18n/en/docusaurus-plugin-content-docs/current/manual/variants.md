@@ -92,4 +92,6 @@ Generally speaking, since a variable variant is defined, the variant that should
 
 After specifying the currently used variant for a variable, if the corresponding field does not exist, the value of the default field is taken. Similarly, taking variant en as an example, if the `value@en` column does not exist, the value of the `value` column is taken. If the `value` column does not exist either, an error that the field cannot be found is thrown.
 
+You can set a global default variant using --variant default={variantName}, and when a variant is not individually set for a bean, the global default variant will be used.
+
 If a field has a variant defined, but the variant name used by the field is not specified using `--variant` in the command line, the value of the original variable without the variant is read. At this time, Luban will print a warning log.
