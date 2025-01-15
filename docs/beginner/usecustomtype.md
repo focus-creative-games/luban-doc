@@ -8,7 +8,7 @@
 
 我们以定义Color枚举为例。
 
-打开`\_\_enums\_\_.xlsx`（一般在Datas目录下），添加如下数据：
+打开`__enums__.xlsx`（一般在Datas目录下），添加如下数据：
 
 ![color](/img/define_color.jpg)
 
@@ -34,7 +34,7 @@ flags=true表示这是标志类型枚举。
 
 ## 定义普通结构类型
 
-我们以常见的道具结构为例。打开`\_\_beans\_\_.xlsx`，添加以下数据：
+我们以常见的道具结构为例。打开`__beans__.xlsx`，添加以下数据：
 
 ![item](/img/define_item.jpg)
 

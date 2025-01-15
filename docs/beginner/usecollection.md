@@ -32,19 +32,19 @@
 
 ![item](/img/use_list2.jpg)
 
-至于可以多行填写，只要字段名前加'*'，则表示以多行方式填写数据，每行一个元素，详细见[Excel格式（高级）](../manual/exceladvanced)。
+甚至可以多行填写，只要字段名前加'*'，则表示以多行方式填写数据，每行一个元素，详细见[Excel格式（高级）](../manual/exceladvanced)。
 
 ![item](/img/use_list3.jpg)
 
 ## 填写map数据
 
-字典类型包含key和value，因此array之类要复杂一些。
+字典类型包含key和value，因此比array之类要复杂一些。
 
 同样的，map也可以在一个单元格内填写，为了更好区别 key和value，以及划分每个key-value对，一般来说map的sep会填2个。示例如下：
 
 ![item](/img/use_map.jpg)
 
-map的value类型也可以为容器类型，类似这样：
+map的value类型也可以为结构类型，类似这样：
 
 ![item](/img/use_map2.jpg)
 

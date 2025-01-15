@@ -29,23 +29,23 @@ When occupying a cell, you need to use `sep=x` to specify the separator. The sep
 
 ![item](/img/use_list.jpg)
 
-The element type can also be an enumeration or structure type. The figure below only shows array. The filling method of list and set types is similar.
+The element type can also be an enumeration or structure type. The figure below only shows the array. The filling method of list and set types is similar.
 
 ![item](/img/use_list2.jpg)
 
-As for the possibility of filling in multiple lines, as long as '*' is added before the field name, it means filling in data in multiple lines, one element per line. For details, see [Excel Format (Advanced)](../manual/exceladvanced).
+You can even fill in multiple lines. As long as '*' is added before the field name, it means filling in multiple lines of data, one element per line. For details, see [Excel Format (Advanced)](../manual/exceladvanced).
 
 ![item](/img/use_list3.jpg)
 
 ## Fill in map data
 
-The dictionary type contains key and value, so array and the like are more complicated.
+The dictionary type contains key and value, so it is more complicated than array and the like.
 
 Similarly, map can also be filled in a cell. In order to better distinguish key and value, and to divide each key-value pair, generally map's sep will be filled in 2. The example is as follows:
 
 ![item](/img/use_map.jpg)
 
-The value type of map can also be a container type, similar to this:
+The value type of map can also be a structure type, similar to this:
 
 ![item](/img/use_map2.jpg)
 

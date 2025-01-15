@@ -8,7 +8,7 @@ For detailed definition documents, see [schema logical structure](../manual/sche
 
 Let's take the definition of Color enumeration as an example.
 
-Open `\_\_enums\_\_.xlsx` (usually in the Datas directory) and add the following data:
+Open `__enums__.xlsx` (usually in the Datas directory) and add the following data:
 
 ![color](/img/define_color.jpg)
 
@@ -34,7 +34,7 @@ When configuring flag type enumeration, even if you can use only one enumeration
 
 ## Define common structure type
 
-Let's take the common prop structure as an example. Open `\_\_beans\_\_.xlsx` and add the following data:
+Let's take the common prop structure as an example. Open `__beans__.xlsx` and add the following data:
 
 ![item](/img/define_item.jpg)
 
