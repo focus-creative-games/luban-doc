@@ -107,8 +107,8 @@ dotnet %GEN_CLIENT% ^
 -d bin ^
 --conf %CONF_ROOT%\luban.conf ^
 -x cs-simple-json.outputCodeDir=Assets/Gen/Json ^
--x bin.outputCodeDir=Assets/Gen/Bin ^
--x cs-simple-json.outputDataDir=..\GenerateDatas\json ^
+-x cs-bin.outputCodeDir=Assets/Gen/Bin ^
+-x json.outputDataDir=..\GenerateDatas\json ^
 -x bin.outputDataDir=..\GenerateDatas\bin
 
 ```
