@@ -177,7 +177,7 @@ map的列限定格式
 ## 代码使用预览
 
 
-这儿只简略展示c#、typescript、go、c++ 语言在开发中的用法，更多语言以及更详细的使用范例和代码见[示例项目](https://github.com/focus-creative-games/luban_examples)。
+这儿只简略展示c#、typescript、go、c++ 语言在开发中的用法，更多语言以及更详细的使用范例和代码见[示例项目](https://gitee.com/focus-creative-games/luban_examples)。
 
 - C# 使用示例
 

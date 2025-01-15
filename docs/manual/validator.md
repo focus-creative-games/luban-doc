@@ -259,4 +259,4 @@ size支持固定大小或者区间段的写法。
 
 显然自带的校验器不可能支持所有校验需求，对于一些特殊的校验需求，使用单独的校验脚本会更适合。一个较优的办法是创建一个单独的校验项目，
 进行必须的校验，如果有错误，则打印错误并且返回失败。使用C#的测试框架来构建测试工程是一个非常合适的解决办法，具体可以
-参考 [CfgValidator](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/CfgValidator)项目。
+参考 [CfgValidator](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/CfgValidator)项目。

@@ -567,7 +567,7 @@ enum和bean类型都支持支持外部类型，可以将某个自定义类型，
 - mapper.target_type_name 必选。映射的外部类型全名。
 - mapper.create_external_object_function 映射外部enum时可选，外部class时必选。转换函数名。需要提供一个函数，用来将配置类对象转换到外部类对象。
 
-使用示例，可参见示例项目 [Csharp_Unity_bin_ExternalTypes](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin_ExternalTypes)
+使用示例，可参见示例项目 [Csharp_Unity_bin_ExternalTypes](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin_ExternalTypes)
 
 ## 类型
 
@@ -694,7 +694,7 @@ map的key类型的约束与set的element_type相关， value类型约束与 arra
 
 excel子定义文件与xml定义文件几乎完全等价，对于luban来说，只是从哪种格式的文件中解析读取定义的区别。
 
-请参见 [luban_examples](https://github.com/focus-creative-games/luban_examples)/DataTables目录下的 \_\_enums\_\_.xlsx, \_\_beans\_\_.xlsx, \_\_tables\_\_.xlsx。
+请参见 [luban_examples](https://gitee.com/focus-creative-games/luban_examples)/DataTables目录下的 \_\_enums\_\_.xlsx, \_\_beans\_\_.xlsx, \_\_tables\_\_.xlsx。
 
 excel子定义文件与xml子定义文件几乎完全等价（除了不能定义外部类的映射信息即externaltype），对luban而言它们的区别仅仅是定义的格式不同，但提供的元数据是等价的。
 

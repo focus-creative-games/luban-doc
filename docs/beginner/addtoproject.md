@@ -4,7 +4,7 @@
 
 按[快速上手](./quickstart)要求，安装[dotnet sdk 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)。
 
-## 下载[luban_examples项目](https://github.com/focus-creative-games/luban_examples)
+## 下载[luban_examples项目](https://gitee.com/focus-creative-games/luban_examples)
 
 使用git clone或者下载zip的方式下载luban_examples项目。
 

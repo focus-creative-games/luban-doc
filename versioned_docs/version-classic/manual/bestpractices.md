@@ -48,7 +48,7 @@ Luban.Server需要部属，对于新手可能有些麻烦，但优点在于能�
 
 ## 使用githooks，在策划提交策划配置前检查数据合法性
 
-参考 [githooks-demo](https://github.com/focus-creative-games/luban_examples/tree/main/githooks-demo)
+参考 [githooks-demo](https://gitee.com/focus-creative-games/luban_examples/tree/main/githooks-demo)
 
 
 ## 推荐使用 watch 机制，自动监测变更后 重新生成

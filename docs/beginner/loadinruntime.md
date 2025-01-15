@@ -1,8 +1,8 @@
 # 运行时加载配置
 
-我们已经在[Projects](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)下提供了大量示例项目。
+我们已经在[Projects](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)下提供了大量示例项目。
 
-我们以最常见的 Unity + c# + json 为例，示例项目为 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)，
+我们以最常见的 Unity + c# + json 为例，示例项目为 [Csharp_Unity_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)，
 其他类型请参考 Projects目录下的相应项目。
 
 ## 安装 com.code-philosophy.luban

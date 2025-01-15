@@ -177,7 +177,7 @@ Take behavior tree as an example to show how to configure behavior tree configur
 ## code usage preview
 
 
-Here we only briefly show the usage of c#, typescript, go, and c++ languages in development. For more languages and more detailed usage examples and codes, see [Example Project](https://github.com/focus-creative-games/luban_examples ).
+Here we only briefly show the usage of c#, typescript, go, and c++ languages in development. For more languages and more detailed usage examples and codes, see [Example Project](https://gitee.com/focus-creative-games/luban_examples ).
 
 - C# usage example
 

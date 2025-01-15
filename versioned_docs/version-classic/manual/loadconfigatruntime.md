@@ -2,7 +2,7 @@
 
 ## 在unity项目中使用c#代码加载json配置
 
-将 [LubanLib](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json/Assets/LubanLib) 目录复制到项目,
+将 [LubanLib](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json/Assets/LubanLib) 目录复制到项目,
 接着只需一行代码即可加载所有配置。
 
 ```csharp
@@ -16,7 +16,7 @@ Console.WriteLine(tables.TbItem.Get(12).Name);
 Console.WriteLine(tables.TbMail[1001].Desc);
 ```
 
-请自行实现合适的Loader函数，根据配置文件名file返回一个加载好的ByteBuf。 可借鉴[Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)中的代码。
+请自行实现合适的Loader函数，根据配置文件名file返回一个加载好的ByteBuf。 可借鉴[Csharp_Unity_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)中的代码。
 
 ## 在unity项目中使用c#代码自动判断加载bin或json配置
 
@@ -52,7 +52,7 @@ Console.WriteLine(tables.TbMail[1001].Desc);
     }
 ```
 
-可借鉴[Csharp_Unity_bin_or_json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin_or_json)中的代码。
+可借鉴[Csharp_Unity_bin_or_json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin_or_json)中的代码。
 
 ## 在unity+puers项目中使用typescript加载json配置
 
@@ -65,7 +65,7 @@ console.log(tables.TbGlobal.name)
 console.log(tables.TbItem.get(12).Name)
 ```
 
-请自行实现一个Loader的函数，根据表file 返回一个解析好的JSON对象。可借鉴 [Typescript_Unity_Puerts_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/TypeScript_Unity_Puerts_Json)中代码
+请自行实现一个Loader的函数，根据表file 返回一个解析好的JSON对象。可借鉴 [Typescript_Unity_Puerts_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/TypeScript_Unity_Puerts_Json)中代码
 
 ## 在go项目中加载json配置
 
@@ -90,5 +90,5 @@ println(tables.TbItem.Get(12).Name)
 
 ## 在java,python,c++,rust,lua 语言中加载配置
 
-请参见  [示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)。找到与你项目类型相符的示例项目，参考其加载
+请参见  [示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)。找到与你项目类型相符的示例项目，参考其加载
 代码即可。

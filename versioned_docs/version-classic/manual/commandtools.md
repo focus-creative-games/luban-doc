@@ -25,7 +25,7 @@ Luban工具有两种部属方式。
 基于 .net 6 runtime （可跨平台，不需要重新编译）。
 
 - 自行安装 .net 6 runtime 或 sdk.
-- 从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.ClientServer)拷贝整个Luban.ClientServer目录（**可跨平台，即使在linux、mac平台也不需要重新编译**）
+- 从[示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.ClientServer)拷贝整个Luban.ClientServer目录（**可跨平台，即使在linux、mac平台也不需要重新编译**）
 - 在Luban.ClientServer目录下运行 dotnet Luban.Server.dll (提示：Win平台可以直接运行 Luban.Server.exe)
 
 ### 安装 luban-client
@@ -33,7 +33,7 @@ Luban工具有两种部属方式。
 基于 .net 6 runtime （推荐win平台使用，可跨平台，不需要重新编译）。
 
 - 自行安装 .net 6 runtime 或 sdk.
-- 从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.Client)拷贝 Luban.Client（**可跨平台，即使在linux、mac平台也不需要重新编译**）
+- 从[示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Tools/Luban.Client)拷贝 Luban.Client（**可跨平台，即使在linux、mac平台也不需要重新编译**）
 
 ## 方法2： Client与Server一体模式
 

@@ -29,7 +29,7 @@ luban为编辑器生成的代码跟为项目运行时使用的代码很不一样
 
 取 --gen_types code_cs_unity_editor_json , 生成即可。
 
-可参考示例项目[Csharp_Unity_Editor_json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_Editor_json)
+可参考示例项目[Csharp_Unity_Editor_json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_Editor_json)
 
 使用示例如下
 

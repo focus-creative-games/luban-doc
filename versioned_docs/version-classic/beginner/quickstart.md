@@ -6,7 +6,7 @@
 ## 安装
 
 1. 安装[dotnet sdk 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-2. 下载[luban_examples项目](https://github.com/focus-creative-games/luban_examples)项目中包含测试配置以及大量的示例项目。为方便起见，后续提及到的文件，默认都指这个项目中的文件。
+2. 下载[luban_examples项目](https://gitee.com/focus-creative-games/luban_examples)项目中包含测试配置以及大量的示例项目。为方便起见，后续提及到的文件，默认都指这个项目中的文件。
 
 ## 配置和代码生成
 
@@ -73,7 +73,7 @@ luban_examples\MiniTemplate
 
 ### unity + c# + json
 
- 示例参考项目为 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)。
+ 示例参考项目为 [Csharp_Unity_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)。
 
 - 项目准备。  
 
@@ -135,7 +135,7 @@ luban_examples\MiniTemplate
 
 ### unity + c# + bin
 
- 示例参考项目为 [Csharp_Unity_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin)。
+ 示例参考项目为 [Csharp_Unity_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin)。
 
 - 项目准备。  
 
@@ -197,7 +197,7 @@ luban_examples\MiniTemplate
 
 ### excel导出json数据，自己手写代码加载使用
 
-示例为 [GenerateDatas项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json) 下的 gen_data_json2.bat
+示例为 [GenerateDatas项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json) 下的 gen_data_json2.bat
 （注意不是gen_data_json.bat,因为gen_data_json.bat中'--gen_types data_json',生成的json数据为记录列表，而不是以key-value形式组织，可能并不符合你的要求）。
 
 脚本如下：
@@ -225,25 +225,25 @@ dotnet %Luban.ClientServer.dll%
 
 ### 服务器 dotnet core c# + json
 
- 示例参考项目为 [Csharp_Unity_DotNet5_json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_DotNet5_json)。
+ 示例参考项目为 [Csharp_Unity_DotNet5_json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_DotNet5_json)。
 
 ### 服务器 dotnet core c# + bin
 
- 示例参考项目为 [Csharp_Unity_DotNet5_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_DotNet5_bin)。
+ 示例参考项目为 [Csharp_Unity_DotNet5_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_DotNet5_bin)。
 
 ### xlua + bin
 
-示例参考项目为 [Lua_Unity_xlua_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Lua_Unity_xlua_bin)。
+示例参考项目为 [Lua_Unity_xlua_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Lua_Unity_xlua_bin)。
 
 ### xlua + lua
 
-示例参考项目为 [Lua_Unity_xlua_lua](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Lua_Unity_xlua_lua)。
+示例参考项目为 [Lua_Unity_xlua_lua](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Lua_Unity_xlua_lua)。
 
 ### go + bin
 
-示例参考项目为 [go_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/go_bin)。
+示例参考项目为 [go_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/go_bin)。
 
 ### 其他项目类型
   
-不同项目之间，仅仅是准备工作及`--gen_types`不一样， 请从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目匹配的项目，
+不同项目之间，仅仅是准备工作及`--gen_types`不一样， 请从[示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目匹配的项目，
 参考相应目录下的 gen_xxx.bat 即可。生成的代码一般会依赖于一些工具类，请从相应项目里拷贝这些代码到自己项目即可。更多可以参考 [代码与数据生成](../manual/generatecodedata) 这个文档。

@@ -189,11 +189,11 @@ local将文件保存到本地目录。null则不执行任何操作。local是默
 
 ## 示例
 
-下面展示了一些常见的生成命令示例，更多示例请参考 [luban_examples/Projects](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)。
+下面展示了一些常见的生成命令示例，更多示例请参考 [luban_examples/Projects](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)。
 
 ### unity + c# + bin
 
-示例项目[Csharp_Unity_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin)。
+示例项目[Csharp_Unity_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin)。
 
 ```bat
 
@@ -216,7 +216,7 @@ dotnet %LUBAN_DLL% ^
 
 ### unity + c# + json
 
-示例项目[Csharp_Unity_json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)。
+示例项目[Csharp_Unity_json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)。
 
 
 ```bat
@@ -241,7 +241,7 @@ dotnet %GEN_CLIENT% ^
 
 ### dotnet + c# + bin
 
-示例项目[Csharp_DotNet_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_DotNet_bin)。
+示例项目[Csharp_DotNet_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_DotNet_bin)。
 
 ```bat
 set WORKSPACE=..\..
@@ -264,7 +264,7 @@ dotnet %LUBAN_DLL% ^
 
 ### go + bin
 
-示例项目 [Go_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Go_bin)。
+示例项目 [Go_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Go_bin)。
 
 ```bat
 set WORKSPACE=..\..
@@ -287,7 +287,7 @@ dotnet %LUBAN_DLL% ^
 
 ### java + bin
 
-示例项目 [Java_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Java_bin)
+示例项目 [Java_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Java_bin)
 
 ```bat
 set WORKSPACE=..\..
@@ -308,7 +308,7 @@ dotnet %LUBAN_DLL% ^
 
 ### 用于策划检查配置，不生成任何代码和文件
 
-示例项目 [ConfigCheck](https://github.com/focus-creative-games/luban_examples/tree/main/DataTables)。
+示例项目 [ConfigCheck](https://gitee.com/focus-creative-games/luban_examples/tree/main/DataTables)。
 
 ```bat
 set WORKSPACE=..

@@ -18,9 +18,9 @@ Luban.Server支持模板搜索路径， Luban.Server命令行参数" -t， --tem
 
 ## 代码模板
 
-自定义代码模板示例可参见 [Csharp_CustomTemplate_AsyncLoad](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_CustomTemplate_AsyncLoad)。
+自定义代码模板示例可参见 [Csharp_CustomTemplate_AsyncLoad](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_CustomTemplate_AsyncLoad)。
 
-生成脚本示例参见 [脚本目录](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/GenerateDatas) 下的 gen_template_xxxx.bat 文件。
+生成脚本示例参见 [脚本目录](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/GenerateDatas) 下的 gen_template_xxxx.bat 文件。
 
 使用scriban模板文件定制导出数据格式。例如生成cs语言bin数据格式的cfg.Tables类的模板如下。
 
@@ -75,7 +75,7 @@ public sealed class {{name}}
 
 例如 "--gen_types data_template --template_name lua" 则会从搜索路径查找 config/data/lua.tpl 文件。
 
- 示例模板文件在 [CustomTemplates](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/DataTemplates/CustomTemplates/config/data) 下。
+ 示例模板文件在 [CustomTemplates](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/DataTemplates/CustomTemplates/config/data) 下。
 
  
 使用scriban模板文件定制导出数据格式。例如自定义的lua数据模板如下：

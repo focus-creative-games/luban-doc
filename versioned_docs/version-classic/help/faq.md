@@ -114,7 +114,7 @@ luban支持数据tag的概念。 excel第一列为tag。
 
 不直接支持。但你可以通过自定义模板方式实现异步加载。
 
-参见 [代码与数据模板](../manual/template)，以及相应异步加载示例项目 [csharp_async_load](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_CustomTemplate_AsyncLoad)
+参见 [代码与数据模板](../manual/template)，以及相应异步加载示例项目 [csharp_async_load](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_CustomTemplate_AsyncLoad)
 
 ## 支持自定义代码或者数据生成吗
 

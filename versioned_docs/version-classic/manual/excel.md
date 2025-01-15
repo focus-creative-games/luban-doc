@@ -919,7 +919,7 @@ xml中定义如下
 目前只对容器类型字段支持多行。字段名前加*,如*stages,或者添加multi_rows=1参数也行，如stages#multi_rows=1。
 一旦标记字段为多行，每行会作为字段的一个元素读入，例如 list,bean类型，则每行读入一个bean结构。
 
-多行可以嵌套，即多行字段中，某个字段本身也可以是多行记录。 示例可参见[multi_rows_record](https://github.com/focus-creative-games/luban_examples/blob/main/DataTables/Datas/test/multi_rows_record.xlsx)
+多行可以嵌套，即多行字段中，某个字段本身也可以是多行记录。 示例可参见[multi_rows_record](https://gitee.com/focus-creative-games/luban_examples/blob/main/DataTables/Datas/test/multi_rows_record.xlsx)
 
 ```xml
 <bean name="Stage">

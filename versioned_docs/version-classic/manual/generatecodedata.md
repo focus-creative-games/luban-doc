@@ -98,7 +98,7 @@ dotnet %LUBAN_CLIENT_SERVER_DLL% -j cfg -- ^
 - GEN_TYPE 为生成类型。 如果你使用unity,想生成c#代码，导出json数据，则使用 "code_cs_unity_json,data_json"
 - GROUP 为导出分组。客户端则取client，服务器取server，所有则取all
 
-更多项目类型，参见 [示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)
+更多项目类型，参见 [示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)
 
 ## 为unity项目生成c#代码并导出json数据
 
@@ -116,19 +116,19 @@ dotnet %LUBAN_CLIENT_SERVER_DLL% -j cfg -- ^
 
 也即 --gen_types参数取 "code_cs_unity_json,data_json", -s 参数取 client
 
-具体项目，可参见 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)
+具体项目，可参见 [Csharp_Unity_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json)
 
-更多项目类型，参见 [示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)
+更多项目类型，参见 [示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)
 
 ## 为 unity + puerts 项目生成 ts代码，并生成json数据
 
 --gen_types 参数取 "code_typescript_json,data_json"，-s 参数取 client
 
-具体项目，可参见 [Typescript_Unity_Puerts_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/TypeScript_Unity_Puerts_Json)
+具体项目，可参见 [Typescript_Unity_Puerts_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/TypeScript_Unity_Puerts_Json)
 
 ## 为 UE4项目，生成c++代码（非蓝图）和binary数据
 
-基准的参考项目为 [Cpp_Unreal_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Cpp_Unreal_bin)。
+基准的参考项目为 [Cpp_Unreal_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Cpp_Unreal_bin)。
 
 
 由于生成的代码依赖于一些头文件，你需要先从该项目 拷备Source\Cpp_Unreal\Private\bright 到你们项目合适的位置。必须保证bright目录在include目录路径内，如生成的代码中 #include "bright/serialization/ByteBuf.h" 可以找到这个文件。
@@ -137,7 +137,7 @@ dotnet %LUBAN_CLIENT_SERVER_DLL% -j cfg -- ^
 
 ## 其他类型项目类型，如何生成代码和数据
   
-不同项目之间，仅仅是 --gen_types 不一样， 请从[示例项目](https://github.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目匹配的项目，参考相应目录下的 gen_code.bat 即可。
+不同项目之间，仅仅是 --gen_types 不一样， 请从[示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目匹配的项目，参考相应目录下的 gen_code.bat 即可。
 
 ## 生成protobuf的定义文件及protobuf数据格式
 
@@ -147,7 +147,7 @@ dotnet %LUBAN_CLIENT_SERVER_DLL% -j cfg -- ^
 
 只支持bin格式导出。
 
-取 --gen_types code_protobuf2,data_protobuf_bin 即可，参见 [Protobuf2_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Protobuf2_bin)。 每个导出的数据文件对应Table类序列化后的内容，加载即可，以item.TbItem表为例。
+取 --gen_types code_protobuf2,data_protobuf_bin 即可，参见 [Protobuf2_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Protobuf2_bin)。 每个导出的数据文件对应Table类序列化后的内容，加载即可，以item.TbItem表为例。
 
 ```csharp
 var tbItem = ItemTbItem.Parser.ParseFrom(File.OpenRead("pb_datas/item_tbitem.bytes"));
@@ -163,11 +163,11 @@ var tbItem = ItemTbItem.Parser.ParseFrom(File.OpenRead("pb_datas/item_tbitem.byt
 
 ## 生成msgpack的数据
 
-取 --gen_types data_msgpack 即可。 参见 [MsgPack_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/MsgPack_bin)
+取 --gen_types data_msgpack 即可。 参见 [MsgPack_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/MsgPack_bin)
 
 ## 生成flatbuffers的定义文件及flatbuffers数据格式
 
-取 --gen_types code_flatbuffers,data_flatbuffers_json 即可，参见 [Flatbuffers_json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Flatbuffers_json)。
+取 --gen_types code_flatbuffers,data_flatbuffers_json 即可，参见 [Flatbuffers_json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Flatbuffers_json)。
 
 由于binary格式过于复杂，现在只支持导出json格式，但是使用者可以使用flatc工具将数据转成binary！特地生成了 convert_json_2_binary.bat
 和convert_json_2_binary.sh这两个批处理文件，方便自动一键转换。
@@ -183,7 +183,7 @@ data_flatbuffers_json 和 data_json的输出格式有一些区别
 
 ## 只生成代码或者数据
 
-以 [Csharp_Unity_Json](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json) 为例。
+以 [Csharp_Unity_Json](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_json) 为例。
 
 - --gen_types code_cs_unity_json 则只生成代码
 - --gen_types data_json 则只生成数据
@@ -207,11 +207,11 @@ item,/ui/icon1.jpg
 item,/ui/icon2.jpg
 ```
 
-参见示例 [GenerateDatas](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/GenerateDatas)/gen_resource_list.bat 文件。
+参见示例 [GenerateDatas](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/GenerateDatas)/gen_resource_list.bat 文件。
 
 ## 生成的c#代码中,vector的类型由System.Numerics.Vector{2,3,4}，改成 UnityEngine.Vector{2,3,4}
 
-命令行参数中添加  --cs:use_unity_vector 选项即可。 参见示例 [Csharp_Unity_bin](https://github.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin)
+命令行参数中添加  --cs:use_unity_vector 选项即可。 参见示例 [Csharp_Unity_bin](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects/Csharp_Unity_bin)
 
 ## 自定义代码命名风格
 
