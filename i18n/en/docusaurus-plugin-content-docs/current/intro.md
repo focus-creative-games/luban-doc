@@ -22,7 +22,7 @@ Luban standardizes the game configuration development workflow, which can greatl
 - Support mainstream message schemes. protobuf(schema + binary + json), flatbuffers(schema + json), msgpack(binary)
 - Powerful data verification capability. ref reference check, path resource path, range range check, etc.
 - Perfect localization support
-- Supports all major game engines and platforms. Support Unity, Unreal, Cocos2x, Godot, WeChat games, etc.
+- Supports all major game engines and platforms. Support Unity, Unreal, Cocos, Godot, Laya, WeChat games, etc.
 - Good cross-platform capability. It can run well on Win, Linux, and Mac platforms.
 - Support all mainstream hot update solutions. hybridclr, ilruntime, {x,t,s}lua, puerts, etc.
 - Clear and elegant generation pipeline, it is easy to carry out secondary development on the basis of luban, and customize a configuration tool suitable for your own project style.

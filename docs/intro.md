@@ -22,7 +22,7 @@ luban标准化了游戏配置开发工作流，可以极大提升策划和程序
 - 支持主流的消息方案。 protobuf(schema + binary + json)、flatbuffers(schema + json)、msgpack(binary)
 - 强大的数据校验能力。ref引用检查、path资源路径、range范围检查等等
 - 完善的本地化支持
-- 支持所有主流的游戏引擎和平台。支持Unity、Unreal、Cocos2x、Godot、微信小游戏等
+- 支持所有主流的游戏引擎和平台。支持Unity、Unreal、Cocos、Godot、Laya、微信小游戏等
 - 良好的跨平台能力。能在Win,Linux,Mac平台良好运行。
 - 支持所有主流的热更新方案。hybridclr、ilruntime、{x,t,s}lua、puerts等
 - 清晰优雅的生成管线，很容易在luban基础上进行二次开发，定制出适合自己项目风格的配置工具。
