@@ -44,7 +44,7 @@ luban并没有限制标题头行的位置和数量。像`##xxx`之类的行可�
 
 直接运行`MiniTemplate/gen.bat`（Win平台）或`MinTemplate/gen.sh`(MacOS或者Linux平台)。
 
-如果运行成功，命令行界面会类似这样，以一个`byte~`结束。
+如果运行成功，命令行界面会类似这样，以一个`bye~`结束。
 
 ![gen](/img/gen.jpg)
 

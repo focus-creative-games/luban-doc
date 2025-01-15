@@ -44,7 +44,7 @@ The reward table is now created!
 
 Directly run `MiniTemplate/gen.bat` (Win platform) or `MinTemplate/gen.sh` (MacOS or Linux platform).
 
-If the operation is successful, the command line interface will be similar to this, ending with a `byte~`.
+If the operation is successful, the command line interface will be similar to this, ending with a `bye~`.
 
 ![gen](/img/gen.jpg)
 
