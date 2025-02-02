@@ -32,7 +32,7 @@ var tables = new cfg.Tables(file => JSON.Parse(File.ReadAllText($"{gameConfDir}/
 
 ```
 
-:::tips
+:::tip
 
 默认生成的代码不支持异步加载，而在android之类的平台不能直接读取StreamingAssets目录，因此需要自己做一些特殊处理，比如先将所有配置数据文件加载到内存后再使用`new Tables`加载。
 

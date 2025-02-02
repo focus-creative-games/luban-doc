@@ -32,7 +32,7 @@ var tables = new cfg.Tables(file => JSON.Parse(File.ReadAllText($"{gameConfDir}/
 
 ```
 
-:::tips
+:::tip
 
 The default generated code does not support asynchronous loading, and platforms such as Android cannot directly read the StreamingAssets directory, so you need to do some special processing yourself, such as loading all configuration data files into memory before using `new Tables` to load.
 
