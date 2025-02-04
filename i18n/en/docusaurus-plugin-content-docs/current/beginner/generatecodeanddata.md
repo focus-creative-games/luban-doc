@@ -4,28 +4,6 @@ Luban not only supports exporting configuration data, but also has built-in supp
 
 Even if the language you use is not in the default supported language list, it can also be supported by these message frameworks.
 
-## Supported languages
-
-- c++ (11+)
-- c# (.net framework 2+. dotnet core 2+)
-- java (1.6+)
-- go (1.10+)
-- lua (5.1+)
-- typescript (3.0+)
-- python (2.7+ and 3.0+)
-- gdscript (4.0+)
-- php
-- rust
-
-## Supported data formats
-
-- bin (**recommended for officially released projects**)
-
-- json
-- lua
-- xml
-- yaml
-
 ## Generate data
 
 The command line parameter `-d {dataTarget}` is used to specify the generated data type, and the parameter `-x outputDataDir={dataOutputDir}` is used to specify the code output directory. Suppose we want to generate json data, the example is as follows:

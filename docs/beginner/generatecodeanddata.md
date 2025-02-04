@@ -3,27 +3,6 @@
 Luban不仅支持导出配置数据，也内置支持生成多种语言的代码，用于运行时加载配置。同时Luban也支持protobuf、flatbuffers、msgpack等流行的消息框架。
 你使用的语言即使不在默认支持的语言列表，也可以通过这些消息框架来支持。
 
-## 支持的语言
-
-- c++ (11+)
-- c# (.net framework 2+. dotnet core 2+)
-- java (1.6+)
-- go (1.10+)
-- lua (5.1+)
-- typescript (3.0+)
-- python (2.7+ 及 3.0+)
-- gdscript (4.0+)
-- php
-- rust
-
-## 支持数据格式
-
-- bin  （**推荐用于正式发布的项目**）
-- json
-- lua
-- xml
-- yaml
-
 ## 生成数据
 
 命令行参数 `-d {dataTarget}`用于指定生成的数据类型，参数`-x outputDataDir={dataOutputDir}`用于指定代码输出目录。假设我们要生成json数据，示例如下：
