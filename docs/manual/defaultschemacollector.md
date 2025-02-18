@@ -16,12 +16,6 @@ Luban有一套独立于具体实现的[Schema逻辑结构](./schema)实现。对
 
 一般来说，定义文件都放到Defines文件下，但为了方便策划编写，excel类型定义文件也可以放到Datas目录。
 
-import语法为:
-
-```xml
-  <import name="../Datas/__enums.xlsx" type="enum"/>
-```
-
 典型的enum文件格式如下：
 
 ![excel_enum](/img/excel_enum.jpg)
@@ -48,15 +42,7 @@ import语法为:
 |comment|是|||
 |tags|是||同其他tags写法|
 
-
 ### bean类型定义文件
-
-
-import语法为:
-
-```xml
-  <import name="../Datas/__beans.xlsx" type="bean"/>
-```
 
 典型的bean文件格式如下：
 
@@ -89,13 +75,6 @@ import语法为:
 
 
 ### table类型定义文件
-
-
-import语法为:
-
-```xml
-  <import name="../Datas/__tables.xlsx" type="table"/>
-```
 
 典型的table文件格式如下：
 

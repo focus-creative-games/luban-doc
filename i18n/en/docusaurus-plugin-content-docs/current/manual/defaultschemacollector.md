@@ -12,12 +12,6 @@ Since excel tables are suitable for expressing similar definitions, enum, bean, 
 
 Generally speaking, definition files are placed under the Defines file, but for the convenience of planning and writing, the excel type definition files can also be placed in the Datas directory.
 
-The import syntax is:
-
-```xml
-  <import name="../Datas/__enums.xlsx" type="enum"/>
-```
-
 A typical enum file format is as follows:
 
 ![excel_enum](/img/excel_enum.jpg)
@@ -45,13 +39,6 @@ Enumeration item field description:
 
 
 ### bean type definition file
-
-
-The import syntax is:
-
-```xml
-  <import name="../Datas/__beans.xlsx" type="bean"/>
-```
 
 A typical bean file format is as follows：
 
@@ -83,13 +70,6 @@ Field descriptions for field definitions:
 
 
 ### table type definition file
-
-
-The import syntax is:
-
-```xml
-  <import name="../Datas/__tables.xlsx" type="table"/>
-```
 
 A typical table file format is as follows:
 
