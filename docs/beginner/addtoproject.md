@@ -1,4 +1,4 @@
-# 接入Luban到项目
+# 加入到项目
 
 ## 安装 dotnet SDK
 
