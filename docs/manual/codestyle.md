@@ -44,6 +44,7 @@ Luban中可以控制以下几个位置的命名风格：
 |typescript|pascal|pascal|camel|camel|camel|none|
 |c++|snake|pascal|pascal|pascal|camel|none|
 |python|snake|pascal|snake|snake|snake|none|
+|dart|pascal|pascal|camel|camel|camel|none|
 
 如果不在这些语言列表，则取none代码风格，即使用原样名字。
 

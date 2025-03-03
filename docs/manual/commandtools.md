@@ -102,6 +102,7 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |rust-bin|生成rust代码，读取bin格式文件|
 |rust-json|生成rust代码，读取json格式文件|
 |php-json|php，读取json格式文件|
+|dart-json|生成dart代码，读取json格式文件|
 |protobuf2| 生成proto2语法的schema文件|
 |protobuf3| 生成proto3语法的schema文件|
 |flatbuffers| 生成flatbuffers的schema文件|
@@ -160,7 +161,7 @@ Luban.Core中实现一个默认管线DefaultPipeline，名为default。使用者
 |-|-|-|-|
 |{codeTarget}.outputCodeDir|代码目标的输出目录|| -x outputCodeDir=/my/output/dir|
 |{dataTarget}.outputDataDir|数据目标的输出目录|| -x outputDataDir=/my/output/dir|
-|codeStyle|代码目标的命名风格，内置实现的Code Target都会自动设置与目标语言相匹配的codeStyle，不需要显式指定|none、csharp-default、java-default、go-default、lua-default、typescript-default、cpp-default、python-default| -x codeStyle=csharp-default|
+|codeStyle|代码目标的命名风格，内置实现的Code Target都会自动设置与目标语言相匹配的codeStyle，不需要显式指定|none、csharp-default、java-default、go-default、lua-default、typescript-default、cpp-default、python-default、dart-default| -x codeStyle=csharp-default|
 |namingConvention.{codeTarget}.{location}|codeTarget为`--codeTarget`参数中指定的target名。location为风格位置，可选值为namespace、type、method、property、field、enumItem，详见[代码风格](./codestyle)。该参数为层级选项，如果不指定{codeTarget}，则对所有target生效|none、pascal、camel、upper、snake|-x namingConvention.cs-bin.field=pascal|
 |dataExporter|数据导出器| null、default|-x dataExporter=default|
 |codePostprocess|代码后处理器，可以为多个|未实现任何内置postprocess| -x codePostProcess=a,b,c|

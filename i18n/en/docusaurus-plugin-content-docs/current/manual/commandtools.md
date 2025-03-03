@@ -97,6 +97,7 @@ Currently, the following code targets are supported built-in:
 |go-bin| go, read bin format files|
 |go-json| go, read json format files|
 |python-json| python, read json format files|
+|dart-json| dart, read json format files|
 |gdscript-json| gdscript, read json format files. Note that if you use C# language development, it is recommended to use the more efficient cs-bin format|
 |typescript-bin| typescript, read json format files|
 |typescript-json| typescript, read json format files|

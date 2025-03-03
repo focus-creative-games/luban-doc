@@ -99,6 +99,7 @@ Generates well-modularized code for most languages, thanks to the type system's 
 - python (2.7+ and 3.0+)
 - gdscript (4.0+)
 - php
+- dart
 
 
 ## Support mainstream engines, hot update solutions and game platforms

@@ -139,6 +139,8 @@
 * python (2.7+ 及 3.0+)
 * rust
 * gdscript
+* php
+* dart
 
 ## 支持主流引擎和平台
 

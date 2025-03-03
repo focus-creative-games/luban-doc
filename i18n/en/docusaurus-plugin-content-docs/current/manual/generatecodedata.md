@@ -18,7 +18,6 @@
 - puerts
 - other
 
-
 ## Support for popular game frameworks
 
 - skynet
@@ -27,21 +26,22 @@
 - QFramework
 - other
 
-##  Support mainstream game development languages
+## Support mainstream game development languages
 
-  - c# (.net framework 4+. dotnet core 3+)
-  - java (1.6+)
-  - go (1.10+)
-  - lua (5.1+)
-  - typescript (3.0+)
-  - python (3.0+)
-  - c++ (11+)。
-  - erlang (18+). The classic version is supported by Luban and has not been migrated to the current version yet.
-  - rust (1.5+). The classic version is supported by Luban and has not been migrated to the current version yet.
-  - godot. The classic version is supported by Luban and has not been migrated to the current version yet.
+- c# (.net framework 4+. dotnet core 3+)
+- java (1.6+)
+- go (1.10+)
+- lua (5.1+)
+- typescript (3.0+)
+- python (3.0+)
+- c++ (11+)。
+- erlang (18+). The classic version is supported by Luban and has not been migrated to the current version yet.
+- rust (1.5+). The classic version is supported by Luban and has not been migrated to the current version yet.
+- godot. The classic version is supported by Luban and has not been migrated to the current version yet.
+- php
+- dart
 
 It is very easy to customize or extend support for new languages.
-
 
 ## Supported Data Formats
 
@@ -120,6 +120,7 @@ In the same language, different codes need to be generated for loading different
 |php| | :heavy_check_mark: ||
 | rust       |                    | :heavy_check_mark: |                    |
 | godot      |                    | :heavy_check_mark: |                    |
+| dart     |                    | :heavy_check_mark: |                    |
 | protobuf   | :heavy_check_mark: | :heavy_check_mark: |                    |
 
 ## generate

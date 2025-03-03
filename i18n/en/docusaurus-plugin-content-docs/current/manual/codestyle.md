@@ -44,6 +44,7 @@ Code style provides a set of naming style configurations that indicate the namin
 |typescript|pascal|pascal|camel|camel|camel|none|
 |c++|snake|pascal|pascal|pascal|camel|none|
 |python|snake|pascal|snake|snake|snake|none|
+|dart|pascal|pascal|camel|camel|camel|none|
 
 If it is not in these language lists, the none code style is used, that is, the original name is used.
 

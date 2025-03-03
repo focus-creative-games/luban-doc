@@ -88,7 +88,7 @@ println(tables.TbItem.Get(12).Name)
 
 与其他相似，取 --gen_types code_python27_json,data_json。但需要额外安装enum34包，可通过命令 'py -2 -m pip install enum34' 安装。
 
-## 在java,python,c++,rust,lua 语言中加载配置
+## 其他语言及数据格式
 
 请参见  [示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)。找到与你项目类型相符的示例项目，参考其加载
 代码即可。
