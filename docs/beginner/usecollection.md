@@ -12,7 +12,7 @@
 |-|-|-|
 |array|数组类型，与list相似，但生成的代码对应原生数组类型，如C#语言中对应 `xxx[]`| `array,int`、`array,string`、`array,Color`，`array,Item`|
 |list|列表类型，与array相似，但生成的代码对应List容器类型，如C#语言中对应 `List<xx>`| `list,int`、`list,string`、`list,Color`，`list,Item`|
-|set|集合类型，要求元素值唯一，生成的代码对应Set容器类型，如C#语言中对应 `HashSet<xx>`| `list,int`、`list,string`、`list,Color`|
+|set|集合类型，要求元素值唯一，生成的代码对应Set容器类型，如C#语言中对应 `HashSet<xx>`| `set,int`、`set,string`、`set,Color`|
 |map|字典类型，要求键唯一，生成的代码对应Map类型，如C#语言中对应`Dictionary<xx,yy>`|`map,int,int`、`map,string,string`, `map,Color,int`，`map,int,Item`|
 
 ## 填写array、list、set数据

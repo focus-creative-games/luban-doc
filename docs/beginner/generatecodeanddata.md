@@ -5,7 +5,7 @@ Luban不仅支持导出配置数据，也内置支持生成多种语言的代码
 
 ## 生成数据
 
-命令行参数 `-d {dataTarget}`用于指定生成的数据类型，参数`-x outputDataDir={dataOutputDir}`用于指定代码输出目录。假设我们要生成json数据，示例如下：
+命令行参数 `-d {dataTarget}`用于指定生成的数据类型，参数`-x outputDataDir={dataOutputDir}`用于指定数据输出目录。假设我们要生成json数据，示例如下：
 
 ```bat
 set GEN_CLIENT={Luban.dll的路径}

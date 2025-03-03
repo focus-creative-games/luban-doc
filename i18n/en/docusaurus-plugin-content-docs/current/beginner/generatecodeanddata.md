@@ -6,7 +6,7 @@ Even if the language you use is not in the default supported language list, it c
 
 ## Generate data
 
-The command line parameter `-d {dataTarget}` is used to specify the generated data type, and the parameter `-x outputDataDir={dataOutputDir}` is used to specify the code output directory. Suppose we want to generate json data, the example is as follows:
+The command line parameter `-d {dataTarget}` is used to specify the generated data type, and the parameter `-x outputDataDir={dataOutputDir}` is used to specify the data output directory. Suppose we want to generate json data, the example is as follows:
 
 ```bat
 set GEN_CLIENT={path to Luban.dll}

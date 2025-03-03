@@ -12,8 +12,8 @@ Currently supports 4 basic container types, see [Container Type](../manual/types
 |-|-|-|
 |array|Array type, similar to list, but the generated code corresponds to the native array type, such as `xxx[]` in C# language| `array,int`, `array,string`, `array,Color`, `array,Item`|
 |list|List type, similar to array, but the generated code corresponds to the List container type, such as `List<xx>` in C# language| `list,int`, `list,string`, `list,Color`, `list,Item`|
-|set|Set type, requires unique element values, the generated code corresponds to the Set container type, such as `HashSet<xx>` in C# language| `list,int`、`list,string`、`list,Color`|
-|map|Dictionary type, key is required to be unique, the generated code corresponds to Map type, such as `Dictionary<xx,yy>`|`map,int,int`、`map,string,string`, `map,Color,int`，`map,int,Item`| in C# language
+|set|Set type, requires unique element values, the generated code corresponds to the Set container type, such as `HashSet<xx>` in C# language| `set,int`、`set,string`、`set,Color`|
+|map|Dictionary type, key is required to be unique, the generated code corresponds to Map type, such as `Dictionary<xx,yy>` in C# language|`map,int,int`、`map,string,string`, `map,Color,int`，`map,int,Item`|
 
 ## Fill in array, list, set data
 
