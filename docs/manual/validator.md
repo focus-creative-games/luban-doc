@@ -35,7 +35,6 @@ ref可以用于任何可以当作key的数据类型上，也可以是容器的�
 ```xml
 <bean name="TestRef">
    <var name="x1" type="int#ref=item.TbItem"/> x1必须是item.TbItem表的合法id
-   <var name="x2" type="int#ref=item.TbItem"/> 等价于上一行，纯粹一个语法糖。注意，如果是容器类型，则只对value type生效。
    <var name="x2" type="list,int#ref=item.TbItem"/> x2列表中每个元素都必须是合法id
    <var name="x2_2" type="list,(int#ref=item.TbItem)"/> 为了清晰，加上括号限定
    <var name="x3" type="map,int#ref=item.TbItem,int"/> x3的key必须是 item.TbItem合法id

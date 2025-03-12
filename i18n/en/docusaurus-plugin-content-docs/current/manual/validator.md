@@ -35,7 +35,6 @@ Assume that item.TbItem is a prop table, and the key field type is int; suppose 
 ```xml
 <bean name="TestRef">
     <var name="x1" type="int#ref=item.TbItem"/> x1 must be the legal id of the item.TbItem table
-    <var name="x2" type="int#ref=item.TbItem"/> is equivalent to the previous line, purely a syntactic sugar. Note that if it is a container type, it only takes effect for the value type.
     <var name="x2" type="list,int#ref=item.TbItem"/> Each element in the x2 list must be a legal id
     <var name="x2_2" type="list,(int#ref=item.TbItem)"/> For clarity, add brackets to limit
     <var name="x3" type="map,int#ref=item.TbItem,int"/> The key of x3 must be the legal id of item.TbItem
