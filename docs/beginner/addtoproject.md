@@ -28,7 +28,7 @@
 ## 修改luban.conf
 
 每个项目的Luban工具的位置不同，需要修改`gen.bat`（或gen.sh）命令中Luban.dll的路径。假设你将MiniTemplate目录复制到了你项目的`{DataTables}`目录。
-打开`DataTbles\luban.conf`，将`set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll`中`%WORKSPACE%\Tools\Luban\Luban.dll`替换成实际的Luban.dll的目录。
+打开`{DataTables}/gen.bat`，将`set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll`中`%WORKSPACE%\Tools\Luban\Luban.dll`替换成实际的Luban.dll的目录。
 Luban.dll在Luban工具目录下。
 
 此时运行 `{DataTables}/gen.bat`，确保可以正确运行。

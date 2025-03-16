@@ -30,7 +30,7 @@ Copy `luban_examples/MiniTemplate` to the appropriate location of the project, s
 
 The location of the Luban tool is different for each project, so you need to modify the path of Luban.dll in the `gen.bat` (or gen.sh) command. Assume that you copied the MiniTemplate directory to the `{DataTables}` directory of your project.
 
-Open `DataTbles\luban.conf` and replace `%WORKSPACE%\Tools\Luban\Luban.dll` in `set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll` with the actual directory of Luban.dll.
+Open `{DataTables}/gen.bat` and replace `%WORKSPACE%\Tools\Luban\Luban.dll` in `set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll` with the actual directory of Luban.dll.
 
 Luban.dll is in the Luban tool directory.
 
