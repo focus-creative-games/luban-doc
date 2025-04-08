@@ -120,7 +120,7 @@ return
   <x10>yf</x10>
   <x12> <x1>1</x1> </x12>
   <x13>C</x13>
-  <x14 __type__="DemoD2">  <x1>1</x1>  <x2>2</x2> </x14>
+  <x14 type="DemoD2">  <x1>1</x1>  <x2>2</x2> </x14>
   <v2>1,2</v2>
   <v3>1.2,2.3,3.4</v3>
   <v4>1.2,2.2,3.2,4.3</v4>
@@ -136,7 +136,7 @@ return
       <item> <y1>2</y1> <y2>false</y2> </item>
   </k9>
   <k15>
-      <item __type__="DemoD2"> <x1>1</x1> <x2>2</x2> </item>
+      <item type="DemoD2"> <x1>1</x1> <x2>2</x2> </item>
   </k15>
 </data>
 ```
