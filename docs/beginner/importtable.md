@@ -2,7 +2,7 @@
 
 每新增一个表都在__tables__.xlsx中添加一项，这个工作比较烦琐。大多数情况下，每个excel对应一个表，让工具自动添加表定义是可能的。
 
-自v3.0.0版本起，支持自动table导入。luban会按照指定的规则扫描excel文件，自动添加对应的table。
+自v3.0.0版本起，支持自动table导入。luban会按照指定的规则扫描excel文件，自动导入对应的table。注意，并不会将该表的信息添加到`__tables__.xlsx`文件中。
 
 自动导入支持自定义导入规则，具体请查阅文档[自动导入table](../manual/importtable.md)。
 
