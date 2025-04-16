@@ -239,7 +239,7 @@ mapper定义了外部类型映射相关信息，与enum中mapper的定义方式�
 |value|否||表记录类型|
 |readSchemaFromFile|是|false|是否从input的excel文件标题头行中读取value定义。此时不能再定义value对应的bean，否则会出现定义重复的错误|
 |input|否||可以为多个，以逗号','分割，对应schema逻辑结构中inputFiles字段|
-|index|是||可以为多以，如果是联合主键，则以'+'分割，如果是独立主键，则以','分割|
+|index|是||可以为多个，如果是联合主键，则以'+'分割，如果是独立主键，则以','分割|
 |mode|是||取one(或singleton)、map、list之一|
 |comment|是|||
 |group|是|||
