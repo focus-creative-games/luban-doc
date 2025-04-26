@@ -1,0 +1,79 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "doc",
+      "label": "介绍",
+      "id": "intro"
+    },
+    {
+      "type": "category",
+      "label": "新手教程",
+      "link": {
+        "type": "generated-index",
+        "slug": "/beginner"
+      },
+      "collapsed": false,
+      "items": [
+        "beginner/quickstart",
+        "beginner/generatecodeanddata",
+        "beginner/addtoproject",
+        "beginner/loadinruntime",
+        "beginner/usecustomtype",
+        "beginner/usecollection",
+        "beginner/streamandcolumnformat",
+        "beginner/usevalidator",
+        "beginner/usepolymorphismtype",
+        "beginner/importtable"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "使用指南",
+      "link": {
+        "type": "generated-index",
+        "slug": "/basic"
+      },
+      "collapsed": true,
+      "items": [
+        "manual/migrate",
+        "manual/architecture",
+        "manual/traits",
+        "manual/luban.conf",
+        "manual/schema",
+        "manual/defaultschemacollector",
+        "manual/importtable",
+        "manual/commandtools",
+        "manual/cascadingoption",
+        "manual/types",
+        "manual/typemapper",
+        "manual/excel",
+        "manual/exceladvanced",
+        "manual/otherdatasource",
+        "manual/generatecodedata",
+        "manual/codestyle",
+        "manual/loadconfigatruntime",
+        "manual/validator",
+        "manual/template",
+        "manual/tag",
+        "manual/variants",
+        "manual/l10n",
+        "manual/bestpractices",
+        "manual/extendluban"
+      ]
+    },
+    "help/faq",
+    {
+      "type": "category",
+      "label": "其他",
+      "link": {
+        "type": "generated-index",
+        "slug": "/other"
+      },
+      "collapsed": true,
+      "items": [
+        "other/roadmap",
+        "other/changelog"
+      ]
+    }
+  ]
+}
