@@ -66,6 +66,7 @@ const sidebars = {
         'manual/typemapper',
         'manual/excel',
         'manual/exceladvanced',
+        'manual/excelcompactformat',
         'manual/otherdatasource',
         'manual/generatecodedata',
         'manual/codestyle',

@@ -1,5 +1,4 @@
-# excel format (primary)
-
+# Excel Format (Primary)
 
 ## Basic rules
 
