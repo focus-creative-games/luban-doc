@@ -86,7 +86,8 @@ Currently, the following code targets are supported built-in:
 |cs-dotnet-json| C#, use System.Text.Json library to read json files, recommended for dotnet core server|
 |cs-newtonsoft-json| C#, use Newtonsoft.Json library to read json files|
 |cs-editor-json| C#, read and save records as a single json file, suitable for custom editors to save and load original configuration files|
-|cs-protobuf| Generate code to load all protobuf bin format data, only contains Tables class|
+|cs-protobuf2| Generate code to load all protobuf bin and json format data, only contains Tables class|
+|cs-protobuf3| Generate code to load all protobuf bin and json format data, only contains Tables class|
 |lua-lua| lua, read lua format files|
 |lua-bin| lua, read bin format files|
 |java-bin| java, read bin format files|

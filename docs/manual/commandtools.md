@@ -84,7 +84,8 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |cs-dotnet-json| C#，使用System.Text.Json库读取json文件，推荐用于dotnet core服务器|
 |cs-newtonsoft-json| C#，使用Newtonsoft.Json库读取json文件|
 |cs-editor-json| C#，读取与保存记录为单个json文件，适用于自定义编辑器保存与加载原始配置文件|
-|cs-protobuf| 生成加载所有protobuf bin格式数据的代码，仅含Tables类|
+|cs-protobuf2| 生成加载所有protobuf bin和json格式数据的代码，仅含Tables类|
+|cs-protobuf3| 生成加载所有protobuf bin和json格式数据的代码，仅含Tables类|
 |lua-lua| lua，读取lua格式的文件|
 |lua-bin| lua，读取bin格式文件|
 |java-bin| java，读取bin格式文件|
