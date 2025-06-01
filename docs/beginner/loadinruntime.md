@@ -11,7 +11,7 @@
 
 ## 生成代码和配置
 
-请根据[接入Luban到项目](./addtoproject)文档接入Luban，同时准备好相应的生成脚本gen.bat。如果有疑惑，可以参考 `Csharp_Unity_Json`项目的`gen.bat`文件。
+请根据[接入Luban到项目](./integratetoproject)文档接入Luban，同时准备好相应的生成脚本gen.bat。如果有疑惑，可以参考 `Csharp_Unity_Json`项目的`gen.bat`文件。
 
 运行该脚本，如果一切正常，会产生一系列日志，最终一行是 `bye~`。
 

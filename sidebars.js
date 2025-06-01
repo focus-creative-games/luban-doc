@@ -34,7 +34,7 @@ const sidebars = {
       items: [
         'beginner/quickstart',
         'beginner/generatecodeanddata',
-        'beginner/addtoproject',
+        'beginner/integratetoproject',
         'beginner/loadinruntime',
         'beginner/usecustomtype',
         'beginner/usecollection',

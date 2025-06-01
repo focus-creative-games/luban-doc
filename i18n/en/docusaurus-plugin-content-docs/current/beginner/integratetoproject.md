@@ -1,4 +1,4 @@
-# Add Luban To Your Project
+# Integrate Luban To Your Project
 
 ## Install dotnet SDK
 

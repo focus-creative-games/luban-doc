@@ -11,7 +11,7 @@ Install the com.code-philosophy.luban package in the Package Manager, the addres
 
 ## Generate code and configuration
 
-Please connect Luban according to the [Connect Luban to Project](./addtoproject) document, and prepare the corresponding generation script gen.bat. If you have any questions, you can refer to the `gen.bat` file of the `Csharp_Unity_Json` project.
+Please connect Luban according to the [Connect Luban to Project](./integratetoproject) document, and prepare the corresponding generation script gen.bat. If you have any questions, you can refer to the `gen.bat` file of the `Csharp_Unity_Json` project.
 
 Run the script. If everything goes well, a series of logs will be generated, and the last line is `bye~`.
 
