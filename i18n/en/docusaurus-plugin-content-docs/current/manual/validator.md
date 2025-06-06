@@ -166,6 +166,17 @@ If the resource value also has a prefix such as "blueprint'/character/Mouse", it
 </bean>
 ```
 
+## godot validator
+
+Check if the file exists at path: `${pathValidator.rootDir}/{path.Substring(6)}`. This means: Remove the `res://` prefix from the path (first 6 characters),
+then verify whether the remaining relative path exists under rootDir.
+
+```xml
+<bean name="TestPath">
+  <var name="x" type="string#path=godot"/>
+  <var name="x2" type="list,string#path=godot"/>
+</bean>
+```
 
 ## index validator
 

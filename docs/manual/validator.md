@@ -172,6 +172,16 @@ normal检验器需要参数，格式为 path=normal;<pattern\>。 pattern中出�
 </bean>
 ```
 
+### godot 校验器
+
+检查是否存在 `${pathValidator.rootDir}/{path.SubString(6)}`文件，即移除path路径的`res://`前缀后，检查剩余相对路径在rootDir下是否存在。
+
+```xml
+<bean name="TestPath">
+  <var name="x" type="string#path=godot"/>
+  <var name="x2" type="list,string#path=godot"/>
+</bean>
+```
 
 ## index 校验器
 
