@@ -1,11 +1,10 @@
 # 加载配置
 
-
 ## 安装Luban.Runtime
 
 加载数据依赖一些Luban Runtime代码。对于Unity+C#，已经提供了`com.code-philosophy.luban`包。在Package Manager中安装com.code-philosophy.luban包，地址 `https://gitee.com/focus-creative-games/luban_unity.git`或`https://github.com/focus-creative-games/luban_unity.git`(或者从`https://github.com/focus-creative-games/luban_unity`下载)。对于其他语言请在 [示例项目](https://gitee.com/focus-creative-games/luban_examples/tree/main/Projects)中找到与你项目类型相符的项目，从该项目中复制Luban相关的Runtime代码。
 
-## unity + c# + json 
+## unity + c# + json
 
 先完成`安装Luban.Runtime`操作，然后使用如下代码加载配置。
 
@@ -30,12 +29,11 @@
 
 ```
 
-
 ## unity项目中使用c#代码并自动判断加载bin或json配置
 
 先完成`安装Luban.Runtime`操作，然后使用如下代码加载配置。
 
-开发期希望使用json导出格式，但为了节约导出文件大小以及提高加载性能，希望使用bin导出格式。通过反射创建cfg.Tables的方式，可以做到不改代码，自动适应这两种方式。
+开发期希望使用json导出格式，但在正式发布时为了节约导出文件大小以及提高加载性能，希望使用bin导出格式。通过反射创建cfg.Tables的方式，可以做到不改代码，自动适应这两种方式。
 
 ```csharp
     void Start()

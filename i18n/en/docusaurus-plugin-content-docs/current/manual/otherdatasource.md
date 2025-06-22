@@ -234,14 +234,14 @@ The example configuration is as follows:
 
 Single-line filling method:
 
-```lite
+```text
 { 1122, false, 2, 128, 112233445566, 1.3, 1122, yf, {1}, D, {DemoD2,1,3}, 1970-01-01 00:00:00, {1,2}, {2,3}, {{2,10},{3,12}}, {{1,true},{2,false}}, {{DemoD2,1,3}}}
 
 ```
 
 Multi-line filling method for better readability:
 
-```lite
+```text
 {
   1122,
   false,

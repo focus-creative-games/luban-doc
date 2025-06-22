@@ -20,7 +20,7 @@ Console.WriteLine(tables.TbMail[1001].Desc);
 
 ## 在unity项目中使用c#代码自动判断加载bin或json配置
 
-开发期希望使用json导出格式，但为了节约导出文件大小以及提高加载性能，希望使用bin导出格式。通过反射创建cfg.Tables的方式，可以做到不改代码，自动适应这两种方式。
+开发期希望使用json导出格式，但在正式发布时为了节约导出文件大小以及提高加载性能，希望使用bin导出格式。通过反射创建cfg.Tables的方式，可以做到不改代码，自动适应这两种方式。
 
 ```csharp
     void Start()
