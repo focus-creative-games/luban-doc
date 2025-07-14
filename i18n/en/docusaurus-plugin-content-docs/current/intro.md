@@ -73,7 +73,7 @@ Some configurations have only one copy globally, such as the opening level of th
 
 vertical table
 
-Most tables are horizontal tables, that is, one record per row. Some tables, such as singleton tables, are more comfortable to fill in vertically, with one field per line. A1 is ##column means using vertical table mode. The singleton table above is filled in as follows in vertical table mode.
+Most tables are horizontal tables, that is, one record per row. Some tables, such as singleton tables, are more comfortable to fill in vertically, with one field per line. A1 is `##column` or `##vertical` means using vertical table mode. The singleton table above is filled in as follows in vertical table mode.
 
 ![singleton](/img/cases/singleton.jpg)
 

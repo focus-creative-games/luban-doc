@@ -73,6 +73,10 @@ The sep segmentation mechanism can achieve the purpose of filling complex data i
 The writing method is `sep=<char1><char2><char3>...`. sep can be one character or multiple characters. When sep is multiple characters, it means that any one of them is a separator,
 rather than treating multiple characters as separators.
 
+:::tip
+Since the # and & characters are used as delimiters for attrs and tags, if you need to use # or & as literal delimiters, you must escape them with a backslash (\). For example: (list#sep=\#),int.
+:::
+
 sep can appear in the following positions:
 
 - On the field name of Excel. Such as `x#sep=,`
