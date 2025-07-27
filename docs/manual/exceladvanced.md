@@ -5,6 +5,7 @@
 以下是示例中要用于的bean类型定义。
 
 ```xml
+
 <bean name="Type1">
   <var name="a" type="int"/>
   <var name="b" type="string"/>
@@ -50,7 +51,31 @@
   <var name="a" type="int"/>
   <var name="b" type="int"/>
 </bean>
+
 ```
+
+## 常量别名
+
+策划填写数据的时候，有时候希望用一个字符串来代表某个整数以方便阅读，同时也不容易出错。
+
+在xml schema文件中定义`constalias`常量别名，在填写数据时使用它。
+
+注意！常量别名仅能用于`byte、short、int、long、float、double`类型的数据，并且仅在excel族(xls、xlsx、csv等)、lite类型源数据类型中生效。
+
+常量别名没有命名空间的概念，**不受module名影响**。
+
+```xml
+<mdoule name="test">
+
+  <constalias name="ITEM0" value="1001"/>
+  <constalias name="ITEM1" value="1002"/>
+  <constalias name="FLOAT1" value="1.5"/>
+  <constalias name="FLOAT2" value="2.5"/>
+
+</module>
+```
+
+![constalias](/img/constalias.jpg)
 
 ## 限定列格式
 

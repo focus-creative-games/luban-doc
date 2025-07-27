@@ -246,6 +246,20 @@ mapper定义了外部类型映射相关信息，与enum中mapper的定义方式�
 |tags|是|||
 |output|否||对应schema逻辑结构中outputFileName字段|
 
+### constalias
+
+策划填写数据的时候，有时候希望用一个字符串来代表某个整数以方便阅读，同时也不容易出错。
+
+常量别名没有命名空间的概念，不受module名影响。
+
+:::tip
+从v4.3.0版本起支持constalias。
+:::
+
+|字段|类型|可空|描述|
+|-|-|-|-|
+|name|string|否|别名|
+|value|string|否|值|
 
 ### refgroup
 
@@ -254,4 +268,3 @@ refgroup为DefaultSchemaCollector的语法糖，用于表示一组被ref引用�
 |字段|可空|默认值|说明|
 |-|-|-|-|
 |name|否||可以为1-n个值，以逗号','分割，每个值必须为table全名（如item.TbItem,item.TbItem2）|
-

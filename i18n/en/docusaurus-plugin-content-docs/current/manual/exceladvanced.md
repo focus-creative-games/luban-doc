@@ -52,6 +52,27 @@ The following is the bean type definition to be used in the example.
 </bean>
 ```
 
+## Constant alias
+
+When planning to fill in data, sometimes you want to use a string to represent an integer for easy reading and less error-prone.
+
+Define the `constalias` constant alias in the xml schema file and use it when filling in data.
+
+Note! Constant aliases can only be used for data of the `byte, short, int, long, float, double` type, and are only effective in the excel family (xls, xlsx, csv, etc.) and lite type source data types.
+
+Constant aliases have no concept of namespace and are **not affected by module names**.
+
+```xml
+<mdoule name="test"> 
+    <constalias name="ITEM0" value="1001"/> 
+    <constalias name="ITEM1" value="1002"/> 
+    <constalias name="FLOAT1" value="1.5"/> 
+    <constalias name="FLOAT2" value="2.5"/>
+</module>
+```
+
+![constalias](/img/constalias.jpg)
+
 ## Limit column format
 
 Using the title row and multi-level title row, you can accurately limit a certain data to a certain column range.

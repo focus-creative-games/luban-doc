@@ -152,6 +152,19 @@ inputFiles specifies multiple input data sources, and the definition method is e
 - from the catalog. All files (including recursive subdirectories) under the directory tree will be read as data sources, and each file (except the excel family) corresponds to a record. For example skill_json_dir
 - Any combination of the above. Such as xx.xlsx,sheet2@yy.xls,abc@zz.json,ccc_dir
 
+### constalias
+
+When planning to fill in data, sometimes you want to use a string to represent an integer for easy reading and less error-prone.
+
+:::tip
+Constalias is supported from version v4.3.0.
+:::
+
+|Field|Type|Nullable|Description|
+|-|-|-|-|
+|name|string|No|Alias|
+|value|string|No|Value|
+
 ## public property
 
 ### groups

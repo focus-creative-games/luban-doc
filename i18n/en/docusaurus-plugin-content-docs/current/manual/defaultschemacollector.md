@@ -242,6 +242,19 @@ mapper defines the information related to external type mapping, which is exactl
 | tags               | Yes      |         |                                                              |
 | output             | No       |         | corresponds to the outputFileName field in the schema logic structure |
 
+### constalias
+
+When planning to fill in data, sometimes you want to use a string to represent an integer for easy reading and less error-prone.
+
+:::tip
+Constalias is supported from version v4.3.0.
+:::
+
+|Field|Type|Nullable|Description|
+|-|-|-|-|
+|name|string|No|Alias|
+|value|string|No|Value|
+
 ### refgroup
 
 refgroup is the syntactic sugar of DefaultSchemaCollector, which is used to represent a set of tables referenced by ref, and there is no corresponding object in the schema logical structure. The format is as follows:
