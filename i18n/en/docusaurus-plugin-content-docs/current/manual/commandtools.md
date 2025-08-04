@@ -134,7 +134,7 @@ Built-in support for the following data targets:
 |json2| is similar to json format, but map output is {"key":"value"} format|
 |lua|lua format|
 |xml|xml format|
-|yml|yaml format|
+|yaml|yaml format|
 |bson|bson format|
 |msgpack|binary format of msgpack|
 |protobuf2-bin|binary format of protobuf2|

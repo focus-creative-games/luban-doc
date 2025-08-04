@@ -132,7 +132,7 @@ Luban的大多数内置模板都使用了[层级参数(Cascading Option)](./casc
 |json2|与json格式类似，但map输出成{"key":"value"}格式|
 |lua|lua格式|
 |xml|xml格式|
-|yml|yaml格式|
+|yaml|yaml格式|
 |bson|bson格式|
 |msgpack|msgpack的二进制格式|
 |protobuf2-bin|protobuf2的二进制格式|

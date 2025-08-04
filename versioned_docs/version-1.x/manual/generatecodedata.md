@@ -243,7 +243,7 @@ code_cs_unity_json使用了第三方的SimpleJson库，兼容unity的.net版本�
 |data_json2|json|
 |data_lua|lua|
 |data_xml|xml|
-|data_yaml|yml|
+|data_yaml|ymal|
 |data_protobuf|bp|
 
  可以通过命令行选项"--data_file_extension xxx"手动指定输出文件的后缀。
