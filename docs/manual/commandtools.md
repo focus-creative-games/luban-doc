@@ -97,7 +97,9 @@ Luban.SchemaCollector.Builtin项目实现了DefaultSchemaCollector，它支持�
 |go-json| go，读取json格式文件|
 |python-json|python，读取json格式文件|
 |gdscript-json|gdscript，读取json格式文件。注意，如果你使用C#语言开发，推荐使用更高效的cs-bin格式|
-|typescript-bin| typescript，读取json格式文件|
+|javascript-bin| javascript，读取bin格式文件|
+|javascript-json| javascript，读取json格式文件|
+|typescript-bin| typescript，读取bin格式文件|
 |typescript-json| typescript，读取json格式文件|
 |typescript-protobuf| typescript，生成读取protobuf格式数据的代码，仅含Tables类|
 |rust-bin|生成rust代码，读取bin格式文件|

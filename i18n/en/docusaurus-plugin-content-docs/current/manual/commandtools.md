@@ -100,6 +100,8 @@ Currently, the following code targets are supported built-in:
 |python-json| python, read json format files|
 |dart-json| dart, read json format files|
 |gdscript-json| gdscript, read json format files. Note that if you use C# language development, it is recommended to use the more efficient cs-bin format|
+|javascript-bin| javascript, read bin format files|
+|javascript-json| javascript, read json format files|
 |typescript-bin| typescript, read json format files|
 |typescript-json| typescript, read json format files|
 |typescript-protobuf| typescript, generate code to read protobuf format data, only contains Tables class|
