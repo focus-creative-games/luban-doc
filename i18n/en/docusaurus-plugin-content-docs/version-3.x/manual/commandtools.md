@@ -172,7 +172,7 @@ The parameters used by the built-in modules are:
 |outputSaver|Data saver, default is local, that is, output to the local directory. If you do not want to output any files, you can use null|null, local| -x outputSaver=local|
 |outputSaver.{codeTarget\|dataTarget}.cleanUpOutputDir|Whether to clean up the redundant files in the outputCodeDir or outputDataDir directory before outputting files, default is true||-x outputSaver.cs-bin.cleanUpOutputDir=0|
 |l10n.provider|Localized text provider. If this parameter is not set, no localization-related operations will be performed, including text verification and static conversion.|default| -x l10n.provider=default|
-|l10n.textFile.path|Localized text data file. This value must be filled in when l10.provider is set|| -x l10n.textFile.path=xxxx|
+|l10n.textFile.path|Localized text data file. This value must be filled in when l10n.provider is set|| -x l10n.textFile.path=xxxx|
 |l10n.textFile.keyFieldName|The field name of the key field of the data item in the localized text data file|| -x l10n.textFile.keyFieldName=key|
 |l10n.textFile.languageFieldName|The field name of the text value field of the corresponding language of the data item in the localized text data file|| -x l10n.languageFieldName=en|
 |l10n.convertTextKeyToValue|Perform static localization and replace key with the text value of the corresponding language|| -x l10n.convertTextKeyToValue=1|
