@@ -4,8 +4,8 @@
   <ShortName>Luban</ShortName>
   <Description>Search Luban</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://luban.doc.code-philosophy.com/img/logo.png</Image>
-  <Url type="text/html" method="get" template="https://luban.doc.code-philosophy.com/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://luban.doc.code-philosophy.com/opensearch.xml" />
-  <moz:SearchForm>https://luban.doc.code-philosophy.com/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://www.datable.cn/img/logo.png</Image>
+  <Url type="text/html" method="get" template="https://www.datable.cn/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://www.datable.cn/opensearch.xml" />
+  <moz:SearchForm>https://www.datable.cn/</moz:SearchForm>
 </OpenSearchDescription>
