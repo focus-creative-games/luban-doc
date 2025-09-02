@@ -216,7 +216,7 @@ dotnet %LUBAN_DLL% ^
      -x outputCodeDir=Assets/Gen ^
      -x outputDataDir=..\GenerateDatas\bytes ^
      -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
+     -x l10n.provider=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 
 ```
 
@@ -240,7 +240,7 @@ dotnet %GEN_CLIENT% ^
      -x outputCodeDir=Assets/Gen ^
      -x outputDataDir=..\GenerateDatas\json ^
      -x pathValidator.rootDir=D:\workspace2\luban_examples\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@D:\workspace2\luban_examples\DataTables\Datas\l10n\texts.json
+     -x l10n.provider=*@D:\workspace2\luban_examples\DataTables\Datas\l10n\texts.json
 
 
 ```
@@ -263,7 +263,7 @@ dotnet %LUBAN_DLL% ^
      -x outputCodeDir=Gen ^
      -x outputDataDir=..\GenerateDatas\bytes ^
      -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
+     -x l10n.provider=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 
 ```
 
@@ -286,7 +286,7 @@ dotnet %LUBAN_DLL% ^
      -x outputCodeDir=gen ^
      -x outputDataDir=..\GenerateDatas\bytes ^
      -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
+     -x l10n.provider=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
      -x lubanGoModule=demo/luban
 
 ```
@@ -309,7 +309,7 @@ dotnet %LUBAN_DLL% ^
      -x outputCodeDir=src/main/gen ^
      -x outputDataDir=..\GenerateDatas\bytes ^
      -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
+     -x l10n.provider=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 ```
 
 ### Used for planning and checking configuration, no code or files are generated.
@@ -326,7 +326,7 @@ dotnet %LUBAN_DLL% ^
      -t all ^
      --conf %CONF_ROOT%\luban.conf ^
      -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
+     -x l10n.provider=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
      -x forceLoadDatas=1
 ```
 
@@ -349,6 +349,6 @@ dotnet %LUBAN_DLL% ^
      -x java-bin.outputCodeDir=java_output_path ^
      -x outputDataDir=..\GenerateDatas\bytes ^
      -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-     -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
+     -x l10n.provider=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
 
 ```
