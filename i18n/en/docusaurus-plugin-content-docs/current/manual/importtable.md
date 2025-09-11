@@ -1,4 +1,4 @@
-# Automatic table import
+# Auto-Imported Table
 
 Each new table is added to __tables__.xlsx, which is a tedious task. In most cases, each excel corresponds to a table, and it is possible to let the tool automatically add the table definition.
 
@@ -10,8 +10,11 @@ The default TableImporter is DefaultTableImporter, and the corresponding name is
 
 ### Default scanning rules
 
-DefaultTableImporter will scan all excel family (xls, xlsx, xlm, csv) files in the luban.conf directory (including subdirectories) whose file names start with #, such as `#Item.xlsx`, `reward/#Reward.xlsx`.
-Use the string after removing the leading '#' character and the file suffix as the valueType of the table, and add Tb to the valueType name as the full name of the table. If the Excel file is in a subdirectory, the subdirectory will be used as the namespace. For example:
+The DefaultTableImporter scans the luban.conf directory (including subdirectories) for all Excel files (xls, xlsx, xlm, and csv) with file names beginning with #, such as `#Item.xlsx`, `#Task-任务表.xlsx`, and `reward/#Reward.xlsx`.
+
+The table's valueType is the string after removing the leading '#' character, the file suffix, and the `-xxxx` comment at the end of the file name. "Tb" is appended to the valueType name as the full table name. The table's comment is automatically set to `xxx`. If the Excel file is in a subdirectory, the subdirectory is used as the namespace.
+
+The table comment is optional; both `#Item.xlsx` and `#Item-具表.xlsx` are valid default import table names.
 
 - `#Item.xlsx` generates a table with full_name of TbItem, value_type of Item, and mode=map
 - `reward/#Reward.xlsx` generates a table with full_name of reward.TbReward, value_type of reward.Reward, and mode=map

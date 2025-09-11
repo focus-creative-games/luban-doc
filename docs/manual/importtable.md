@@ -10,8 +10,12 @@
 
 ### 默认扫描规则
 
-DefaultTableImporter将扫描luban.conf目录下（包含子目录）所有文件名以#开头的excel族（xls、xlsx、xlm、csv）文件，如 `#Item.xlsx`、`reward/#Reward.xlsx`。
-以除去开头的'#'字符及文件后缀后的字符串作为表的valueType，在valueType名上新增Tb作为表的全名，如果excel文件在子目录下，则会将子目录作为命名空间。举例如下：
+DefaultTableImporter将扫描luban.conf目录下（包含子目录）所有文件名以#开头的excel族（xls、xlsx、xlm、csv）文件，如 `#Item.xlsx`、`#Task-任务表.xlsx`、`reward/#Reward.xlsx`。
+以除去开头的'#'字符及文件后缀及文件名最后的`-xxxx`注释后的字符串作为表的valueType，在valueType名上新增Tb作为表的全名，表的注释会自动设置为`xxx`，如果excel文件在子目录下，则会将子目录作为命名空间
+
+表注释是可选的，即`#Item.xlsx`和`#Item-道具表.xlsx`都是合法的默认导入表名。
+
+示例如下：
 
 - `#Item.xlsx` 生成 full_name为TbItem，value_type为Item，mode=map的表
 - `reward/#Reward.xlsx`生成full_name为reward.TbReward，value_type为reward.Reward，mode=map的表

@@ -8,7 +8,8 @@
 
 ## 创建自动导入的table
 
-将[快速上手](./quickstart)中创建的reward.xlsx复制为`#Reward2.xlsx`文件，**不需要**修改\_\_tables\_\_.xlsx。重新生成，你会发现新增了TbReward2表，表记录类型的Reward2。
+将[快速上手](./quickstart)中创建的reward.xlsx复制为`#Reward2-奖励表.xlsx`文件，**不需要**修改\_\_tables\_\_.xlsx。重新生成后会发现新增了TbReward2表，表记录类型的Reward2。
+表名后的`-xxxx`注释是可选的，如果存在，会自动被当作表注释。
 
 对于常见情况，这种加表方式非常方便。
 
@@ -21,4 +22,3 @@
 - `reward/#Reward.xlsx`生成full_name为reward.TbReward，value_type为reward.Reward，mode=map的表
 - `item/equip/#Equip.csv`生成full_name为item.equip.TbEquip，value_type为item.equip.Equip，mode=map的表
 - `#item.Item.xlsx`生成 full_name为 item.TbItem，value_type为item.Item，mode=map的表
-
