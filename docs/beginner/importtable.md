@@ -1,12 +1,18 @@
 # 自动导入table
 
-每新增一个表都在__tables__.xlsx中添加一项，这个工作比较烦琐。大多数情况下，每个excel对应一个表，让工具自动添加表定义是可能的。
+:::tip
+v3.0.0版本起支持自动导入table。
+:::
 
-自v3.0.0版本起，支持自动table导入。luban会按照指定的规则扫描excel文件，自动导入对应的table。注意，并不会将该表的信息添加到`__tables__.xlsx`文件中。
+每新增一个表都在__tables__.xlsx中添加一项，这个工作令人烦琐。大多数情况下，每个excel对应一个表，让工具自动添加表定义是可能的。
 
-自动导入支持自定义导入规则，具体请查阅文档[自动导入table](../manual/importtable.md)。
+luban支持按照指定的规则扫描excel文件，自动导入对应的table。注意，并不会将该表的信息添加到`__tables__.xlsx`文件中。具体请查阅文档[自动导入table](../manual/importtable.md)。
 
 ## 创建自动导入的table
+
+:::warning
+v4.4.1版本起才支持表注释写法`#<TableName>-<TableComment>`，更早版本只支持无表注释的写法`#<TableName>`。
+:::
 
 将[快速上手](./quickstart)中创建的reward.xlsx复制为`#Reward2-奖励表.xlsx`文件，**不需要**修改\_\_tables\_\_.xlsx。重新生成后会发现新增了TbReward2表，表记录类型的Reward2。
 表名后的`-xxxx`注释是可选的，如果存在，会自动被当作表注释。

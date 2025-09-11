@@ -1,14 +1,22 @@
 # 自动导入table
 
+:::tip
+v3.0.0版本起支持自动导入table。
+:::
+
 每新增一个表都在__tables__.xlsx中添加一项，这个工作令人烦琐。大多数情况下，每个excel对应一个表，让工具自动添加表定义是可能的。
 
-自v3.0.0版本起，支持自动table导入。luban会按照指定的规则扫描excel文件，自动导入对应的table。注意，并不会将该表的信息添加到`__tables__.xlsx`文件中。
+luban支持按照指定的规则扫描excel文件，自动导入对应的table。注意，并不会将该表的信息添加到`__tables__.xlsx`文件中。
 
 ## 默认的TableImporter
 
 默认TableImporter为DefaultTableImporter，对应名称为default。如果不指定`-x tableImporter.name`参数，则自动取DefaultTableImporter。
 
 ### 默认扫描规则
+
+:::tip
+v4.4.1版本起才支持表注释写法`#<TableName>-<TableComment>`，更早版本只支持无表注释的写法`#<TableName>`。
+:::
 
 DefaultTableImporter将扫描luban.conf目录下（包含子目录）所有文件名以#开头的excel族（xls、xlsx、xlm、csv）文件，如 `#Item.xlsx`、`#Task-任务表.xlsx`、`reward/#Reward.xlsx`。
 以除去开头的'#'字符及文件后缀及文件名最后的`-xxxx`注释后的字符串作为表的valueType，在valueType名上新增Tb作为表的全名，表的注释会自动设置为`xxx`，如果excel文件在子目录下，则会将子目录作为命名空间
