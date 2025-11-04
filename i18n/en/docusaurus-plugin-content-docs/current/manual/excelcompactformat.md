@@ -135,4 +135,4 @@ Use this format to parse data when the format attribute value is specified in th
 Format example:
 
 - vec3 data `(1.0,2.0,3.0)` is filled in as `{x=1.0, y=2.0, z=3.0}` in lua format.
-- `class User{ int id; string name; vec3 pos;}` is filled in as `{id=1, name="xxxx", pos={"x":1, "y":2, "z":3}}`.
+- `class User{ int id; string name; vec3 pos;}` is filled in as `{id=1, name="xxxx", pos={x=1, y=2, z=3}}`.

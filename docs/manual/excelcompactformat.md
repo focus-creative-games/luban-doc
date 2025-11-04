@@ -133,4 +133,4 @@ lite是luban独有的数据格式，适合表达非常复杂嵌套的数据结�
 格式举例：
 
 - vec3数据 `(1.0,2.0,3.0)`以lua格式填法为`{x=1.0, y=2.0, z=3.0}`。
-- `class User{ int id; string name; vec3 pos;}` 填法为 `{id=1, name="xxxx", pos={"x":1, "y":2, "z":3}}`。
+- `class User{ int id; string name; vec3 pos;}` 填法为 `{id=1, name="xxxx", pos={x=1, y=2, z=3}}`。
