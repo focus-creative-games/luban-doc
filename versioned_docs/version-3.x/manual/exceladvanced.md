@@ -63,12 +63,12 @@
 sep可以出现在以下位置：
 
 - 在excel的字段名上。如 `x#sep=,`
-- bean的tag上，如`<bean name="Item" tag="sep=,">`
+- bean的tags上，如`<bean name="Item" tags="sep=,">`
 - 在field的type字段的tag上，如 `type="Vec#sep=,"`，`type="(list#sep=|),int"`、`type="list,(Vec#sep=,)"`、`type="(list#sep=|),(Vec#sep=,)"`
 
 当出现在excel字段名上时，会用该sep自动拆分该字段名的列范围内的每个单元格，形成数据流，再使用流式格式（下面小节会介绍）依次读取这些数据。
 
-当出现在bean的tag上时，表示所有读取该bean的地方，都以字符串形式提供整个bean的数据，用分割符拆分后流式读取
+当出现在bean的tags上时，表示所有读取该bean的地方，都以字符串形式提供整个bean的数据，用分割符拆分后流式读取
 
 当出现在type的tag上时，会将下一个读到的数据，当作该type对应的整体数据，接着使用sep拆分这个数据，再用流式格式读取type对应的数据。
 
