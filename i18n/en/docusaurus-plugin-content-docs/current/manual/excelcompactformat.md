@@ -80,12 +80,12 @@ Since the # and & characters are used as delimiters for attrs and tags, if you n
 sep can appear in the following positions:
 
 - On the field name of Excel. Such as `x#sep=,`
-- On the bean tag, such as `<bean name="Item" tag="sep=,">`
+- On the bean tags, such as `<bean name="Item" tags="sep=,">`
 - On the tag of the type field of field, such as `type="Vec#sep=,"`, `type="(list#sep=|),int"`, `type="list,(Vec#sep=,)"`, `type="(list#sep=|),(Vec#sep=,)"`
 
 When it appears on the excel field name, the sep will be used to automatically split each cell in the column range of the field name to form a data stream, and then the streaming format (described in the following section) will be used to read these data in sequence.
 
-When it appears on the bean tag, it means that all places where the bean is read will provide the entire bean data in string form, split with the separator and read in streaming format
+When it appears on the bean tags, it means that all places where the bean is read will provide the entire bean data in string form, split with the separator and read in streaming format
 
 When it appears on the type tag, the next data read will be regarded as the overall data corresponding to the type, and then the sep will be used to split the data, and then the data corresponding to the type will be read in streaming format.
 
