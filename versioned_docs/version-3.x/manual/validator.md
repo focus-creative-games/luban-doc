@@ -10,7 +10,7 @@ Luban.DataValidtor.Builtin模块中实现多种常见的数据校验器。
 
 在类型名后面加上!字符，例如：
 
-- `type="int!"` 要求不该字段为能为0
+- `type="int!"` 要求该字段不为能为0
 - `type=int?!` 要求该字段不能为null
 - `type="list,int!` 要求列表的元素值不能为0
 - `type="map,int!,string!` 要求map的key不能为0，value不能为长度为0的字符串
