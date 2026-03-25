@@ -63,7 +63,7 @@ Note! Constant aliases can only be used for data of the `byte, short, int, long,
 Constant aliases have no concept of namespace and are **not affected by module names**.
 
 ```xml
-<mdoule name="test"> 
+<module name="test"> 
     <constalias name="ITEM0" value="1001"/> 
     <constalias name="ITEM1" value="1002"/> 
     <constalias name="FLOAT1" value="1.5"/> 

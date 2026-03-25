@@ -159,7 +159,7 @@ A typical xml definition file is as follows:
 | ---------- | -------- | ------------- | ------------------------------------------------------------ |
 | name       | Yes      |               | the namespace name, can be empty. Can be a multi-level namespace, such as a.b |
 
-Sub-modules can be defined in mdoule, and unlimited nesting levels are supported.
+Sub-modules can be defined in module, and unlimited nesting levels are supported.
 
 ### enum definition
 

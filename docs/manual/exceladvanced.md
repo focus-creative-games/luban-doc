@@ -65,7 +65,7 @@
 常量别名没有命名空间的概念，**不受module名影响**。
 
 ```xml
-<mdoule name="test">
+<module name="test">
 
   <constalias name="ITEM0" value="1001"/>
   <constalias name="ITEM1" value="1002"/>
