@@ -1,20 +1,20 @@
 # Third-party tools
 
-## Unity plugins
+## Unity plugin
 
-The unity tool can use the luban community implementation version, which is not officially provided. Thanks to L for the open source unity luban tool code, [gihub link](https://github.com/LiuOcean/Luban_Unity_GUI)
+For Unity tools you can use the community Luban implementation; there is no official tool. Thanks to L for open-sourcing the Unity Luban tool code: [github link](https://github.com/LiuOcean/Luban_Unity_GUI)
 
 ![GUI](/img/luban_edit_tool.png)
 
-##Excel2TextDiff
+## Excel2TextDiff
 
-### Get tools
+### Get the tool
 
-Download from the release of the [Excel2TextDiff project](https://github.com/focus-creative-games/Excel2TextDiff),
-Or download it from the Tools/Excel2TextDiff directory of the [luban_examples project](https://github.com/focus-creative-games/luban_examples).
+Download from the [Excel2TextDiff project](https://github.com/focus-creative-games/Excel2TextDiff) releases,
+or from the Tools/Excel2TextDiff directory of the [luban_examples project](https://gitee.com/focus-creative-games/luban_examples).
 
-### Set TortoiseGit or GortoiseSVN to use this tool to diff xlsx files
+### Configure TortoiseGit or TortoiseSVN to diff xlsx with this tool
 
-see picture below
+See the screenshot below
 
-![settings](https://github.com/focus-creative-games/luban_examples/raw/main/docs/images/a_1.jpg)
+![settings](https://gitee.com/focus-creative-games/luban_examples/raw/main/docs/images/a_1.jpg)

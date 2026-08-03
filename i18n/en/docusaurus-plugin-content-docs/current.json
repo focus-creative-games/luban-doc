@@ -1,19 +1,122 @@
 {
-
-  "sidebar.tutorialSidebar.category.新手教程": {
-    "message": "The tutorial",
-    "description": "The label for category the tutorial in sidebar tutorialSidebar"
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
   },
-  "sidebar.tutorialSidebar.category.使用指南": {
-    "message": "User Guide",
-    "description": "The label for category user guide in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.介绍": {
+    "message": "Introduction",
+    "description": "The label for category Introduction in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.快速上手": {
+    "message": "Quick Start",
+    "description": "The label for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.快速上手.link.generated-index.title": {
+    "message": "Quick Start",
+    "description": "The generated-index page title for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.快速上手.link.generated-index.description": {
+    "message": "Shortest path for programmers: install → generate → load.",
+    "description": "The generated-index page description for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.核心概念": {
+    "message": "Core Concepts",
+    "description": "The label for category Core Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.核心概念.link.generated-index.title": {
+    "message": "Core Concepts",
+    "description": "The generated-index page title for category Core Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.核心概念.link.generated-index.description": {
+    "message": "Shared terminology and project structure used by later chapters.",
+    "description": "The generated-index page description for category Core Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Excel 与数据": {
+    "message": "Excel & Data",
+    "description": "The label for category Excel & Data in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Excel 与数据.link.generated-index.title": {
+    "message": "Excel & Data",
+    "description": "The generated-index page title for category Excel & Data in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Excel 与数据.link.generated-index.description": {
+    "message": "How to fill data: headers, nested structures, and non-Excel sources.",
+    "description": "The generated-index page description for category Excel & Data in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Schema 定义": {
+    "message": "Schema",
+    "description": "The label for category Schema in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Schema 定义.link.generated-index.title": {
+    "message": "Schema",
+    "description": "The generated-index page title for category Schema in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Schema 定义.link.generated-index.description": {
+    "message": "Structural contracts: tables, beans, enums, types, and modules.",
+    "description": "The generated-index page description for category Schema in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.生成与运行时": {
+    "message": "Generate & Runtime",
+    "description": "The label for category Generate & Runtime in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.生成与运行时.link.generated-index.title": {
+    "message": "Generate & Runtime",
+    "description": "The generated-index page title for category Generate & Runtime in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.生成与运行时.link.generated-index.description": {
+    "message": "How to export, load, and name generated code.",
+    "description": "The generated-index page description for category Generate & Runtime in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.质量与发布": {
+    "message": "Quality & Release",
+    "description": "The label for category Quality & Release in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.质量与发布.link.generated-index.title": {
+    "message": "Quality & Release",
+    "description": "The generated-index page title for category Quality & Release in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.质量与发布.link.generated-index.description": {
+    "message": "Validators, tag filtering, variants, and localization.",
+    "description": "The generated-index page description for category Quality & Release in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.扩展 Luban": {
+    "message": "Extending Luban",
+    "description": "The label for category Extending Luban in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.扩展 Luban.link.generated-index.title": {
+    "message": "Extending Luban",
+    "description": "The generated-index page title for category Extending Luban in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.扩展 Luban.link.generated-index.description": {
+    "message": "Secondary development: extension points, templates, and plugins.",
+    "description": "The generated-index page description for category Extending Luban in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.策划填表指南": {
+    "message": "Designer Guide",
+    "description": "The label for category Designer Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.策划填表指南.link.generated-index.title": {
+    "message": "Designer Guide",
+    "description": "The generated-index page title for category Designer Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.策划填表指南.link.generated-index.description": {
+    "message": "Short chapters for designers; no need to read the full programmer manual.",
+    "description": "The generated-index page description for category Designer Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.参考手册": {
+    "message": "Reference",
+    "description": "The label for category Reference in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.参考手册.link.generated-index.title": {
+    "message": "Reference",
+    "description": "The generated-index page title for category Reference in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.参考手册.link.generated-index.description": {
+    "message": "Lookup: CLI, built-ins, and FAQ.",
+    "description": "The generated-index page description for category Reference in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.其他": {
     "message": "Other",
-    "description": "The label for category other in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.doc.介绍": {
-    "message": "Introduce",
-    "description": "The label for the doc item introduce in sidebar tutorialSidebar, linking to the doc intro"
+    "description": "The label for category Other in sidebar tutorialSidebar"
   }
 }

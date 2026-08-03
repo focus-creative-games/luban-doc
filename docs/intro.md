@@ -1,236 +1,52 @@
-# 介绍
+---
+sidebar_position: 1
+slug: /intro
+---
 
-![icon](/img/logo.png)
+# 什么是 Luban
 
-[![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT) ![star](https://img.shields.io/github/stars/focus-creative-games/luban?style=flat-square)
+Luban 是面向游戏项目的**配置解决方案**：用统一的类型系统描述配置结构，从 Excel / JSON / XML 等读入数据，校验后生成多语言代码与多种数据格式。
 
+它解决的不是「把 Excel 转成 JSON」这一件事，而是把策划填表、程序加载、客户端/服务器分端导出、复杂 GamePlay 数据（技能、行为树、副本等）放进**同一套管线**。
 
-luban是一个强大、易用、优雅、稳定的游戏配置解决方案。它设计目标为满足从小型到超大型游戏项目的简单到复杂的游戏配置工作流需求。
+## 适合谁
 
-luban可以处理丰富的文件类型，支持主流的语言，可以生成多种导出格式，支持丰富的数据检验功能，具有良好的跨平台能力，并且生成极快。
-luban有清晰优雅的生成管线设计，支持良好的模块化和插件化，方便开发者进行二次开发。开发者很容易就能将luban适配到自己的配置格式，定制出满足项目要求的强大的配置工具。
+| 角色 | 你会用到什么 |
+|------|----------------|
+| 程序 | 定义 schema、写生成命令、在运行时用 `Tables` 加载 |
+| 策划 | 按约定在 Excel（或编辑器导出的 JSON）里填数据 |
 
-luban标准化了游戏配置开发工作流，可以极大提升策划和程序的工作效率。
+## 核心能力（一览）
 
-## 核心特性
+- **类型系统**：基础类型、枚举、bean、继承/多态、容器、可空
+- **多数据源**：Excel 族、JSON、XML、YAML、Lua 等
+- **多端导出**：groups / targets 控制客户端、服务器、编辑器各自拿到什么
+- **校验**：引用、范围、资源路径等，尽量在生成期发现错误
+- **多语言与多格式**：C# / Java / Go / Lua / TS…；bin / json / protobuf…
+- **可扩展**：Loader、Validator、CodeTarget、DataTarget、Pipeline 均可插件化
 
-- 丰富的源数据格式。支持excel族(csv,xls,xlsx,xlsm)、json、xml、yaml、lua等
-- 丰富的导出格式。 支持生成binary、json、bson、xml、lua、yaml等格式数据
-- 增强的excel格式。可以简洁地配置出像简单列表、子结构、结构列表，以及任意复杂的深层次的嵌套结构
-- 完备的类型系统。不仅能表达常见的规范行列表，由于**支持OOP类型继承**，能灵活优雅表达行为树、技能、剧情、副本之类复杂GamePlay数据
-- 支持多种的语言。支持生成c#、java、go、cpp、lua、python、typescript 等语言代码
-- 支持主流的消息方案。 protobuf(schema + binary + json)、flatbuffers(schema + json)、msgpack(binary)
-- 强大的数据校验能力。ref引用检查、path资源路径、range范围检查等等
-- 完善的本地化支持
-- 支持所有主流的游戏引擎和平台。支持Unity、Unreal、Cocos、Godot、Laya、微信小游戏等
-- 良好的跨平台能力。能在Win,Linux,Mac平台良好运行。
-- 支持所有主流的热更新方案。hybridclr、ilruntime、{x,t,s}lua、puerts等
-- 清晰优雅的生成管线，很容易在luban基础上进行二次开发，定制出适合自己项目风格的配置工具。
+## 适用与不适用
 
-## Excel格式概览
+**适合**
 
-基础数据格式
+- 需要前后端共用同一套配置定义
+- 表结构会从「扁平行列表」长到嵌套、多态
+- 希望生成强类型加载代码，而不是手写解析
 
-![primitive_type](/img/cases/primitive_type.jpg)
+**不太适合**
 
-enum 数据格式
+- 只有几张极简 KV，且永远不需要类型/校验/多端
+- 完全拒绝程序维护 schema（Luban 把 **schema 当作契约**：数据不符合应报错，而不是改定义）
 
-![enum](/img/cases/enum.jpg)
+## 官方资源
 
-bean数据格式
+- 示例工程：[luban_examples](https://github.com/focus-creative-games/luban_examples)（含 MiniTemplate 与多引擎示例）
+- 源码：[luban](https://github.com/focus-creative-games/luban)
+- Unity Runtime：[luban_unity](https://github.com/focus-creative-games/luban_unity)
+- QQ 群：692890842 · Discord：见仓库 README
 
-![bean](/img/cases/bean.jpg)
+## 下一步
 
-多态bean数据格式
-
-![bean](/img/cases/bean2.jpg)
-
-容器
-
-![collection](/img/cases/collection.jpg)
-
-可空类型
-
-![nullable](/img/cases/nullable.jpg)
-
-无主键表
-
-![table_list_not_key](/img/cases/table_list_not_key.jpg)
-
-多主键表（联合索引）
-
-![table_list_union_key](/img/cases/table_list_union_key.jpg)
-
-多主键表（独立索引）
-
-![table_list_indep_key](/img/cases/table_list_indep_key.jpg)
-
-单例表
-
-有一些配置全局只有一份，比如 公会模块的开启等级，背包初始大小，背包上限。此时使用单例表来配置这些数据比较合适。
-
-![singleton](/img/cases/singleton2.jpg)
-
-纵表
-
-大多数表都是横表，即一行一个记录。有些表，比如单例表，如果纵着填，一行一个字段，会比较舒服。A1为`##column`或`##vertical`表示使用纵表模式。 上面的单例表，以纵表模式填如下。
-
-![singleton](/img/cases/singleton.jpg)
-
-使用sep读入bean及嵌套bean。
-
-![sep_bean](/img/cases/sep_bean.jpg)
-
-使用sep读取普通容器。
-
-![sep_bean](/img/cases/sep_container1.jpg)
-
-使用sep读取结构容器。
-
-![sep_bean](/img/cases/sep_container2.jpg)
-
-
-多级标题头
-
-![colloumlimit](/img/cases/multileveltitle.jpg)
-
-限定列格式
-
-![titlelimit](/img/cases/titlelimit.jpg)
-
-枚举的列限定格式
-
-![titlle_enum](/img/cases/title_enum.jpg)
-
-多态bean列限定格式
-
-![title_dynamic_bean](/img/cases/title_dynamic_bean.jpg)
-
-map的列限定格式
-
-![title_map](/img/cases/title_map.jpg)
-
-
-多行字段
-
-![map](/img/cases/multiline.jpg)
-
-数据标签过滤
-
-![tag](/img/cases/tag.jpg)
-
-
-## 其他格式概览
-
-以行为树为例，展示json格式下如何配置行为树配置。xml、lua、yaml等格式请参见 [详细文档](http://localhost:3000/docs/intro)。
-
-```json
-{
-  "id": 10002,
-  "name": "random move",
-  "desc": "demo behaviour tree",
-  "executor": "SERVER",
-  "blackboard_id": "demo",
-  "root": {
-    "$type": "Sequence",
-    "id": 1,
-    "node_name": "test",
-    "desc": "root",
-    "services": [],
-    "decorators": [
-      {
-        "$type": "UeLoop",
-        "id": 3,
-        "node_name": "",
-        "flow_abort_mode": "SELF",
-        "num_loops": 0,
-        "infinite_loop": true,
-        "infinite_loop_timeout_time": -1
-      }
-    ],
-    "children": [
-      {
-        "$type": "UeWait",
-        "id": 30,
-        "node_name": "",
-        "ignore_restart_self": false,
-        "wait_time": 1,
-        "random_deviation": 0.5,
-        "services": [],
-        "decorators": []
-      },
-      {
-        "$type": "MoveToRandomLocation",
-        "id": 75,
-        "node_name": "",
-        "ignore_restart_self": false,
-        "origin_position_key": "x5",
-        "radius": 30,
-        "services": [],
-        "decorators": []
-      }
-    ]
-  }
-}
-```
-
-## 代码使用预览
-
-
-这儿只简略展示c#、typescript、go、c++ 语言在开发中的用法，更多语言以及更详细的使用范例和代码见[示例项目](https://gitee.com/focus-creative-games/luban_examples)。
-
-- C# 使用示例
-
-```C#
-// 一行代码可以加载所有配置。 cfg.Tables 包含所有表的一个实例字段。
-var tables = new cfg.Tables(file => return new ByteBuf(File.ReadAllBytes($"{gameConfDir}/{file}.bytes")));
-// 访问一个单例表
-Console.WriteLine(tables.TbGlobal.Name);
-// 访问普通的 key-value 表
-Console.WriteLine(tables.TbItem.Get(12).Name);
-// 支持 operator []用法
-Console.WriteLine(tables.TbMail[1001].Desc);
-```
-
-- typescript 使用示例
-
-```typescript
-// 一行代码可以加载所有配置。 cfg.Tables 包含所有表的一个实例字段。
-let tables = new cfg.Tables(f => JsHelpers.LoadFromFile(gameConfDir, f))
-// 访问一个单例表
-console.log(tables.TbGlobal.name)
-// 访问普通的 key-value 表
-console.log(tables.TbItem.get(12).Name)
-```
-
-- go 使用示例
-
-```go
-// 一行代码可以加载所有配置。 cfg.Tables 包含所有表的一个实例字段。
-if tables , err := cfg.NewTables(loader) ; err != nil {
- println(err.Error())
- return
-}
-// 访问一个单例表
-println(tables.TbGlobal.Name)
-// 访问普通的 key-value 表
-println(tables.TbItem.Get(12).Name)
-```
-
-- c++ 使用示例
-
-```cpp
-    cfg::Tables tables;
-    if (!tables.load([](ByteBuf& buf, const std::string& s) { return buf.loadFromFile("../GenerateDatas/bytes/" + s + ".bytes"); }))
-    {
-        std::cout << "== load fail == " << std::endl;
-        return;
-    }
-    std::cout << tables.TbGlobal->name << std::endl;
-    std::cout << tables.TbItem.get(12)->name << std::endl;
-```
-
-
-## license
-
-Luban is licensed under the [MIT](https://github.com/focus-creative-games/luban/blob/main/LICENSE) license
+- 程序：先读 [5 分钟心智模型](./mental-model) → [快速上手](./guide/install)
+- 策划：直接看 [策划填表指南](./designer/concepts)
+- 想知道文档怎么组织：[文档怎么读](./how-to-read)

@@ -127,6 +127,10 @@ const config = {
                 label: '文档',
                 to: '/docs/intro',
               },
+              {
+                label: '快速上手',
+                to: '/docs/guide/install',
+              },
             ],
           },
           {
