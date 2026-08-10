@@ -32,8 +32,8 @@ sidebar_position: 1
 | TbItem | Item | false | item.xlsx | id | | | 道具表 |
 | item.TbEquip | item.Equip | true | item/equip.xlsx | id | map | c,s | 从数据表头读字段 |
 | TbDropList | DropEntry | false | drop.xlsx | | list | | 无主键列表 |
-| TbUnionKey | UnionRow | false | union.xlsx | key1+key2 | map | | 联合主键 |
-| TbMultiKey | MultiKeyRow | false | multi.xlsx | key1,key2 | map | | 两个独立索引 |
+| TbUnionKey | UnionRow | false | union.xlsx | key1+key2 | list | | 联合主键 |
+| TbMultiKey | MultiKeyRow | false | multi.xlsx | key1,key2 | list | | 两个独立索引 |
 | TbGlobal | GlobalConfig | false | global.xlsx | | one | | 全局单例 |
 
 字段含义：
@@ -55,8 +55,8 @@ sidebar_position: 1
 |------|------|-------|----------------|
 | 普通 id 表 | 空或 `map` | `id` | `Get(id)` / 字典 |
 | 无主键列表 | `list` | 空 | 遍历列表 |
-| 联合主键 | `map` 或 `list` | `a+b` | 多字段唯一 |
-| 独立多索引 | `map` 或 `list` | `a,b` | 多个查找字典 |
+| 联合主键 | `list` | `a+b` | 多字段唯一 |
+| 独立多索引 | `list` | `a,b` | 多个查找字典 |
 | 全局单例 | `one` | 空 | 一张表一条（或纵表）配置 |
 
 未写 index 且 mode 为 map 时，常默认取 value bean 的第一个字段。

@@ -49,8 +49,7 @@ Excel 里一个字段占多列时，用**合并单元格**标出范围（不是�
     <tr>
       <td>##type</td>
       <td>int</td>
-      <td>int</td>
-      <td>int</td>
+      <th colspan="2">Cost</th>
       <td>string</td>
     </tr>
     <tr>
@@ -106,9 +105,7 @@ Excel 里一个字段占多列时，用**合并单元格**标出范围（不是�
       <td>##type</td>
       <td>int</td>
       <td>int</td>
-      <td>int</td>
-      <td>int</td>
-      <td>int</td>
+      <th colspan="3">Reward</th>
     </tr>
     <tr>
       <td></td>
