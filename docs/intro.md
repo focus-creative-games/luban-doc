@@ -25,6 +25,8 @@ Luban 是面向游戏项目的**配置解决方案**：用统一的类型系统�
 - **多语言与多格式**：C# / Java / Go / Lua / TS…；bin / json / protobuf…
 - **可扩展**：Loader、Validator、CodeTarget、DataTarget、Pipeline 均可插件化
 
+完整能力清单见 [Luban 能力清单](./reference/features)。
+
 ## 适用与不适用
 
 **适合**

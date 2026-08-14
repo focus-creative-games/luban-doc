@@ -26,10 +26,10 @@ dotnet <path_of_Luban.dll> [args]
 | `--timeZone` | No | local | Affects datetime |
 | `--customTemplateDir` | No | | Custom template directory |
 | `--validationFailAsError` | No | false | Fail when validation fails |
-| `-x, --xargs` | No | | Extra options; see [Cascading options](./cascading-options) |
+| `-x, --xargs` | No | | Extra options; see [Cascading options xargs table](./cascading-options) |
 | `-l, --logConfig` | No | nlog.xml | |
 | `-w, --watchDir` | No | | Watch directories and regenerate |
 | `-v, --verbose` | No | | |
 | `--help` / `--version` | No | | |
 
-Daily usage: [Common CLI](../runtime/cli-common).
+Daily usage: [Common CLI](../runtime/cli-common). Full xargs table: [Cascading options xargs table](./cascading-options).

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Code style and TypeMapper
+# Code style
 
 ## Naming style
 
@@ -17,18 +17,12 @@ Common style names: `none`, and each language's `*-default`. Styles can apply se
 
 Fields named like `item_id` are often generated as `ItemId` by default in C#.
 
-## TypeMapper (mainly C# for now)
+## External type mapping
 
-Map config types onto external types that already exist in your project:
-
-- enum: `option type=external enum` (numeric values must match)
-- bean: external type + `constructor` conversion
-
-Matching condition: the current `-t` and `-c` fall within the target / codeTarget sets declared by the mapper.
-
-Configure this in XML schema via `<mapper>` or in the corresponding Excel column.
+Map config enums/beans to existing project types (e.g. `UnityEngine.Vector3`); see [External type mapping (TypeMapper)](../schema/type-mapper).
 
 ## Related links
 
+- [TypeMapper](../schema/type-mapper)
 - [XML Schema](../schema/xml-schema)
 - [CLI Reference](../reference/cli)

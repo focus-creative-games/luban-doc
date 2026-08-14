@@ -32,8 +32,8 @@ The three definition kinds must be kept in separate files (or sheets); column na
 | TbItem | Item | false | item.xlsx | id | | | 道具表 |
 | item.TbEquip | item.Equip | true | item/equip.xlsx | id | map | c,s | 从数据表头读字段 |
 | TbDropList | DropEntry | false | drop.xlsx | | list | | 无主键列表 |
-| TbUnionKey | UnionRow | false | union.xlsx | key1+key2 | map | | 联合主键 |
-| TbMultiKey | MultiKeyRow | false | multi.xlsx | key1,key2 | map | | 两个独立索引 |
+| TbUnionKey | UnionRow | false | union.xlsx | key1+key2 | list | | 联合主键 |
+| TbMultiKey | MultiKeyRow | false | multi.xlsx | key1,key2 | list | | 两个独立索引 |
 | TbGlobal | GlobalConfig | false | global.xlsx | | one | | 全局单例 |
 
 Field meanings:
@@ -55,9 +55,13 @@ Field meanings:
 |------|------|-------|----------------|
 | Ordinary id table | empty or `map` | `id` | `Get(id)` / dictionary |
 | List without primary key | `list` | empty | Iterate the list |
-| Composite primary key | `map` or `list` | `a+b` | Multi-field uniqueness |
-| Independent multi-index | `map` or `list` | `a,b` | Multiple lookup dictionaries |
+| Composite primary key | `list` | `a+b` | Multi-field uniqueness |
+| Independent multi-index | `list` | `a,b` | Multiple lookup dictionaries |
 | Global singleton | `one` | empty | One config per table (or vertical table) |
+
+:::caution
+Most languages lack built-in composite-key hash maps. Only a few (e.g. C#, Python) get generated joint-index APIs; **data export still validates joint keys regardless of generated code.**
+:::
 
 When index is omitted and mode is map, the first field of the value bean is often taken by default.
 

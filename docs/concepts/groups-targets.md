@@ -33,6 +33,19 @@ dotnet Luban.dll --conf luban.conf -t server -c cs-dotnet-json -d json -x ...
 
 字段只要客户端时：在 Excel `##group` 行填 `c`，或在 schema 里给 field 设 group。
 
+## 默认导出集合与 `*` 语义
+
+由当前 target 导出的 table 的 valueType **递归引用**计算出**默认导出集合**。集合内的 enum/bean 即使 groups 不属于当前 target，也会导出。
+
+| 规则 | 说明 |
+|------|------|
+| groups 含 `*` | 属于所有分组 |
+| enum/bean 含 `*` | 即使未被引用也生成代码 |
+| table/enum/bean groups 为空 | 当 target 的 groups 中有 `default: true` 的组时导出，否则不导出 |
+| **field groups 为空** | **导出给所有分组**（与 table 规则不同） |
+
+index 未写且 mode 为空或 map 时，常自动取 valueType 第一个字段为主键；index 多个字段时 mode 常为 list。
+
 ## 常见组合
 
 | 场景 | 做法 |

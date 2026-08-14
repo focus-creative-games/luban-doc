@@ -173,7 +173,7 @@ See [Polymorphism](./polymorphism).
 |------|------|
 | refgroup | A set of full table names usable by `#ref=` |
 | constalias | Constant aliases usable in data |
-| mapper | Map enum/bean to external types (by target / codeTarget) |
+| mapper | Map enum/bean to external types (by target / codeTarget); see [TypeMapper](./type-mapper) |
 
 ## When to use XML
 
@@ -186,5 +186,6 @@ See [Polymorphism](./polymorphism).
 ## Related links
 
 - [Excel Schema](./excel-schema)
+- [TypeMapper](./type-mapper)
 - [Polymorphism](./polymorphism)
 - [luban.conf](../concepts/luban-conf)

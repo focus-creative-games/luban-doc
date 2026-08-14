@@ -96,10 +96,11 @@ Full details: [Validators](../quality/validators).
 
 ## External type mapping (TypeMapper)
 
-You can map bean/enum to existing project types (e.g. `UnityEngine.Vector3`). Configure in XML `<mapper>`; see [XML Schema](./xml-schema). For code-style notes see [Code style](../runtime/code-style).
+You can map bean/enum to existing project types (e.g. `UnityEngine.Vector3`, `UnityEngine.AudioType`). Full syntax, matching rules, and examples: [External type mapping (TypeMapper)](./type-mapper).
 
 ## Related links
 
+- [TypeMapper](./type-mapper)
 - [Polymorphism](./polymorphism)
 - [Excel: nested structures and collections](../excel/nested-and-collections)
 - [Validators](../quality/validators)

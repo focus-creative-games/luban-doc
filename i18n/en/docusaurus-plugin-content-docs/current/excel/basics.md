@@ -14,6 +14,10 @@ Mark headers in A1 (or the title area) with `##` / `##var` / `##type`, etc.; dat
 
 `xls` / `xlsx` / `xlsm` / `csv`, and more. You can also use `sheetName@file.xlsx` to read only one sheet.
 
+For CSV files not in GBK or UTF-8, Luban **guesses encoding** automatically; you usually do not need to specify it.
+
+xlsx reads **all** sheets, but sheets whose A1 does not start with `##` are ignored (use those for non-data notes).
+
 ## Minimal complete example
 
 Assume the row record type is `Item`, with fields `id` / `name` / `price` / `on_sale`:
@@ -52,14 +56,20 @@ Key points:
 | Type | Valid values | Notes |
 |------|----------|------|
 | bool | `true`/`false`/`0`/`1`/`是`/`否` (case-insensitive) | Other values error |
-| Integer / float | Numbers; most can be **left empty for defaults** | |
-| string | Empty cell = empty string | In stream format, empty string sometimes needs `""` |
+| Integer / float | Numbers; **column/column-constraint** mode allows empty defaults | In stream/sep, must fill `0` explicitly |
+| string | Empty cell = empty string | In stream format, empty string needs `""` |
 | string#escape=1 | Supports converting `\n` to newlines | |
-| datetime | Excel date, or `yyyy-mm-dd[ hh[:mm[:ss]]]` | Generally **do not leave empty** |
+| datetime | Excel date, or `yyyy-mm-dd hh:mm:ss` / `yyyy-mm-dd hh:mm` / `yyyy-mm-dd hh` / `yyyy-mm-dd` | Generally **do not leave empty**; missing time parts default to 0 |
+
+![primitive types](/img/cases/primitive_type.jpg)
 
 ## Enums
 
-You can fill: enum name, alias, or integer value. Flags enums can use `A|B` (separator is configurable).
+You can fill: enum name, alias, or integer value. Flags enums can use `A|B` (change separator via enum `sep`, e.g. `sep=","` → `A,B`).
+
+**Flags column-constraint mode** (enum must be flags): use enum item names as child columns; fill `1`/non-empty to include that flag; result is **bitwise OR** of all non-zero/non-empty items. See [Nested structures](./nested-and-collections#extra-column-constrained-notes).
+
+![enum](/img/cases/enum.jpg)
 
 | ##var | id | quality |
 |---|---|---|
@@ -86,8 +96,10 @@ Except for containers, use `T?`. All of them accept `null` for empty.
 |------|------------|
 | Atomic types like `int?` | Leave empty or `null` |
 | `string?` | Leave empty = null; for empty string fill `""` |
-| Non-polymorphic `bean?` | When non-null, start with `{}` then fill fields; empty with `null`/leave blank |
+| Non-polymorphic `bean?` | When non-null, **must start with `{}`** then fill fields; empty with `null`/leave blank |
 | Polymorphic bean | Follow polymorphism rules; see [Polymorphism](./polymorphism) |
+
+![nullable types](/img/cases/nullable.jpg)
 
 ## Table mode examples (with Schema)
 

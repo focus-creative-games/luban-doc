@@ -51,6 +51,49 @@ dotnet Luban.dll --conf luban.conf -t client -c cs-simple-json -d json ^
 | `-o/--outputTable` | 只导出指定表 |
 | `--validationFailAsError` | 校验失败则生成失败（发布建议打开） |
 | `-f/--forceLoadTableDatas` | 无 dataTarget 也加载数据以便只做校验 |
+| `-x outputSaver=null` | 只校验不写出文件（常配合 `-f`） |
+
+## 完整生成示例
+
+Unity + cs-bin + bin（含 path 校验、l10n）：
+
+```bat
+dotnet Luban.dll ^
+    -t client ^
+    -c cs-bin ^
+    -d bin ^
+    --conf luban.conf ^
+    -x outputCodeDir=../Assets/Gen ^
+    -x outputDataDir=../Assets/Data ^
+    -x pathValidator.rootDir=../Assets ^
+    -x l10n.provider=default
+```
+
+Unity + cs-simple-json + json：
+
+```bat
+dotnet Luban.dll -t client -c cs-simple-json -d json ^
+    --conf luban.conf ^
+    -x outputCodeDir=../Assets/Gen ^
+    -x outputDataDir=../Assets/Data
+```
+
+**仅策划校验**（不生成代码/数据）：
+
+```bat
+dotnet Luban.dll -t all -f --conf luban.conf --validationFailAsError
+```
+
+**同时生成 C# 与 Java**（分层 output 避免覆盖）：
+
+```bat
+dotnet Luban.dll -t server ^
+    -c cs-bin -c java-bin -d bin ^
+    --conf luban.conf ^
+    -x cs-bin.outputCodeDir=../csharp/Gen ^
+    -x java-bin.outputCodeDir=../java/Gen ^
+    -x bin.outputDataDir=../Data
+```
 
 ## 相关链接
 

@@ -51,6 +51,49 @@ By default, old generated files in the output directories are cleaned. Do not po
 | `-o/--outputTable` | Export only the specified tables |
 | `--validationFailAsError` | Treat validation failures as generation failures (recommended for release) |
 | `-f/--forceLoadTableDatas` | Load data even without a dataTarget, so you can validate only |
+| `-x outputSaver=null` | Validate only, write no files (often with `-f`) |
+
+## Full generation examples
+
+Unity + cs-bin + bin (with path validation, l10n):
+
+```bat
+dotnet Luban.dll ^
+    -t client ^
+    -c cs-bin ^
+    -d bin ^
+    --conf luban.conf ^
+    -x outputCodeDir=../Assets/Gen ^
+    -x outputDataDir=../Assets/Data ^
+    -x pathValidator.rootDir=../Assets ^
+    -x l10n.provider=default
+```
+
+Unity + cs-simple-json + json:
+
+```bat
+dotnet Luban.dll -t client -c cs-simple-json -d json ^
+    --conf luban.conf ^
+    -x outputCodeDir=../Assets/Gen ^
+    -x outputDataDir=../Assets/Data
+```
+
+**Designers validate only** (no code/data output):
+
+```bat
+dotnet Luban.dll -t all -f --conf luban.conf --validationFailAsError
+```
+
+**Generate C# and Java together** (cascading output to avoid overwrite):
+
+```bat
+dotnet Luban.dll -t server ^
+    -c cs-bin -c java-bin -d bin ^
+    --conf luban.conf ^
+    -x cs-bin.outputCodeDir=../csharp/Gen ^
+    -x java-bin.outputCodeDir=../java/Gen ^
+    -x bin.outputDataDir=../Data
+```
 
 ## Related links
 

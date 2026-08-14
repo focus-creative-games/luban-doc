@@ -4,6 +4,19 @@ sidebar_position: 4
 
 # Vertical Tables, sep, and Stream Filling
 
+Composite data (beans, containers) has four common read modes in Excel:
+
+| # | Mode | Notes |
+|---|------|------|
+| 1 | Stream, multi-cell | Span columns; read left to right; blanks often skipped |
+| 2 | Stream, single cell + sep | One cell split by separators into a data stream |
+| 3 | Column constraint, multi-cell | Child `##var` rows pin each sub-field to a column; atomics support empty defaults |
+| 4 | Multi-row (containers only) | Field name `*name`; one element per row; each element can use modes 1–3 |
+
+![stream multi-cell](/img/use_stream1.jpg) ![stream single-cell sep](/img/use_stream2.jpg) ![column constraint](/img/use_column.jpg) ![multi-row](/img/use_rows.jpg)
+
+Column constraints can nest; multi-row applies only to container types.
+
 ## Vertical tables (common for singleton config)
 
 Horizontal table: one record per row. Vertical table: A1 is `##column` or `##vertical`, **one field per row**, good for global config.
@@ -52,6 +65,24 @@ If giving each field its own column makes the table too wide, use `sep=<char>` t
 | type | `Type1#sep=,`, `(list#sep=\|),int` |
 
 Multiple characters mean “any of these characters is a separator”, not that the whole string is one separator. When `#` / `&` are separators, write `\#` / `\&`.
+
+**Where sep appears and what it does:**
+
+| Location | Behavior |
+|------|------|
+| Excel field name (e.g. `x#sep=,`) | Split each cell in that column range by sep, then read in stream mode |
+| bean tags (e.g. `<bean tags="sep=,">`) | Whole string split by sep, then stream-read bean fields |
+| type tag (e.g. `Vec#sep=,`, `(list#sep=\|),int`) | Next token is the whole value; split by sep and stream-read |
+| container type | See below |
+
+**Two ways to apply sep on containers:**
+
+- On the **container itself** (e.g. `list#sep=|`): next string is the whole container; split by sep and read elements.
+- On the **element type** (e.g. `list,(Vec#sep=,)`): each element segment is split separately.
+
+Combined example: `(list#sep=|),(Vec#sep=,)` — list elements separated by `|`, Vec by `,`.
+
+![sep read bean](/img/cases/sep_bean.jpg) ![sep read plain container](/img/cases/sep_container1.jpg) ![sep read struct container](/img/cases/sep_container2.jpg)
 
 ### Example: Vec3
 
@@ -106,15 +137,36 @@ Field name `nums`, type `(list#sep=|),int`:
 
 ## Stream semantics
 
-When a field does not specify `format`, composite data is read in **stream** mode by default:
+**When stream mode applies:** non-atomic data (bean/container) is limited to a column range or a sep segment, and **sub-fields are not column-constrained** — child data is read in stream order.
 
 | Behavior | Notes |
 |------|------|
-| Blank cell | Often skipped (unlike column mode where “empty = default”) |
-| Nullable bean | `null` / `{}` / type name, etc. have special conventions |
+| Blank cell | Often skipped (**cannot** distinguish blank from default) |
+| Nullable bean | `null` / `{}` / type name have special rules |
 | End of container | Read until `}` or end of stream |
 
-Therefore: “leave empty for default” often does not work in sep/stream cells; the blank is treated as a skip.
+Therefore “leave empty for default” **does not work** in sep/stream cells — fill explicit defaults:
+
+| Type | Empty/default in stream mode |
+|------|------------------------|
+| bool | Must fill `false` / `true` |
+| int / float | Must fill `0` or another valid number |
+| string | Empty string as `""` |
+| Nullable (e.g. `int?`) | `null` |
+| Container | Empty container ends with `}` |
+
+![stream example](/img/cases/stream.jpg)
+
+Red rows that leave bool/string blanks are skipped and cause “insufficient data” errors.
+
+**Stream read rules by type:**
+
+- Polymorphic bean: read type name string, then stream-read subclass fields
+- Nullable bean: read string first; `null` = empty; `{}` or type name = non-null and continue. Valid Vec3: `1,2,3`, `null`, `{},1,2,3`, `vec3,1,2,3`
+- `array` / `list` / `set`: stop on `}` or end of stream; else read elements in a loop
+- `map`: read key/value pairs in a loop until `}` or end of stream
+
+Compare with [column constraints](./nested-and-collections#extra-column-constrained-notes): when pinned to atomic columns, empty can mean default; bean/container interiors without sub-field pins still use stream mode.
 
 ## Common pitfalls
 

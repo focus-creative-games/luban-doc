@@ -96,10 +96,11 @@ Excel 分列 / 多行填法见 [嵌套与容器](../excel/nested-and-collections
 
 ## 外部类型映射（TypeMapper）
 
-可把 bean/enum 映射到工程已有类型（如 `UnityEngine.Vector3`）。在 XML 的 `<mapper>` 中配置，见 [XML Schema](./xml-schema)。代码风格相关说明见 [代码风格](../runtime/code-style)。
+可把 bean/enum 映射到工程已有类型（如 `UnityEngine.Vector3`、`UnityEngine.AudioType`）。完整写法、匹配规则与示例见 [外部类型映射（TypeMapper）](./type-mapper)。
 
 ## 相关链接
 
+- [TypeMapper](./type-mapper)
 - [多态](./polymorphism)
 - [Excel：嵌套与容器](../excel/nested-and-collections)
 - [校验器](../quality/validators)

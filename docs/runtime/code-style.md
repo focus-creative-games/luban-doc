@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 代码风格与 TypeMapper
+# 代码风格
 
 ## 命名风格
 
@@ -17,18 +17,12 @@ sidebar_position: 4
 
 字段若使用 `item_id` 这种名字，C# 默认常生成 `ItemId`。
 
-## TypeMapper（目前主要 C#）
+## 外部类型映射
 
-把配置类型映射到项目已有外部类型：
-
-- enum：`option type=外部枚举`（数值必须一致）
-- bean：外部类型 + `constructor` 转换
-
-匹配条件：当前 `-t` 与 `-c` 落在 mapper 声明的 target / codeTarget 集合内。
-
-可在 XML schema 的 `<mapper>` 或 Excel 对应列中配置。
+把配置 enum/bean 映射到项目已有类型（如 `UnityEngine.Vector3`），见独立文档 [外部类型映射（TypeMapper）](../schema/type-mapper)。
 
 ## 相关链接
 
+- [TypeMapper](../schema/type-mapper)
 - [XML Schema](../schema/xml-schema)
 - [CLI 参考](../reference/cli)

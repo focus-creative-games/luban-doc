@@ -20,6 +20,7 @@ sidebar_position: 1
 | 范围 | `int#range=[1,100]` | 开闭区间 |
 | 容器大小 | `(list#size=4),int` | size 加在**容器**上 |
 | 允许值集合 | `int#set=1;2;3` | 推荐用 `;` 分隔 |
+| 正则 | `string#regex=^[a-z]+$` | string 须匹配指定正则 |
 | list 建索引 | `(list#index=id),Foo` | 元素某字段唯一；部分语言生成辅助字典 |
 
 可空字段为 `null` 时，多数引用类校验会跳过。

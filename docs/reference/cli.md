@@ -26,10 +26,10 @@ dotnet <path_of_Luban.dll> [args]
 | `--timeZone` | 否 | 本地 | 影响 datetime |
 | `--customTemplateDir` | 否 | | 自定义模板目录 |
 | `--validationFailAsError` | 否 | false | 校验失败则失败 |
-| `-x, --xargs` | 否 | | 扩展参数，见 [级联选项](./cascading-options) |
+| `-x, --xargs` | 否 | | 扩展参数，见 [级联选项 xargs 全表](./cascading-options) |
 | `-l, --logConfig` | 否 | nlog.xml | |
 | `-w, --watchDir` | 否 | | 监视目录自动再生 |
 | `-v, --verbose` | 否 | | |
 | `--help` / `--version` | 否 | | |
 
-日常用法见 [常用命令行](../runtime/cli-common)。
+日常用法见 [常用命令行](../runtime/cli-common)。xargs 完整参数表见 [级联选项 xargs 全表](./cascading-options)。

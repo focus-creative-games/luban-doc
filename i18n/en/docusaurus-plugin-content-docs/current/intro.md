@@ -25,6 +25,8 @@ It is not merely “convert Excel to JSON.” It puts designer spreadsheets, pro
 - **Multiple languages and formats**: C# / Java / Go / Lua / TS…; bin / json / protobuf…
 - **Extensible**: Loader, Validator, CodeTarget, DataTarget, and Pipeline can all be plugged in
 
+Full feature list: [Luban feature list](./reference/features).
+
 ## Good fit and poor fit
 
 **Good fit**

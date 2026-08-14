@@ -34,6 +34,7 @@ const sidebars = {
         'guide/add-table',
         'guide/load-runtime',
         'guide/next-steps',
+        'guide/best-practices',
       ],
     },
     {
@@ -86,6 +87,7 @@ const sidebars = {
         'schema/excel-schema',
         'schema/xml-schema',
         'schema/types',
+        'schema/type-mapper',
         'schema/polymorphism',
         'schema/import-modules',
       ],
@@ -172,6 +174,7 @@ const sidebars = {
         'reference/cli',
         'reference/builtins',
         'reference/cascading-options',
+        'reference/features',
         'reference/faq',
       ],
     },

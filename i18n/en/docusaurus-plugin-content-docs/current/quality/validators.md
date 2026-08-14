@@ -20,6 +20,7 @@ Validators are written on the field type string (XML `type="..."` or Excel `##ty
 | Range | `int#range=[1,100]` | Open/closed intervals |
 | Container size | `(list#size=4),int` | `size` goes on the **container** |
 | Allowed value set | `int#set=1;2;3` | Prefer `;` as separator |
+| Regex | `string#regex=^[a-z]+$` | string must match the pattern |
 | list index | `(list#index=id),Foo` | A field on each element must be unique; some languages generate a helper dictionary |
 
 When a nullable field is `null`, most reference-style validators are skipped.

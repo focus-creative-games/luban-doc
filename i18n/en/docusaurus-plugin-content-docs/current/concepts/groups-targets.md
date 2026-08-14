@@ -33,6 +33,19 @@ dotnet Luban.dll --conf luban.conf -t server -c cs-dotnet-json -d json -x ...
 
 When a field is client-only: put `c` on the Excel `##group` row, or set the field’s group in schema.
 
+## Default export set and `*` semantics
+
+The **default export set** is computed by recursively following references from tables exported for the current target. Enums/beans in that set are exported even if their groups do not match the target.
+
+| Rule | Notes |
+|------|------|
+| groups contains `*` | Belongs to all groups |
+| enum/bean contains `*` | Generated even if not referenced |
+| table/enum/bean groups empty | Exported when target has a `default: true` group; otherwise not |
+| **field groups empty** | **Exported to all groups** (unlike table rules) |
+
+When index is omitted and mode is empty or map, the first field of valueType is often the primary key; multiple index fields usually imply list mode.
+
 ## Common combinations
 
 | Scenario | Approach |

@@ -14,6 +14,7 @@ You have finished the shortest closed loop. Pick by goal:
 | Multi-target / validation / localization | [Validators](../quality/validators), [tag](../quality/tags), [L10N](../quality/l10n) |
 | A guide for designers | [Designer filling guide](../designer/concepts) |
 | Look up commands and built-in names | [CLI reference](../reference/cli), [Built-ins](../reference/builtins) |
+| Engineering practices | [Best practices](./best-practices) |
 | Extending Luban | [Extend overview](../extend/overview) |
 
 Full engine samples (Unity / others) still live in [luban_examples](https://github.com/focus-creative-games/luban_examples); the docs only guarantee the “shortest path,” and do not expand into long per-engine articles here.

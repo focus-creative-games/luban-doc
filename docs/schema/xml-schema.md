@@ -173,7 +173,7 @@ XML 适合程序维护的稳定类型（基础库、复杂继承树），与 Exc
 |------|------|
 | refgroup | 一组可被 `#ref=` 的表全名 |
 | constalias | 数据里可用的常量别名 |
-| mapper | 把 enum/bean 映射到外部类型（按 target / codeTarget） |
+| mapper | 把 enum/bean 映射到外部类型（按 target / codeTarget）；详见 [TypeMapper](./type-mapper) |
 
 ## 何时用 XML
 
@@ -186,5 +186,6 @@ XML 适合程序维护的稳定类型（基础库、复杂继承树），与 Exc
 ## 相关链接
 
 - [Excel Schema](./excel-schema)
+- [TypeMapper](./type-mapper)
 - [多态](./polymorphism)
 - [luban.conf](../concepts/luban-conf)
