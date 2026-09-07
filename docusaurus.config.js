@@ -52,7 +52,7 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '4.x',
+              label: '5.x',
             },
           }
           // Please change this to your repo.

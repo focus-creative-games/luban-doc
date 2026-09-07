@@ -49,7 +49,8 @@ dotnet Luban.dll --conf luban.conf -t client -c cs-simple-json -d json ^
 | `-e/--excludeTag` | 排除带某 tag 的记录 |
 | `-i/--includeTag` | 只输出指定 tag（与 exclude 互斥） |
 | `-o/--outputTable` | 只导出指定表 |
-| `--validationFailAsError` | 校验失败则生成失败（发布建议打开） |
+| `--strict` | 校验失败则生成失败（发布建议打开） |
+| `--locale` | 错误/警告消息语言（`en` / `zh`，默认跟随系统 UI 语言） |
 | `-f/--forceLoadTableDatas` | 无 dataTarget 也加载数据以便只做校验 |
 | `-x outputSaver=null` | 只校验不写出文件（常配合 `-f`） |
 
@@ -81,7 +82,7 @@ dotnet Luban.dll -t client -c cs-simple-json -d json ^
 **仅策划校验**（不生成代码/数据）：
 
 ```bat
-dotnet Luban.dll -t all -f --conf luban.conf --validationFailAsError
+dotnet Luban.dll -t all -f --conf luban.conf --strict
 ```
 
 **同时生成 C# 与 Java**（分层 output 避免覆盖）：

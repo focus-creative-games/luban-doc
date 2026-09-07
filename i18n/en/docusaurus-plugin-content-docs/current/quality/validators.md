@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Data validators
 
-Validation runs at **generation time**, blocking bad data before it ships. Release pipelines should add `--validationFailAsError` (validation failure fails generation).
+Validation runs at **generation time**, blocking bad data before it ships. Release pipelines should add `--strict` (validation failure fails generation).
 
 Validators are written on the field type string (XML `type="..."` or Excel `##type`), using the same syntax as [Type cheat sheet](../schema/types).
 

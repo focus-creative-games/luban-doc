@@ -43,5 +43,6 @@ Each main article aims for the same structure:
 
 ## Version notes
 
-- The site’s default docs are **Luban 4.x (current)**.
-- **1.x / 3.x (classic)** in the top version dropdown are historical docs; **they were not rewritten in this pass**, and are only for older projects.
+- The site’s default docs are **Luban 5.x (current)**.
+- **4.x / 3.x / 1.x** in the top version dropdown are historical docs for older projects.
+- Relative to 4.x: CLI renames `--validationFailAsError` to `--strict` and adds `--locale`.

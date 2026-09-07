@@ -25,7 +25,8 @@ dotnet <path_of_Luban.dll> [args]
 | `-o, --outputTable` | No | | Export only specified tables, can be repeated |
 | `--timeZone` | No | local | Affects datetime |
 | `--customTemplateDir` | No | | Custom template directory |
-| `--validationFailAsError` | No | false | Fail when validation fails |
+| `--strict` | No | false | Fail when validation fails (exit code 1) |
+| `--locale` | No | system UI language | Locale for error/warning messages: `en` / `zh` (also accepts `zh-CN`, `en-US`, etc.) |
 | `-x, --xargs` | No | | Extra options; see [Cascading options xargs table](./cascading-options) |
 | `-l, --logConfig` | No | nlog.xml | |
 | `-w, --watchDir` | No | | Watch directories and regenerate |

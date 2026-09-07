@@ -49,7 +49,8 @@ By default, old generated files in the output directories are cleaned. Do not po
 | `-e/--excludeTag` | Exclude records with a given tag |
 | `-i/--includeTag` | Output only the specified tag (mutually exclusive with exclude) |
 | `-o/--outputTable` | Export only the specified tables |
-| `--validationFailAsError` | Treat validation failures as generation failures (recommended for release) |
+| `--strict` | Treat validation failures as generation failures (recommended for release) |
+| `--locale` | Locale for error/warning messages (`en` / `zh`; defaults to system UI language) |
 | `-f/--forceLoadTableDatas` | Load data even without a dataTarget, so you can validate only |
 | `-x outputSaver=null` | Validate only, write no files (often with `-f`) |
 
@@ -81,7 +82,7 @@ dotnet Luban.dll -t client -c cs-simple-json -d json ^
 **Designers validate only** (no code/data output):
 
 ```bat
-dotnet Luban.dll -t all -f --conf luban.conf --validationFailAsError
+dotnet Luban.dll -t all -f --conf luban.conf --strict
 ```
 
 **Generate C# and Java together** (cascading output to avoid overwrite):
