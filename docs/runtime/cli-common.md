@@ -51,8 +51,10 @@ dotnet Luban.dll --conf luban.conf -t client -c cs-simple-json -d json ^
 | `-o/--outputTable` | 只导出指定表 |
 | `--strict` | 校验失败则生成失败（发布建议打开） |
 | `--locale` | 错误/警告消息语言（`en` / `zh`，默认跟随系统 UI 语言） |
+| `--errorFormat` | `text`（默认）或 `json`（机器可读报错，见 [AI/schema-json](../ai/schema-json)） |
 | `-f/--forceLoadTableDatas` | 无 dataTarget 也加载数据以便只做校验 |
 | `-x outputSaver=null` | 只校验不写出文件（常配合 `-f`） |
+| `-c schema-json` | 导出 schema.json（不加载数据） |
 
 ## 完整生成示例
 

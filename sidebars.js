@@ -162,6 +162,24 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'AI 支持',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        slug: '/ai',
+        title: 'AI 支持',
+        description: 'Skills、llms.txt、schema-json、可解析报错与 MCP。',
+      },
+      items: [
+        'ai/overview',
+        'ai/cheat-sheet',
+        'ai/skills',
+        'ai/schema-json',
+        'ai/mcp',
+      ],
+    },
+    {
+      type: 'category',
       label: '参考手册',
       collapsed: true,
       link: {

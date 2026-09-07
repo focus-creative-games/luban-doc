@@ -1,0 +1,72 @@
+# Luban llms-full.txt
+
+This file expands llms.txt with more pages useful for retrieval.
+
+## Intro & guide
+
+- /docs/intro
+- /docs/mental-model
+- /docs/how-to-read
+- /docs/guide/install
+- /docs/guide/first-generate
+- /docs/guide/add-table
+- /docs/guide/load-runtime
+- /docs/guide/best-practices
+
+## Concepts
+
+- /docs/concepts/glossary
+- /docs/concepts/luban-conf
+- /docs/concepts/pipeline
+- /docs/concepts/groups-targets
+
+## Excel & schema
+
+- /docs/excel/basics
+- /docs/excel/nested-and-collections
+- /docs/excel/polymorphism
+- /docs/excel/vertical-and-sep
+- /docs/excel/compact
+- /docs/excel/other-sources
+- /docs/schema/excel-schema
+- /docs/schema/xml-schema
+- /docs/schema/types
+- /docs/schema/polymorphism
+- /docs/schema/import-modules
+
+## Runtime / quality / extend
+
+- /docs/runtime/cli-common
+- /docs/runtime/targets
+- /docs/runtime/loading
+- /docs/quality/validators
+- /docs/quality/tags
+- /docs/quality/variants
+- /docs/quality/l10n
+- /docs/extend/overview
+- /docs/extend/templates
+- /docs/extend/plugins
+
+## Designer
+
+- /docs/designer/concepts
+- /docs/designer/headers
+- /docs/designer/groups
+- /docs/designer/complex
+- /docs/designer/checklist
+
+## AI
+
+- /docs/ai/overview
+- /docs/ai/cheat-sheet
+- /docs/ai/skills
+- /docs/ai/mcp
+- /docs/ai/schema-json
+
+## Reference
+
+- /docs/reference/cli
+- /docs/reference/builtins
+- /docs/reference/cascading-options
+- /docs/reference/features
+- /docs/reference/faq

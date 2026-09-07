@@ -27,8 +27,9 @@ sidebar_position: 2
 | dart-json | Dart |
 | protobuf2 / protobuf3 | 生成 .proto schema |
 | flatbuffers | 生成 fbs schema |
+| schema-json | 导出机器可读 schema.json（供 AI/工具；不加载数据） |
 
-code 必须与 data 格式匹配。
+code 必须与 data 格式匹配。`schema-json` 仅导出结构，可单独使用。
 
 ## Data targets
 

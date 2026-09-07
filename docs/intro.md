@@ -51,4 +51,5 @@ Luban 是面向游戏项目的**配置解决方案**：用统一的类型系统�
 
 - 程序：先读 [5 分钟心智模型](./mental-model) → [快速上手](./guide/install)
 - 策划：直接看 [策划填表指南](./designer/concepts)
+- AI / Agent：[AI 支持概览](./ai/overview)
 - 想知道文档怎么组织：[文档怎么读](./how-to-read)

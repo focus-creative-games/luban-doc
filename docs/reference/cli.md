@@ -27,6 +27,7 @@ dotnet <path_of_Luban.dll> [args]
 | `--customTemplateDir` | 否 | | 自定义模板目录 |
 | `--strict` | 否 | false | 校验失败则失败（退出码 1） |
 | `--locale` | 否 | 系统 UI 语言 | 错误/警告消息语言：`en` / `zh`（亦支持如 `zh-CN`、`en-US`） |
+| `--errorFormat` | 否 | text | 报错格式：`text`（默认）或 `json`（供 AI/CI 解析，输出到 stderr） |
 | `-x, --xargs` | 否 | | 扩展参数，见 [级联选项 xargs 全表](./cascading-options) |
 | `-l, --logConfig` | 否 | nlog.xml | |
 | `-w, --watchDir` | 否 | | 监视目录自动再生 |

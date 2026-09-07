@@ -17,7 +17,8 @@ sidebar_position: 3
    - 命令与目标 → [常用命令行](./runtime/cli-common)
    - 校验 / 分端 / 本地化 → [质量与发布](./quality/validators)
 5. 二次开发 → [扩展 Luban](./extend/overview)
-6. 查参数 → [参考手册](./reference/cli)
+6. AI Agent → [AI 支持](./ai/overview)
+7. 查参数 → [参考手册](./reference/cli)
 
 ## 策划路径
 
