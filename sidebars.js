@@ -174,6 +174,7 @@ const sidebars = {
         'ai/overview',
         'ai/cheat-sheet',
         'ai/skills',
+        'ai/agent-cli',
         'ai/schema-json',
         'ai/mcp',
       ],

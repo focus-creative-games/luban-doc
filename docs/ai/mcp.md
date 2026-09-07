@@ -4,21 +4,27 @@ sidebar_position: 5
 
 # Luban MCP
 
-`Luban.Mcp` 是基于 stdio 的 MCP Server，封装查 schema、校验/生成、搜文档。
+`Luban.Mcp` 是基于 stdio 的 MCP Server。
+
+- 查询 / 校验 / describe → 调用 **Luban.Agent**
+- 生成 → 调用主 **Luban.dll**
+- 搜文档 → 本地检索 `LUBAN_DOC`
 
 ## 构建
 
 ```bash
-dotnet build src/Luban.Mcp/Luban.Mcp.csproj -c Release
+dotnet build src/Luban.Agent/Luban.Agent.csproj -c Release
 dotnet build src/Luban/Luban.csproj -c Release
+dotnet build src/Luban.Mcp/Luban.Mcp.csproj -c Release
 ```
 
 ## 环境变量
 
 | 变量 | 含义 |
 |------|------|
-| `LUBAN_DLL` | `Luban.dll` 绝对路径（推荐） |
-| `LUBAN_DOC` | 文档根目录，即 `luban-doc/docs`（供 search_docs） |
+| `LUBAN_AGENT_DLL` | `Luban.Agent.dll`（ListTables / GetSchema / Describe / Validate） |
+| `LUBAN_DLL` | `Luban.dll`（Generate） |
+| `LUBAN_DOC` | `luban-doc/docs`（SearchDocs） |
 
 ## Cursor 配置示例
 
@@ -29,6 +35,7 @@ dotnet build src/Luban/Luban.csproj -c Release
       "command": "dotnet",
       "args": ["D:/path/to/Luban.Mcp.dll"],
       "env": {
+        "LUBAN_AGENT_DLL": "D:/path/to/Luban.Agent.dll",
         "LUBAN_DLL": "D:/path/to/Luban.dll",
         "LUBAN_DOC": "D:/path/to/luban-doc/docs"
       }
@@ -39,12 +46,10 @@ dotnet build src/Luban/Luban.csproj -c Release
 
 ## 工具
 
-| Tool | 作用 |
+| Tool | 后端 |
 |------|------|
-| `ListTables` | 列出表（内部跑 schema-json） |
-| `GetSchema` | 取完整或按名过滤的 schema JSON |
-| `Validate` | `-f --strict`，不写出文件 |
-| `Generate` | 透传 CLI 参数生成 |
-| `SearchDocs` | 在文档目录中关键词检索 |
+| `ListTables` / `GetSchema` / `Describe` / `Validate` | Luban.Agent |
+| `Generate` | Luban.dll（默认加 `--errorFormat json`） |
+| `SearchDocs` | 本地 markdown |
 
-所有生成/校验默认附带 `--errorFormat json`，便于解析。
+详见 [Agent CLI](./agent-cli)。
