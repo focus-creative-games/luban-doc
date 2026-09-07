@@ -32,6 +32,6 @@ ai/skills/luban-runtime-load   →  .cursor/skills/luban-runtime-load/
 | `luban-validator` | 写引用/范围等校验 |
 | `luban-runtime-load` | 运行时 Tables 加载 |
 
-## 与 MCP 配合
+## 与 MCP / Agent 配合
 
-Skill 负责「怎么做」；[MCP](./mcp) 负责「查当前 schema / 跑生成 / 搜文档」。复杂改表时建议两者一起开。
+Skill 负责「怎么做」；[Agent CLI](./agent-cli) 负责查询与校验；[MCP](./mcp) 把上述能力接到 IDE。三者可一起用。构建见 [安装](../guide/install) 中的 `build-luban` 说明。

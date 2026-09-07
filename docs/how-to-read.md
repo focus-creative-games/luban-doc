@@ -46,4 +46,4 @@ sidebar_position: 3
 
 - 本站默认文档为 **Luban 5.x（current）**。
 - 顶部版本下拉里的 **4.x / 3.x / 1.x** 为历史文档，仅供旧项目查阅。
-- 5.x 相对 4.x：命令行将 `--validationFailAsError` 重命名为 `--strict`，并新增 `--locale`。
+- **5.x 相对 4.x 的变更与迁移**：见 [更新说明](./other/whats-new)（含 `--strict`、`--locale`、AI 工具链、`PipelineScope` 等）。

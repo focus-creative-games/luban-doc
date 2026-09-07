@@ -5,4 +5,4 @@
 * 新增生成用于unity 编辑器的 加载及保存json配置的c#代码
 * 新增 unity 内嵌编辑器
 * 新增 unreal 内嵌编辑器
-* AI 支持：官方 Skills、llms.txt、schema-json、`--errorFormat json`、Luban MCP（持续完善）
+* AI 支持：官方 Skills、llms.txt、schema-json、`--errorFormat json`、Luban.Agent、Luban MCP（持续完善）

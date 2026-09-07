@@ -14,6 +14,7 @@ const sidebars = {
       collapsed: false,
       items: [
         'intro',
+        'other/whats-new',
         'mental-model',
         'how-to-read',
       ],

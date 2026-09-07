@@ -12,10 +12,30 @@ sidebar_position: 5
 
 ## 构建
 
+推荐一次性构建三个工具（`luban` 与 `luban_examples` 并列）：
+
 ```bash
-dotnet build src/Luban.Agent/Luban.Agent.csproj -c Release
-dotnet build src/Luban/Luban.csproj -c Release
-dotnet build src/Luban.Mcp/Luban.Mcp.csproj -c Release
+# Windows
+luban_examples/Tools/build-luban.bat
+
+# macOS / Linux
+luban_examples/Tools/build-luban.sh
+```
+
+产物目录：
+
+| 目录 | 内容 |
+|------|------|
+| `Tools/Luban` | 主生成器 `Luban.dll` |
+| `Tools/Luban.Agent` | Agent CLI `Luban.Agent.dll` |
+| `Tools/Luban.Mcp` | MCP Server `Luban.Mcp.dll` |
+
+也可在 Luban 源码仓库内分别编译：
+
+```bash
+dotnet build src/Luban/Luban.csproj -c Release -o <out>/Luban
+dotnet build src/Luban.Agent/Luban.Agent.csproj -c Release -o <out>/Luban.Agent
+dotnet build src/Luban.Mcp/Luban.Mcp.csproj -c Release -o <out>/Luban.Mcp
 ```
 
 ## 环境变量
@@ -28,21 +48,25 @@ dotnet build src/Luban.Mcp/Luban.Mcp.csproj -c Release
 
 ## Cursor 配置示例
 
+假设示例工程在 `D:/workspace/luban_examples`，且已跑过 `Tools/build-luban.bat`：
+
 ```json
 {
   "mcpServers": {
     "luban": {
       "command": "dotnet",
-      "args": ["D:/path/to/Luban.Mcp.dll"],
+      "args": ["D:/workspace/luban_examples/Tools/Luban.Mcp/Luban.Mcp.dll"],
       "env": {
-        "LUBAN_AGENT_DLL": "D:/path/to/Luban.Agent.dll",
-        "LUBAN_DLL": "D:/path/to/Luban.dll",
-        "LUBAN_DOC": "D:/path/to/luban-doc/docs"
+        "LUBAN_AGENT_DLL": "D:/workspace/luban_examples/Tools/Luban.Agent/Luban.Agent.dll",
+        "LUBAN_DLL": "D:/workspace/luban_examples/Tools/Luban/Luban.dll",
+        "LUBAN_DOC": "D:/workspace/luban/luban-doc/docs"
       }
     }
   }
 }
 ```
+
+请把路径改成你本机的绝对路径。
 
 ## 工具
 

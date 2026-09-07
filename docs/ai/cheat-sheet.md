@@ -19,8 +19,13 @@ Schema（结构契约） → Data（Excel/JSON…） → Generate（-c/-d） →
 dotnet Luban.dll --conf luban.conf -t client -c cs-bin -d bin \
   -x outputCodeDir=../Gen -x outputDataDir=../Data
 
-# 仅校验
+# 仅校验（主 CLI）
 dotnet Luban.dll --conf luban.conf -t all -f --strict -x outputSaver=null
+
+# Agent：查表 / schema / 校验（stdout 为 JSON）
+dotnet Luban.Agent.dll list-tables --conf luban.conf -t all
+dotnet Luban.Agent.dll schema --conf luban.conf -t all
+dotnet Luban.Agent.dll validate --conf luban.conf -t all
 
 # 机器可读 schema（不加载数据）
 dotnet Luban.dll --conf luban.conf -t all -c schema-json -x outputCodeDir=./schema-out
@@ -29,6 +34,7 @@ dotnet Luban.dll --conf luban.conf -t all -c schema-json -x outputCodeDir=./sche
 dotnet Luban.dll ... --errorFormat json
 ```
 
+示例工程可用 `Tools/build-luban.bat`（或 `.sh`）一次产出 `Tools/Luban`、`Tools/Luban.Agent`、`Tools/Luban.Mcp`。
 ## 加表最小步骤
 
 1. 新建数据表（A1 以 `##` 开头；含 `##var` / `##type`）。
@@ -67,4 +73,4 @@ dotnet Luban.dll ... --errorFormat json
 
 ## 相关
 
-- [CLI 常用](../runtime/cli-common) · [类型](../schema/types) · [校验](../quality/validators) · [Skills](./skills)
+- [CLI 常用](../runtime/cli-common) · [类型](../schema/types) · [校验](../quality/validators) · [Skills](./skills) · [Agent CLI](./agent-cli) · [MCP](./mcp)

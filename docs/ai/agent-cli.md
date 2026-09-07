@@ -11,21 +11,35 @@ sidebar_position: 4
 
 ## 构建
 
+推荐与主工具一起构建（`luban` 与 `luban_examples` 仓库并列时）：
+
 ```bash
-dotnet build src/Luban.Agent/Luban.Agent.csproj -c Release
+# Windows
+luban_examples/Tools/build-luban.bat
+
+# macOS / Linux
+luban_examples/Tools/build-luban.sh
+```
+
+产物在 `luban_examples/Tools/Luban.Agent/`（同脚本还会生成 `Tools/Luban` 与 `Tools/Luban.Mcp`）。
+
+也可单独编译源码：
+
+```bash
+dotnet build src/Luban.Agent/Luban.Agent.csproj -c Release -o <out_dir>
 ```
 
 ## 用法
 
 ```bash
-dotnet Luban.Agent.dll capabilities
+dotnet Tools/Luban.Agent/Luban.Agent.dll capabilities
 
-dotnet Luban.Agent.dll list-tables --conf luban.conf -t all
-dotnet Luban.Agent.dll describe --conf luban.conf -t all --name TbItem
-dotnet Luban.Agent.dll schema --conf luban.conf -t all
-dotnet Luban.Agent.dll schema --conf luban.conf -t all --name item
+dotnet Tools/Luban.Agent/Luban.Agent.dll list-tables --conf luban.conf -t all
+dotnet Tools/Luban.Agent/Luban.Agent.dll describe --conf luban.conf -t all --name TbItem
+dotnet Tools/Luban.Agent/Luban.Agent.dll schema --conf luban.conf -t all
+dotnet Tools/Luban.Agent/Luban.Agent.dll schema --conf luban.conf -t all --name item
 
-dotnet Luban.Agent.dll validate --conf luban.conf -t all
+dotnet Tools/Luban.Agent/Luban.Agent.dll validate --conf luban.conf -t all
 # 可加 -x pathValidator.rootDir=... 等
 ```
 
@@ -43,4 +57,4 @@ dotnet Luban.Agent.dll validate --conf luban.conf -t all
 
 ## 与 MCP
 
-[Luban.Mcp](./mcp) 优先调用 `Luban.Agent`（环境变量 `LUBAN_AGENT_DLL`）；生成仍走主 `Luban.dll`。
+[Luban.Mcp](./mcp) 通过环境变量 `LUBAN_AGENT_DLL` 调用本工具；生成仍走主 `Luban.dll`（`LUBAN_DLL`）。

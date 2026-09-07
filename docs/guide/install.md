@@ -21,7 +21,27 @@ sidebar_position: 1
 |------|------|
 | Release | 从 [GitHub Releases](https://github.com/focus-creative-games/luban/releases) 下载已发布包 |
 | 示例自带 | `luban_examples/Tools/Luban`（**可能不是最新版**） |
-| 自编译 | 克隆 [luban](https://github.com/focus-creative-games/luban) 源码后按仓库说明编译 |
+| 自编译 | 克隆 [luban](https://github.com/focus-creative-games/luban) 源码后，用示例脚本编译（见下） |
+
+### 自编译（推荐：主工具 + Agent + MCP）
+
+将 `luban` 与 `luban_examples` 放在同级目录，然后：
+
+```bash
+# Windows
+luban_examples/Tools/build-luban.bat
+
+# macOS / Linux
+luban_examples/Tools/build-luban.sh
+```
+
+脚本会分别输出到：
+
+| 目录 | 用途 |
+|------|------|
+| `Tools/Luban` | 主生成器（日常 `-c` / `-d`） |
+| `Tools/Luban.Agent` | AI / 脚本：校验与 schema 查询，见 [Agent CLI](../ai/agent-cli) |
+| `Tools/Luban.Mcp` | IDE MCP Server，见 [Luban MCP](../ai/mcp) |
 
 运行形态一般为：
 
@@ -46,7 +66,8 @@ MiniTemplate/
 
 ## 常见坑
 
-- **Tools/Luban 过旧**：生成行为与文档不一致时，先换成最新 Release。
+- **Tools/Luban 过旧**：生成行为与文档不一致时，先换成最新 Release，或重新运行 `Tools/build-luban.bat` / `build-luban.sh`。
+- **只用到 Agent / MCP**：同样跑上述脚本；MCP 需配置 `LUBAN_DLL` 与 `LUBAN_AGENT_DLL` 指向对应目录中的 dll。
 - **SDK 版本不够**：需 8.0+。
 - **路径含空格或未改 LUBAN_DLL**：复制模板后检查 `gen.bat` 中的 dll 路径。
 
@@ -54,3 +75,4 @@ MiniTemplate/
 
 - 下一步：[第一次生成](./first-generate)
 - [luban.conf 说明](../concepts/luban-conf)
+- [AI 支持概览](../ai/overview)
