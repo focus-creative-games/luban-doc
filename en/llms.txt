@@ -1,0 +1,56 @@
+# Luban llms.txt
+
+> Luban is a game configuration pipeline: Schema → Data → Generate → Runtime (Tables).
+
+Official docs: https://www.datable.cn/docs/intro
+Source: https://github.com/focus-creative-games/luban
+Examples: https://github.com/focus-creative-games/luban_examples
+
+## Core rules for agents
+
+1. Schema is a contract. Do not silently change schema to make bad data pass.
+2. Register tables in `__tables__` (or XML) before Excel files are collected.
+3. Excel sheets are ignored unless A1 starts with `##`.
+4. Groups: `c`=client, `s`=server, `e`=editor. Empty group usually means all default groups.
+5. Prefer `Tables` aggregate loader at runtime; avoid per-table static singletons.
+6. Publish pipelines should use `--strict`.
+7. For machine-readable errors use `--errorFormat json`.
+8. For machine-readable schema use `-c schema-json`.
+
+## AI entry points
+
+- Overview: /docs/ai/overview
+- Cheat sheet: /docs/ai/cheat-sheet
+- Skills guide: /docs/ai/skills
+- Agent CLI (validate / schema / list / describe): /docs/ai/agent-cli
+- MCP server: /docs/ai/mcp
+- schema-json + errorFormat: /docs/ai/schema-json
+
+Build all three tools from examples (sibling `luban` + `luban_examples`):
+
+- `luban_examples/Tools/build-luban.bat` (Windows) or `build-luban.sh`
+- Outputs: `Tools/Luban`, `Tools/Luban.Agent`, `Tools/Luban.Mcp`
+
+## Essential docs
+
+- Mental model: /docs/mental-model
+- Install: /docs/guide/install
+- What's new in 5.x (vs 4.x): /docs/other/whats-new
+- First generate: /docs/guide/first-generate
+- Add a table: /docs/guide/add-table
+- CLI common: /docs/runtime/cli-common
+- CLI reference: /docs/reference/cli
+- Types: /docs/schema/types
+- Excel basics: /docs/excel/basics
+- Excel schema: /docs/schema/excel-schema
+- XML schema: /docs/schema/xml-schema
+- Validators: /docs/quality/validators
+- Groups/targets: /docs/concepts/groups-targets
+- Designer concepts: /docs/designer/concepts
+- Extend Luban: /docs/extend/overview
+- Builtins: /docs/reference/builtins
+- FAQ: /docs/reference/faq
+
+## Optional
+
+- Full site map / deeper pages: /llms-full.txt
