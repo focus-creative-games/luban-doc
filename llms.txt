@@ -1,71 +1,56 @@
-# Luban documentation
+# Luban llms.txt
 
-> Current Luban game configuration documentation. Historical versions are excluded.
+> Luban is a game configuration pipeline: Schema → Data → Generate → Runtime (Tables).
 
-Schema is a contract. Register tables explicitly or through the default # filename importer. Use matching code/data targets and runtimes.
-Validate with -f --strict without output targets before generating. Enable text/path dependencies explicitly.
-Main CLI diagnostics use stderr; Agent returns one stdout JSON. Schema export alone does not validate data.
+Official docs: https://www.datable.cn/docs/intro
+Source: https://github.com/focus-creative-games/luban
+Examples: https://github.com/focus-creative-games/luban_examples
 
-## Current pages
+## Core rules for agents
 
-- [什么是 Luban](https://www.datable.cn/docs/intro)
-- [更新说明](https://www.datable.cn/docs/other/whats-new)
-- [5 分钟心智模型](https://www.datable.cn/docs/mental-model)
-- [文档怎么读](https://www.datable.cn/docs/how-to-read)
-- [安装与获取工具](https://www.datable.cn/docs/guide/install)
-- [第一次生成](https://www.datable.cn/docs/guide/first-generate)
-- [增加一张表](https://www.datable.cn/docs/guide/add-table)
-- [生成代码并加载配置](https://www.datable.cn/docs/guide/load-runtime)
-- [接入已有游戏项目](https://www.datable.cn/docs/guide/integrate)
-- [下一步去哪](https://www.datable.cn/docs/guide/next-steps)
-- [最佳实践](https://www.datable.cn/docs/guide/best-practices)
-- [术语表](https://www.datable.cn/docs/concepts/glossary)
-- [luban.conf 与工程结构](https://www.datable.cn/docs/concepts/luban-conf)
-- [管线概览](https://www.datable.cn/docs/concepts/pipeline)
-- [groups 与多端导出](https://www.datable.cn/docs/concepts/groups-targets)
-- [Excel 基础表头约定](https://www.datable.cn/docs/excel/basics)
-- [嵌套结构与容器](https://www.datable.cn/docs/excel/nested-and-collections)
-- [多态数据怎么填](https://www.datable.cn/docs/excel/polymorphism)
-- [纵表、sep 与流式填法](https://www.datable.cn/docs/excel/vertical-and-sep)
-- [紧凑格式（stream / lite / json / lua）](https://www.datable.cn/docs/excel/compact)
-- [非 Excel 数据源](https://www.datable.cn/docs/excel/other-sources)
-- [Excel 定义 Schema](https://www.datable.cn/docs/schema/excel-schema)
-- [XML Schema](https://www.datable.cn/docs/schema/xml-schema)
-- [类型系统速查](https://www.datable.cn/docs/schema/types)
-- [外部类型映射（TypeMapper）](https://www.datable.cn/docs/schema/type-mapper)
-- [多态与抽象 bean](https://www.datable.cn/docs/schema/polymorphism)
-- [导入表与模块组织](https://www.datable.cn/docs/schema/import-modules)
-- [常用命令行](https://www.datable.cn/docs/runtime/cli-common)
-- [codeTarget / dataTarget 一览](https://www.datable.cn/docs/runtime/targets)
-- [运行时加载与最佳实践](https://www.datable.cn/docs/runtime/loading)
-- [代码风格](https://www.datable.cn/docs/runtime/code-style)
-- [数据校验器](https://www.datable.cn/docs/quality/validators)
-- [配置验证与 CI](https://www.datable.cn/docs/quality/validation-workflow)
-- [tag 过滤](https://www.datable.cn/docs/quality/tags)
-- [变体（variants）](https://www.datable.cn/docs/quality/variants)
-- [本地化（L10N）](https://www.datable.cn/docs/quality/l10n)
-- [扩展点概览](https://www.datable.cn/docs/extend/overview)
-- [自定义模板](https://www.datable.cn/docs/extend/templates)
-- [插件项目结构](https://www.datable.cn/docs/extend/plugins)
-- [在工具中嵌入 Luban](https://www.datable.cn/docs/extend/embedding)
-- [你需要懂的最小概念](https://www.datable.cn/docs/designer/concepts)
-- [表头含义与常见错误](https://www.datable.cn/docs/designer/headers)
-- [客户端 / 服务器字段分组](https://www.datable.cn/docs/designer/groups)
-- [复杂结构怎么填](https://www.datable.cn/docs/designer/complex)
-- [与程序协作检查清单](https://www.datable.cn/docs/designer/checklist)
-- [AI 支持概览](https://www.datable.cn/docs/ai/overview)
-- [AI 速查](https://www.datable.cn/docs/ai/cheat-sheet)
-- [官方 Skills](https://www.datable.cn/docs/ai/skills)
-- [Luban.Agent CLI](https://www.datable.cn/docs/ai/agent-cli)
-- [schema-json 与可解析报错](https://www.datable.cn/docs/ai/schema-json)
-- [Luban MCP](https://www.datable.cn/docs/ai/mcp)
-- [示例索引](https://www.datable.cn/docs/examples/index)
-- [按症状排查](https://www.datable.cn/docs/help/troubleshooting)
-- [CLI 全参数](https://www.datable.cn/docs/reference/cli)
-- [Schema 属性参考](https://www.datable.cn/docs/reference/schema-properties)
-- [内置 codeTarget / dataTarget](https://www.datable.cn/docs/reference/builtins)
-- [级联选项（-x / xargs）](https://www.datable.cn/docs/reference/cascading-options)
-- [Luban 能力清单](https://www.datable.cn/docs/reference/features)
-- [FAQ 与排错](https://www.datable.cn/docs/reference/faq)
-- [change log](https://www.datable.cn/docs/other/changelog)
-- [后续开发规划](https://www.datable.cn/docs/other/roadmap)
+1. Schema is a contract. Do not silently change schema to make bad data pass.
+2. Register tables in `__tables__` (or XML) before Excel files are collected.
+3. Excel sheets are ignored unless A1 starts with `##`.
+4. Groups: `c`=client, `s`=server, `e`=editor. Empty group usually means all default groups.
+5. Prefer `Tables` aggregate loader at runtime; avoid per-table static singletons.
+6. Publish pipelines should use `--strict`.
+7. For machine-readable errors use `--errorFormat json`.
+8. For machine-readable schema use `-c schema-json`.
+
+## AI entry points
+
+- Overview: /docs/ai/overview
+- Cheat sheet: /docs/ai/cheat-sheet
+- Skills guide: /docs/ai/skills
+- Agent CLI (validate / schema / list / describe): /docs/ai/agent-cli
+- MCP server: /docs/ai/mcp
+- schema-json + errorFormat: /docs/ai/schema-json
+
+Build all three tools from examples (sibling `luban` + `luban_examples`):
+
+- `luban_examples/Tools/build-luban.bat` (Windows) or `build-luban.sh`
+- Outputs: `Tools/Luban`, `Tools/Luban.Agent`, `Tools/Luban.Mcp`
+
+## Essential docs
+
+- Mental model: /docs/mental-model
+- Install: /docs/guide/install
+- What's new in 5.x (vs 4.x): /docs/other/whats-new
+- First generate: /docs/guide/first-generate
+- Add a table: /docs/guide/add-table
+- CLI common: /docs/runtime/cli-common
+- CLI reference: /docs/reference/cli
+- Types: /docs/schema/types
+- Excel basics: /docs/excel/basics
+- Excel schema: /docs/schema/excel-schema
+- XML schema: /docs/schema/xml-schema
+- Validators: /docs/quality/validators
+- Groups/targets: /docs/concepts/groups-targets
+- Designer concepts: /docs/designer/concepts
+- Extend Luban: /docs/extend/overview
+- Builtins: /docs/reference/builtins
+- FAQ: /docs/reference/faq
+
+## Optional
+
+- Full site map / deeper pages: /llms-full.txt
