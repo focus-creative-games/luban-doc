@@ -1161,9 +1161,9 @@ Excel 里一个字段占多列时，用**合并单元格**标出范围（不是�
 
 ### CSV 等不支持合并单元格的格式
 
-CSV 无法合并单元格。若要让字段占多列，在**起始列**写 `[{字段名}`，在**结束列**写 `{字段名}]`，中间列留空，语义等价于 Excel 合并。
+CSV 无法合并单元格。若要让字段占多列，在**起始列**写 `[字段名`，在**结束列**写 `字段名]`，中间列留空，语义等价于 Excel 合并。
 
-示例：字段 `nums`（类型 `list,int`）占 C–F 四列时，C1=`[{nums}`，F1=`{nums}]`；`##type` 行仍写 `list,int`，数据从左到右填元素。
+示例：字段 `nums`（类型 `list,int`）占 C–E 三列时，C1=`[nums`，E1=`nums]`；`##type` 行仍写 `list,int`，数据从左到右填元素。
 
 
 <div className="excel-example-scroll" role="region" tabIndex={0} aria-label="nums 是 list,int；合并三列按顺序读取">
@@ -1527,7 +1527,7 @@ CSV 无法合并单元格。若要让字段占多列，在**起始列**写 `[{�
 
 ### 单单元格 + 双 sep
 
-map 也可在一个单元格内填写。为区分 key/value 以及各 key-value 对，通常配置 **2 个分隔符**，例如 `map#sep=,;` 或在 type 上写 `(map#sep=,;),int,Item#sep=,`：第一个分隔各对，第二个分隔 key 与 value（或 value 内字段）。value 为 bean 时，每段 value 内再用 sep 流式读子字段。
+map 也可在一个单元格内填写。`sep` 中的多个字符表示可选分隔符，例如 `(map#sep=,;),int,string` 会把逗号和分号都当作边界，依次读 key、value。value 为结构时，可用外层分号和内层逗号：`(map#sep=;),int,(Item#sep=,)`，每个 Item 单独流式读取。
 
 
 <div className="excel-example-scroll" role="region" tabIndex={0} aria-label="map,int,string：key/value 交替，逗号或分号均为分隔符">
